@@ -3,25 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Dental Clinic Website Design Vancouver | YE Studio — From $850 CAD</title>
-<meta name="description" content="We build professional, patient-booking websites for Vancouver dental clinics, chiropractors & health practices. Mobile-first, live in ~2 weeks, from $850 CAD. New patients online every week." />
-<meta name="keywords" content="dental clinic website Vancouver, dentist website design Vancouver, chiropractor website Vancouver, health clinic website design BC, medical website design Vancouver" />
-<link rel="canonical" href="https://yeinc.ca/dental-clinic-vancouver/" />
-<meta property="og:title" content="Dental Clinic Website Design Vancouver | YE Studio" />
-<meta property="og:description" content="Professional, patient-booking websites for Vancouver dental clinics & health practices from $850 CAD. Live in ~2 weeks. More new patients, less phone tag." />
+<title>Real Estate Agent Website Design Vancouver | YE Studio — From $850 CAD</title>
+<meta name="description" content="Custom website design for Vancouver real estate agents and REALTORS®. IDX/MLS listings, neighbourhood guides, lead capture. From $850 CAD, live in 2 weeks. By YE Studio." />
+<meta name="keywords" content="real estate agent website Vancouver, REALTOR website design Vancouver, real estate website Vancouver BC" />
+<link rel="canonical" href="https://yeinc.ca/real-estate-agent-vancouver/" />
+<meta property="og:title" content="Real Estate Agent Website Design Vancouver | YE Studio" />
+<meta property="og:description" content="Custom websites for Vancouver real estate agents and REALTORS®. IDX/MLS listings, neighbourhood guides, lead capture. From $850 CAD, live in 2 weeks." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://yeinc.ca/dental-clinic-vancouver/" />
+<meta property="og:url" content="https://yeinc.ca/real-estate-agent-vancouver/" />
 <meta property="og:image" content="https://yeinc.ca/assets/balkar.png" />
 <meta property="og:locale" content="en_CA" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Dental Clinic Website Design Vancouver | YE Studio" />
-<meta name="twitter:description" content="Professional patient-booking websites for Vancouver dental clinics from $850 CAD." />
+<meta name="twitter:title" content="Real Estate Agent Website Design Vancouver | YE Studio" />
+<meta name="twitter:description" content="Custom websites for Vancouver real estate agents and REALTORS®. IDX/MLS listings, neighbourhood guides, lead capture. From $850 CAD." />
 <meta name="twitter:image" content="https://yeinc.ca/assets/balkar.png" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Dental Clinic Website Design Vancouver","provider":{"@type":"ProfessionalService","name":"YE Studio","url":"https://yeinc.ca","telephone":"+16722580656","email":"lala1blicky@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Vancouver","addressRegion":"BC","addressCountry":"CA"}},"serviceType":"Web Design","areaServed":{"@type":"City","name":"Vancouver"},"description":"Custom professional websites for dental clinics, chiropractors, physiotherapists and health practices in Vancouver BC. Online appointment booking, services pages, team profiles, new patient forms. Live in 2 weeks.","offers":{"@type":"Offer","price":"850","priceCurrency":"CAD","priceSpecification":{"@type":"PriceSpecification","minPrice":"850","priceCurrency":"CAD"}}}</script>
-<!-- Google tag (gtag.js) -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Real Estate Agent Website Design Vancouver","provider":{"@type":"ProfessionalService","name":"YE Studio","url":"https://yeinc.ca","telephone":"+16722580656","email":"lala1blicky@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Vancouver","addressRegion":"BC","addressCountry":"CA"}},"serviceType":"Web Design","areaServed":{"@type":"City","name":"Vancouver"},"description":"Custom mobile-first websites for Vancouver real estate agents and REALTORS. IDX/MLS listings integration, neighbourhood guides, lead capture forms. Live in 2 weeks.","offers":{"@type":"Offer","price":"850","priceCurrency":"CAD","priceSpecification":{"@type":"PriceSpecification","minPrice":"850","priceCurrency":"CAD"}}}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q26TFGCP6T"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q26TFGCP6T');</script>
-<link rel="dns-prefetch" href="https://api.web3forms.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -61,16 +59,17 @@
   .btn-ghost:hover{border-color:rgba(255,91,31,.5);background:rgba(255,91,31,.06)}
   .hero-trust{margin-top:24px;font-size:12.5px;color:var(--muted2);letter-spacing:.06em}
 
-  /* Specialties strip */
-  .spec-strip{margin-top:48px;padding-top:40px;border-top:1px solid var(--rule)}
-  .spec-label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted2);margin-bottom:16px}
-  .spec-pills{display:flex;flex-wrap:wrap;gap:8px}
-  .spec-pill{padding:7px 14px;border:1px solid var(--rule);border-radius:999px;font-size:13px;color:var(--muted);font-weight:400}
+  /* Stats */
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;padding-top:48px;border-top:1px solid var(--rule)}
+  @media(max-width:600px){.stats-row{grid-template-columns:1fr;gap:14px;text-align:center}}
+  .stat-item .num{font-size:clamp(32px,5vw,52px);font-weight:600;letter-spacing:-.03em;color:var(--paper);line-height:1}
+  .stat-item .num span{color:var(--accent2)}
+  .stat-item .lbl{font-size:13px;color:var(--muted);font-weight:300;margin-top:6px;line-height:1.5}
 
   .proof-section{padding:60px 0 80px}
   .proof-card{background:var(--surface);border:1px solid var(--rule);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:0}
   @media(max-width:680px){.proof-card{grid-template-columns:1fr}}
-  .proof-visual{min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px;border-right:1px solid var(--rule);gap:20px;background:#080C10}
+  .proof-visual{min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px;border-right:1px solid var(--rule);gap:20px;background:#080A0C}
   @media(max-width:680px){.proof-visual{min-height:220px;border-right:0;border-bottom:1px solid var(--rule)}}
   .proof-visual .big-icon{font-size:80px;line-height:1}
   .proof-visual .spot-label{font-size:13px;color:var(--muted);text-align:center;line-height:1.5;max-width:200px}
@@ -158,7 +157,7 @@
   .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
   .eyebrow .dot{color:var(--accent)}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to build a clinic website?","acceptedAnswer":{"@type":"Answer","text":"The Launch site is typically live in 5\u20137 business days. The full multi-page package takes about 2 weeks. You'll see a draft and approve it before anything goes live."}},{"@type":"Question","name":"Can you integrate Jane App or Cliniko for booking?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 Jane App, Cliniko, Acuity, Calendly, and most other clinic management platforms. We embed your booking directly into your site so patients never leave to book."}},{"@type":"Question","name":"Do you have experience with healthcare privacy requirements (PIPEDA)?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 patient data goes through your existing booking system (Jane, Cliniko, etc.) which handles the PIPEDA/PHIPA compliance. Our sites don't store sensitive patient data directly."}},{"@type":"Question","name":"Will I own the website after it's built?","acceptedAnswer":{"@type":"Answer","text":"100% yours. The code, the design, the domain \u2014 all transferred to your control. No platform lock-in, no monthly fees tied to us. You own it outright."}},{"@type":"Question","name":"Do you work with multi-practitioner clinics?","acceptedAnswer":{"@type":"Answer","text":"Absolutely \u2014 the Brand Package includes individual pages for each practitioner, per-service landing pages, and multi-location support. Let's talk through your specific setup."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can you integrate IDX or MLS listings on my site?","acceptedAnswer":{"@type":"Answer","text":"Yes. For BC, the most common integration is CREA DDF (free for REALTOR® members), Repliers, or iHomefinder. I can embed live property search directly on your site so buyers search listings through you — not Realtor.ca. This is included in the Brand Package and available as an add-on on the Launch tier."}},{"@type":"Question","name":"Do I need a custom website if I already get referrals?","acceptedAnswer":{"@type":"Answer","text":"Referrals always lead to a Google search. When someone is referred to you, the first thing they do is look you up online. If they find a generic brokerage bio page instead of a polished personal site, some of them pause. A strong website converts your referrals at a higher rate."}},{"@type":"Question","name":"Can you add neighbourhood pages for the areas I farm?","acceptedAnswer":{"@type":"Answer","text":"Yes — neighbourhood guide pages are one of the most effective ways to rank locally. A page targeting “homes for sale in [neighbourhood]” or “best real estate agent in [area]” can rank on the first page of Google within months. I build these as part of the Brand Package, or as an add-on."}},{"@type":"Question","name":"How long does it take to build a real estate website?","acceptedAnswer":{"@type":"Answer","text":"The Launch package is live in 5–7 business days. The Brand Package with IDX integration and multiple neighbourhood pages takes about 2 weeks. Either way, you’ll see a draft before anything goes live."}},{"@type":"Question","name":"Do I need my broker’s approval?","acceptedAnswer":{"@type":"Answer","text":"In most cases, no — a personal agent website is separate from your brokerage presence. You’ll want to follow your brokerage’s brand guidelines for any logo usage, but a personal site with your name, photo, and listings is standard practice and doesn’t require brokerage approval."}}]}</script>
 </head>
 <body>
 
@@ -176,74 +175,76 @@
 <!-- Hero -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero-tag"><span class="dot"></span>Vancouver Health &amp; Dental Specialist</div>
-    <h1>Your clinic deserves a website that keeps your <em>schedule full.</em></h1>
-    <p class="hero-sub">Professional, trust-building websites for Vancouver dental clinics, chiropractors, physiotherapists and health practices. Online appointment booking, new patient forms, and a site that shows up on Google. From $850 CAD, live in ~2 weeks.</p>
+    <div class="hero-tag"><span class="dot"></span>Vancouver Real Estate Specialist</div>
+    <h1>A website that turns Vancouver buyers and sellers into <em>your</em> clients.</h1>
+    <p class="hero-sub">Custom real estate websites for Vancouver REALTORS® and agents. IDX listings, neighbourhood guides, lead capture — live in ~2 weeks. From $850 CAD.</p>
     <div class="hero-ctas">
       <a href="#quote" class="btn-primary">Get a free quote →</a>
-      <a href="sms:+16722580656?body=Hey Balkar! I saw your dental clinic page and I'm interested in a website for my practice." class="btn-ghost">💬 Text Balkar directly</a>
+      <a href="sms:+16722580656?body=Hey Balkar! I saw your real estate page and I'm interested in a website for my real estate business." class="btn-ghost">💬 Text Balkar directly</a>
     </div>
     <p class="hero-trust">Free quote &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; Reply same day &nbsp;·&nbsp; From $850 CAD</p>
 
-    <div class="spec-strip">
-      <p class="spec-label">We build for</p>
-      <div class="spec-pills">
-        <span class="spec-pill">🦷 Dental Clinics</span>
-        <span class="spec-pill">🦴 Chiropractors</span>
-        <span class="spec-pill">💪 Physiotherapists</span>
-        <span class="spec-pill">👁️ Optometrists</span>
-        <span class="spec-pill">🧠 Psychologists &amp; Therapists</span>
-        <span class="spec-pill">🌿 Naturopathic Clinics</span>
-        <span class="spec-pill">💆 Massage Therapy</span>
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="num"><span>~2</span> wks</div>
+        <div class="lbl">From first call to live website — no waiting months</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">$<span>850</span></div>
+        <div class="lbl">Starting price in CAD — all-in, no hourly surprises</div>
+      </div>
+      <div class="stat-item">
+        <div class="num"><span>100</span>%</div>
+        <div class="lbl">Yours to own — no platform lock-in</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Be our first featured clinic -->
+<!-- Be our first featured REALTOR -->
 <section class="proof-section">
   <div class="wrap">
-    <span class="eyebrow"><span class="dot">✦</span> Limited offer · Vancouver health practices</span>
+    <span class="eyebrow"><span class="dot">✦</span> Limited offer · Vancouver real estate agents</span>
     <div class="proof-card">
       <div class="proof-visual">
-        <div class="big-icon">🦷</div>
-        <div class="spot-label">Looking for Vancouver's next great clinic to feature here</div>
+        <div class="big-icon">🏡</div>
+        <div class="spot-label">Looking for Vancouver's next featured REALTOR® to showcase here</div>
       </div>
       <div class="proof-body">
         <span class="proof-badge">★ 1 spot available</span>
-        <h3>Be YE Studio's first<br>featured health clinic</h3>
+        <h3>Be YE Studio's first featured Vancouver real estate agent</h3>
         <div class="result">$250</div>
-        <div class="result-label">off for our next clinic or practice client</div>
+        <div class="result-label">off for our next real estate client</div>
         <div class="proof-quote">
-          <blockquote>"We've built booking-driving websites for barbershops, yoga studios and contractors across Vancouver — all with real, measurable results. A health practice is next, and the first one gets a $250 discount and a featured case study on this page."</blockquote>
+          <blockquote>"We've built booking and lead-driving websites for barbershops, contractors, and clinics across Vancouver. A REALTOR® website is next — and the first one gets a $250 discount and a featured spot on this page."</blockquote>
           <cite>— Balkar (Laala), Founder · YE Studio</cite>
         </div>
-        <a href="sms:+16722580656?body=Hey Balkar! I want to be your first featured health clinic. Tell me more!" class="proof-cta">Claim the spot →</a>
+        <a href="sms:+16722580656?body=Hey Balkar! I want to be your first featured real estate agent. Tell me more!" class="proof-cta">Claim the spot →</a>
         <div class="spot-badge"><span class="dot"></span>1 of 1 discounted spots remaining</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Why clinics need this -->
+<!-- Why real estate agents need this -->
 <section class="why-section">
   <div class="wrap">
-    <h2>Why your practice needs<br>a modern website <em style="font-style:italic;font-weight:300;color:var(--accent2)">now</em></h2>
+    <h2>Why Vancouver agents need<br>a website that <em style="font-style:italic;font-weight:300;color:var(--accent2)">wins clients</em></h2>
     <div class="why-grid">
       <div class="why-card">
         <div class="ico">🔍</div>
-        <h3>New patients find you on Google</h3>
-        <p>Patients searching "dentist near me" or "chiropractor Vancouver" click the top results. A fast, professional website with local SEO puts you in front of them.</p>
+        <h3>Buyers Google agents before calling</h3>
+        <p>When a buyer or seller starts their search, they Google agents in their area. Without a polished website, you're losing business to agents who look more established online — even if you're better.</p>
       </div>
       <div class="why-card">
-        <div class="ico">📅</div>
-        <h3>Online booking reduces phone load</h3>
-        <p>Patients self-schedule 24/7, fill out intake forms before arrival, and confirm appointments automatically — cutting front-desk call time significantly.</p>
+        <div class="ico">📋</div>
+        <h3>IDX listings keep buyers on your site</h3>
+        <p>Embedding live MLS listings on your site means buyers search properties through YOU — not Realtor.ca or Zillow. Every search keeps you top of mind and builds the relationship.</p>
       </div>
       <div class="why-card">
-        <div class="ico">🏆</div>
-        <h3>Trust is built before they arrive</h3>
-        <p>A professional, clean website with team photos, credentials, and patient reviews converts anxious first-timers into booked appointments.</p>
+        <div class="ico">📍</div>
+        <h3>Neighbourhood guides win seller leads</h3>
+        <p>Sellers want an agent who knows their area. A neighbourhood guide page for each area you farm shows expertise and captures "sell my home in [neighbourhood]" Google searches.</p>
       </div>
     </div>
   </div>
@@ -252,39 +253,39 @@
 <!-- What's included -->
 <section class="inc-section" style="background:var(--surface2);padding-top:80px;padding-bottom:80px;margin:0">
   <div class="wrap">
-    <h2>What's included in every<br>clinic website</h2>
+    <h2>What's included in every<br>real estate agent website</h2>
     <div class="inc-grid">
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Clean, trust-building design</h4><p>Professional look that establishes credibility. Mobile-first, fast-loading, and polished on every device.</p></div>
+        <div><h4>Mobile-first custom design</h4><p>Built around your personal brand. Your headshot, your colour palette, your market areas. Looks trustworthy on any device.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Online appointment booking</h4><p>Connects to Jane App, Cliniko, Calendly, or your existing system. Patients book and fill intake forms 24/7.</p></div>
+        <div><h4>IDX / MLS listings integration</h4><p>Live property search embedded on your site via CREA DDF, Repliers, or iHomefinder. Buyers stay on your site instead of leaving for Realtor.ca.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Services / treatments page</h4><p>Clear, scannable descriptions of every treatment you offer — so patients know what to expect before they contact you.</p></div>
+        <div><h4>Neighbourhood guide pages</h4><p>Custom content pages for each area you farm — Kitsilano, Burnaby, North Van, Surrey — targeting "homes for sale in [neighbourhood]" searches.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Team & credentials section</h4><p>Photos, qualifications, and experience for every practitioner. Builds trust before the first appointment.</p></div>
+        <div><h4>Lead capture + CRM integration</h4><p>Smart contact forms and lead magnets that connect to your CRM (Follow Up Boss, KVCore, HubSpot). Every inquiry captured automatically.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Location, hours &amp; parking info</h4><p>Google Maps embed, exact hours, transit directions and parking — so patients actually show up.</p></div>
+        <div><h4>Sold listings portfolio</h4><p>Showcase your recent sales with photos, prices, and days-on-market. Proof that you close deals builds instant credibility with new leads.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Patient testimonials section</h4><p>Social proof from satisfied patients, displayed professionally to ease first-timer anxiety.</p></div>
+        <div><h4>Testimonials + Google review feed</h4><p>Client stories are the #1 trust driver for new buyers and sellers. We pull in your best reviews and display them prominently.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>New patient &amp; contact forms</h4><p>Custom forms for new patient inquiries, specific treatment requests, or referrals — all delivered to your inbox.</p></div>
+        <div><h4>Market stats / local data section</h4><p>Dynamic sections showing local market data — average prices, days on market, list-to-sold ratios — that position you as the neighbourhood expert.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Domain + hosting setup</h4><p>We handle the entire technical side. Your domain, your hosting, fully set up and handed over.</p></div>
+        <div><h4>Domain + hosting setup</h4><p>Your own domain, your own hosting, your own email. We set it all up and hand it over. No ongoing platform fees.</p></div>
       </div>
     </div>
   </div>
@@ -293,19 +294,19 @@
 <!-- Pricing -->
 <section class="price-section" id="pricing">
   <div class="wrap">
-    <h2>Simple pricing for<br>Vancouver clinics</h2>
+    <h2>Simple pricing for<br>real estate agents</h2>
     <p class="sub">Quoted up front. No hourly rates. No surprises.</p>
     <div class="price-cols">
       <div class="pcol">
         <span class="pin">Launch</span>
-        <h3>Professional practice site</h3>
+        <h3>One-page agent site</h3>
         <div class="price">$850 <small>CAD · from</small></div>
-        <p>Everything a clinic needs to look credible online, rank on Google, and start taking online bookings.</p>
+        <p>Everything a real estate agent needs to look professional and start capturing leads online.</p>
         <ul>
-          <li><span class="ck">✓</span>Custom professional design</li>
-          <li><span class="ck">✓</span>Online booking integration</li>
-          <li><span class="ck">✓</span>Services + team section</li>
-          <li><span class="ck">✓</span>New patient intake form</li>
+          <li><span class="ck">✓</span>Custom mobile-first design</li>
+          <li><span class="ck">✓</span>Lead capture form</li>
+          <li><span class="ck">✓</span>Sold listings showcase</li>
+          <li><span class="ck">✓</span>Neighbourhood area page</li>
           <li><span class="ck">✓</span>Domain + hosting setup</li>
           <li><span class="ck">✓</span>Live in about a week</li>
         </ul>
@@ -313,31 +314,31 @@
       </div>
       <div class="pcol feature">
         <span class="pin">★ Full brand package</span>
-        <h3>Multi-page clinic site</h3>
+        <h3>Site + logo + brand kit</h3>
         <div class="price">$2,500 <small>CAD · from</small></div>
-        <p>A complete multi-page practice website — every service, every practitioner, every treatment covered.</p>
+        <p>A complete real estate brand — website, logo, IDX listings, and neighbourhood guides that make you the go-to agent in your area.</p>
         <ul>
           <li><span class="ck">✓</span>Everything in Launch</li>
-          <li><span class="ck">✓</span>Multi-page site (per treatment)</li>
-          <li><span class="ck">✓</span>Custom logo &amp; brand kit</li>
-          <li><span class="ck">✓</span>Patient FAQ &amp; resource section</li>
-          <li><span class="ck">✓</span>AI-powered patient intake chatbot</li>
-          <li><span class="ck">✓</span>Priority turnaround (~2 weeks)</li>
+          <li><span class="ck">✓</span>Custom logo + brand kit</li>
+          <li><span class="ck">✓</span>IDX/MLS listings integration</li>
+          <li><span class="ck">✓</span>Multi-neighbourhood guide pages</li>
+          <li><span class="ck">✓</span>CRM integration</li>
+          <li><span class="ck">✓</span>Priority turnaround (~2 wks)</li>
         </ul>
-        <a href="#quote" class="pbtn">Build my practice site →</a>
+        <a href="#quote" class="pbtn">Build my brand →</a>
       </div>
     </div>
-    <p style="margin-top:20px;font-size:13px;color:var(--muted2);text-align:center">Not sure which package fits? <a href="sms:+16722580656?body=Hey Balkar, I run a health clinic in Vancouver and need a website. What do you recommend?" style="color:var(--accent2);text-decoration:underline;text-underline-offset:3px">Text me and I'll tell you →</a></p>
+    <p style="margin-top:20px;font-size:13px;color:var(--muted2);text-align:center">Not sure which fits? <a href="sms:+16722580656?body=Hey Balkar, I'm a real estate agent in Vancouver and need a website. What do you recommend?" style="color:var(--accent2);text-decoration:underline;text-underline-offset:3px">Text me and I'll tell you →</a></p>
   </div>
 </section>
 
 <!-- CTA strip -->
 <div class="wrap">
   <div class="cta-strip" id="quote">
-    <h2>Ready to grow your<br>patient list online?</h2>
-    <p>Text me, email me, or fill out a quick quote — I reply within the hour on weekdays.</p>
+    <h2>Ready to stand out from other Vancouver agents?</h2>
+    <p>Text me, email me, or fill out a quote — I reply within the hour on weekdays.</p>
     <div class="ctarow">
-      <a href="sms:+16722580656?body=Hey Balkar! I want a website for my clinic or health practice." class="btn-primary">💬 Text Balkar — +1 (672) 258-0656</a>
+      <a href="sms:+16722580656?body=Hey Balkar! I want a website for my real estate business." class="btn-primary">💬 Text Balkar — +1 (672) 258-0656</a>
       <a href="../#contact" class="btn-ghost">Quick quote form →</a>
     </div>
     <p class="note">Free quote &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; Same-day reply &nbsp;·&nbsp; Vancouver, BC</p>
@@ -350,24 +351,24 @@
     <h2>Quick questions</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q">How long does it take to build a clinic website?<span class="faq-ico">+</span></button>
-        <div class="faq-a"><p>The Launch site is typically live in 5–7 business days. The full multi-page package takes about 2 weeks. You'll see a draft and approve it before anything goes live.</p></div>
+        <button class="faq-q">Can you integrate IDX or MLS listings on my site?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><p>Yes. For BC, the most common integration is CREA DDF (free for REALTOR® members), Repliers, or iHomefinder. I can embed live property search directly on your site so buyers search listings through you — not Realtor.ca. This is included in the Brand Package and available as an add-on on the Launch tier.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Can you integrate Jane App or Cliniko for booking?<span class="faq-ico">+</span></button>
-        <div class="faq-a"><p>Yes — Jane App, Cliniko, Acuity, Calendly, and most other clinic management platforms. We embed your booking directly into your site so patients never leave to book.</p></div>
+        <button class="faq-q">Do I need a custom website if I already get referrals?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><p>Referrals always lead to a Google search. When someone is referred to you, the first thing they do is look you up online. If they find a generic brokerage bio page instead of a polished personal site, some of them pause. A strong website converts your referrals at a higher rate.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Do you have experience with healthcare privacy requirements (PIPEDA)?<span class="faq-ico">+</span></button>
-        <div class="faq-a"><p>Yes — patient data goes through your existing booking system (Jane, Cliniko, etc.) which handles the PIPEDA/PHIPA compliance. Our sites don't store sensitive patient data directly.</p></div>
+        <button class="faq-q">Can you add neighbourhood pages for the areas I farm?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><p>Yes — neighbourhood guide pages are one of the most effective ways to rank locally. A page targeting "homes for sale in [neighbourhood]" or "best real estate agent in [area]" can rank on the first page of Google within months. I build these as part of the Brand Package, or as an add-on.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Will I own the website after it's built?<span class="faq-ico">+</span></button>
-        <div class="faq-a"><p>100% yours. The code, the design, the domain — all transferred to your control. No platform lock-in, no monthly fees tied to us. You own it outright.</p></div>
+        <button class="faq-q">How long does it take to build a real estate website?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><p>The Launch package is live in 5–7 business days. The Brand Package with IDX integration and multiple neighbourhood pages takes about 2 weeks. Either way, you'll see a draft before anything goes live.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Do you work with multi-practitioner clinics?<span class="faq-ico">+</span></button>
-        <div class="faq-a"><p>Absolutely — the Brand Package includes individual pages for each practitioner, per-service landing pages, and multi-location support. Let's talk through your specific setup.</p></div>
+        <button class="faq-q">Do I need my broker's approval?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><p>In most cases, no — a personal agent website is separate from your brokerage presence. You'll want to follow your brokerage's brand guidelines for any logo usage, but a personal site with your name, photo, and listings is standard practice and doesn't require brokerage approval.</p></div>
       </div>
     </div>
   </div>
@@ -395,25 +396,25 @@
         <p style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px">More industries</p>
         <ul style="list-style:none;line-height:2.2">
           <li><a href="../barbershop-vancouver/">Barbershop websites</a></li>
-          <li><a href="../yoga-studio-vancouver/">Yoga studio websites</a></li>
+          <li><a href="../yoga-vancouver/">Yoga studio websites</a></li>
           <li><a href="../restaurant-website-vancouver/">Restaurant websites</a></li>
           <li><a href="../beauty-salon-vancouver/">Beauty salon websites</a></li>
           <li><a href="../personal-trainer-vancouver/">Personal trainer websites</a></li>
+          <li><a href="../dental-clinic-vancouver/">Dental &amp; clinic websites</a></li>
           <li><a href="../auto-detailing-vancouver/">Auto detailing websites</a></li>
           <li><a href="../pet-grooming-vancouver/">Pet grooming websites</a></li>
           <li><a href="../law-firm-vancouver/">Law firm websites</a></li>
-          <li><a href="../real-estate-agent-vancouver/">Real estate agent websites</a></li>
           <li><a href="../cleaning-service-vancouver/">Cleaning service websites</a></li>
           <li><a href="../">All services</a></li>
         </ul>
       </div>
     </div>
-    <p style="margin-top:40px;font-size:12px;color:var(--muted2);border-top:1px solid var(--rule);padding-top:24px">© 2026 YE · Young Enthusiasts Inc. · Vancouver, BC · Dental &amp; Health Clinic Website Design Specialist</p>
+    <p style="margin-top:40px;font-size:12px;color:var(--muted2);border-top:1px solid var(--rule);padding-top:24px">© 2026 YE · Young Enthusiasts Inc. · Vancouver, BC · Real Estate Agent Website Design Specialist</p>
   </div>
 </footer>
 
 <div class="mbar">
-  <a href="sms:+16722580656?body=Hey Balkar, I want a website for my health clinic." class="t">Text me</a>
+  <a href="sms:+16722580656?body=Hey Balkar, I want a website for my real estate business." class="t">Text me</a>
   <a href="#quote" class="s">Get a free quote</a>
 </div>
 
@@ -428,8 +429,8 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
 });
 
 function gev(n,p){if(typeof gtag==='function')gtag('event',n,p||{});}
-document.querySelectorAll('a[href="#quote"],a[href="../#contact"]').forEach(el=>el.addEventListener('click',()=>gev('cta_click',{page:'dental-clinic',location:el.closest('nav')?'nav':'page'})));
-document.querySelectorAll('a[href^="sms:"]').forEach(el=>el.addEventListener('click',()=>gev('text_click',{page:'dental-clinic'})));
+document.querySelectorAll('a[href="#quote"],a[href="../#contact"]').forEach(el=>el.addEventListener('click',()=>gev('cta_click',{page:'real-estate',location:el.closest('nav')?'nav':'page'})));
+document.querySelectorAll('a[href^="sms:"]').forEach(el=>el.addEventListener('click',()=>gev('text_click',{page:'real-estate'})));
 </script>
 </body>
 </html>
