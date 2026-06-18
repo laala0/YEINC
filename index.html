@@ -28,6 +28,8 @@
 <link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAAAIABVAQAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAQAAAAEAgGAAAAH/P/YQAAARxJREFUeJy9kjFKA1EQhr83KLtv4hbWFiGFnsAuV7C28g42qcUDmAPY2NkI4iG01MpKLAJ2YgRDdF9CeG8sksASEt2A+Fcz8898M8XAX8t7387zvLlYz/O86b1v/zavqtpT1VJVT4EM2PTeH6vqUFVfgK3qgFvY0hKRK2AfwMx6AM651qzlPqV0OBqNeksBM0mj0Tgysy6wDSQgAGdmdiEi0Xv/1e/3h6sAABRFsRdjfFrmmVk3hNABkFUAEXlb5VW1UacJ2CnL8qOST9YFnKvqBMDMLkMI1+sCDuaBc+6hatQCiMiJmQWAlNLt2gDn3KOZfc5gRZZlu+Px+Lk2IMZ4s3BRF+j8CBgMBhNVvWP6la9MH2oOeK+z+H/0DXVqW/2HTe57AAAAAElFTkSuQmCC" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://api.web3forms.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -461,14 +463,14 @@
         <div class="work-shot trades"><span class="badge">Live ↗</span><span class="wplate boss"><img src="assets/boss.png" alt="Boss &amp; Friends Construction logo" loading="lazy"></span></div>
         <div class="work-body"><span class="cat">Construction · Website</span><h3>Boss &amp; Friends Construction</h3><p>A trades site that builds trust fast — services, proof, and a clear way to get a quote.</p><span class="result-pill">2 new contracts in month 1</span><span class="visit" style="margin-top:10px">Visit live site →</span></div>
       </a>
-      <a class="work-card venture" href="labs/" target="_blank" rel="noopener" data-cursor>
-        <div class="v-visual"><span class="ring"></span><span class="ring r2"></span><svg class="ym" viewBox="0 0 140 150" aria-hidden="true"><polygon points="61,44 61,129 79,129 79,44" fill="currentColor"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68" fill="currentColor"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32" fill="currentColor"/><polygon points="70,65 122,65 122,47 70,47" fill="currentColor"/><polygon points="70,97 112,97 112,79 70,79" fill="currentColor"/><polygon points="70,129 122,129 122,111 70,111" fill="currentColor"/></svg></div>
-        <div class="v-body">
-          <span class="ownbadge">★ Our own venture</span>
-          <span class="cat">Product · In-house build</span>
+      <a class=”work-card venture” href=”labs/” target=”_blank” rel=”noopener” data-cursor>
+        <div class=”v-visual”><span class=”ring”></span><span class=”ring r2”></span><svg class=”ym” viewBox=”0 0 140 150” aria-hidden=”true”><polygon points=”61,44 61,129 79,129 79,44” fill=”currentColor”/><polygon points=”74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68” fill=”currentColor”/><polygon points=”74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32” fill=”currentColor”/><polygon points=”70,65 122,65 122,47 70,47” fill=”currentColor”/><polygon points=”70,97 112,97 112,79 70,79” fill=”currentColor”/><polygon points=”70,129 122,129 122,111 70,111” fill=”currentColor”/></svg></div>
+        <div class=”v-body”>
+          <span class=”ownbadge”>★ Our own venture</span>
+          <span class=”cat”>Product · In-house build</span>
           <h3>YEInc — Building Technology</h3>
-          <p>Our flagship. <em>“Building technology, elevating futures across markets and disciplines.”</em> The in-house platform where YE prototypes the websites, brands &amp; AI we ship for everyone else — built and owned by us.</p>
-          <span class="visit">Explore the venture →</span>
+          <p>Our flagship. <em>”Building technology, elevating futures across markets and disciplines.”</em> The in-house platform where YE prototypes the websites, brands &amp; AI we ship for everyone else — built and owned by us.</p>
+          <span class=”visit”>Explore the venture →</span>
         </div>
       </a>
     </div>
@@ -723,7 +725,7 @@
   function valid(){collect();if(step===1&&!data.need.length){stat.textContent='Pick at least one.';return false;}if(step===2&&!data.biz){stat.textContent='Pick one.';return false;}if(step===3&&!data.budget){stat.textContent='Pick one.';return false;}if(step===4){if(!data.name){stat.textContent='Add your name.';return false;}if(!data.contact){stat.textContent='Add an email or phone.';return false;}}return true;}
   /* Web3Forms key — get yours free at web3forms.com (enter lala1blicky@gmail.com) then paste the key below */
   const W3F='f417bccd-cead-46ea-92cf-be784f2861cf';
-  next.addEventListener('click',()=>{if(!valid())return;if(step<total){step++;render();return;}const subj=`New project — ${data.name} (${data.biz||'business'})`;const body=`Need: ${data.need.join(', ')}\nBusiness: ${data.biz}\nBudget: ${data.budget}\nName: ${data.name}\nContact: ${data.contact}\n\n${data.brief||''}`;if(W3F==='YOUR_WEB3FORMS_KEY'){window.location.href=`mailto:lala1blicky@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;stat.className='istatus ok';stat.textContent='Opening your email — just hit send.';return;}next.disabled=true;stat.textContent='Sending…';fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:W3F,subject:subj,name:data.name,email:data.contact,message:body,from_name:'YE Studio Website'})}).then(r=>r.json()).then(d=>{if(d.success){stat.className='istatus ok';stat.textContent='Got it — I\'ll hit you back within 24 hours.';next.textContent='Sent ✓';}else{next.disabled=false;stat.className='istatus err';stat.textContent='Something went wrong. Text me directly: 672-258-0656.';}}).catch(()=>{next.disabled=false;stat.className='istatus err';stat.textContent='Network issue. Text me: 672-258-0656.';});});
+  next.addEventListener('click',()=>{if(!valid())return;if(step===1)document.dispatchEvent(new Event('ye:form_start'));if(step<total){step++;render();return;}const subj=`New project — ${data.name} (${data.biz||'business'})`;const body=`Need: ${data.need.join(', ')}\nBusiness: ${data.biz}\nBudget: ${data.budget}\nName: ${data.name}\nContact: ${data.contact}\n\n${data.brief||''}`;if(W3F==='YOUR_WEB3FORMS_KEY'){window.location.href=`mailto:lala1blicky@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;stat.className='istatus ok';stat.textContent='Opening your email — just hit send.';return;}next.disabled=true;stat.textContent='Sending…';fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:W3F,subject:subj,name:data.name,email:data.contact,message:body,from_name:'YE Studio Website'})}).then(r=>r.json()).then(d=>{if(d.success){document.dispatchEvent(new Event('ye:form_complete'));stat.className='istatus ok';stat.textContent='Got it — I\'ll hit you back within 24 hours.';next.textContent='Sent ✓';}else{next.disabled=false;stat.className='istatus err';stat.textContent='Something went wrong. Text me directly: 672-258-0656.';}}).catch(()=>{next.disabled=false;stat.className='istatus err';stat.textContent='Network issue. Text me: 672-258-0656.';});});
   back.addEventListener('click',()=>{if(step>1){step--;render();}});
   render();
 })();
@@ -738,6 +740,24 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
     if(!isOpen)item.classList.add('open');
   });
 });
+
+/* GA4 event tracking */
+function gev(name,params){if(typeof gtag==='function')gtag('event',name,params||{});}
+/* CTA clicks */
+document.querySelectorAll('a[href="#contact"]').forEach(el=>{
+  el.addEventListener('click',()=>gev('cta_click',{location:el.closest('nav')?'nav':el.closest('.hero')?'hero':el.closest('.avail-bar')?'avail_bar':'page'}));
+});
+/* Phone / text / email clicks */
+document.querySelectorAll('a[href^="tel:"]').forEach(el=>el.addEventListener('click',()=>gev('phone_click')));
+document.querySelectorAll('a[href^="sms:"]').forEach(el=>el.addEventListener('click',()=>gev('text_click')));
+document.querySelectorAll('a[href^="mailto:"]').forEach(el=>el.addEventListener('click',()=>gev('email_click')));
+/* Portfolio card clicks */
+document.querySelectorAll('.work-card[href^="http"]').forEach(el=>{
+  el.addEventListener('click',()=>gev('portfolio_click',{project:el.querySelector('h3')?.textContent||''}));
+});
+/* Form tracking — piggyback on the existing next-btn logic via custom events */
+document.addEventListener('ye:form_start',()=>gev('form_start'));
+document.addEventListener('ye:form_complete',()=>gev('form_complete',{method:'web3forms'}));
 </script>
 </body>
 </html>
