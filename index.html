@@ -4,11 +4,26 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>YE — Websites, Brands &amp; AI for Small Business · Vancouver</title>
-<meta name="description" content="YE is a Vancouver studio by Balkar (Laala). We build websites, brands &amp; AI tools that make small businesses and creators look world-class — fast and fairly priced." />
+<meta name="description" content="YE Studio builds websites, brand identities &amp; AI tools for Vancouver small businesses. Sites from $850 CAD, live in ~2 weeks. By Balkar (Laala)." />
+<meta name="keywords" content="web design Vancouver, website design Vancouver, branding Vancouver, small business website Vancouver, logo design Vancouver, AI tools Vancouver" />
 <meta name="theme-color" content="#08070A" />
-<meta property="og:title" content="YE — make your business look world-class" />
-<meta property="og:description" content="Websites, brands &amp; AI tools for local businesses and creators. Built in Vancouver." />
+<link rel="canonical" href="https://yeinc.vercel.app" />
+<meta property="og:title" content="YE Studio — Vancouver Web Design, Branding &amp; AI · From $850" />
+<meta property="og:description" content="Websites, brand kits &amp; AI tools for Vancouver small businesses. Mobile-first, fast turnaround, fairly priced. By Balkar (Laala)." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://yeinc.vercel.app" />
+<meta property="og:site_name" content="YE Studio" />
+<meta property="og:image" content="https://yeinc.vercel.app/assets/balkar.png" />
+<meta property="og:image:width" content="800" />
+<meta property="og:image:height" content="800" />
+<meta property="og:locale" content="en_CA" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="YE Studio — Vancouver Web Design, Branding &amp; AI" />
+<meta name="twitter:description" content="Websites, brand kits &amp; AI tools for Vancouver small businesses. From $850 CAD. By Balkar (Laala)." />
+<meta name="twitter:image" content="https://yeinc.vercel.app/assets/balkar.png" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"YE Studio","alternateName":"Young Enthusiasts Inc.","description":"Vancouver web design studio building websites, brand identities and AI tools for local small businesses and creators.","url":"https://yeinc.vercel.app","telephone":"+16722580656","email":"lala1blicky@gmail.com","founder":{"@type":"Person","name":"Balkar Singh","alternateName":"Laala"},"address":{"@type":"PostalAddress","addressLocality":"Vancouver","addressRegion":"BC","addressCountry":"CA"},"areaServed":[{"@type":"City","name":"Vancouver"},{"@type":"State","name":"British Columbia"}],"priceRange":"$850–$2500+","currenciesAccepted":"CAD","sameAs":["https://instagram.com/yeinc","https://tiktok.com/@yeinc"],"knowsAbout":["Web Design","Branding","Logo Design","AI Chatbots","Small Business Websites","Mobile-First Design"]}</script>
+<!-- GA4: swap G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 <link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAAAIABVAQAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAQAAAAEAgGAAAAH/P/YQAAARxJREFUeJy9kjFKA1EQhr83KLtv4hbWFiGFnsAuV7C28g42qcUDmAPY2NkI4iG01MpKLAJ2YgRDdF9CeG8sksASEt2A+Fcz8898M8XAX8t7387zvLlYz/O86b1v/zavqtpT1VJVT4EM2PTeH6vqUFVfgK3qgFvY0hKRK2AfwMx6AM651qzlPqV0OBqNeksBM0mj0Tgysy6wDSQgAGdmdiEi0Xv/1e/3h6sAABRFsRdjfFrmmVk3hNABkFUAEXlb5VW1UacJ2CnL8qOST9YFnKvqBMDMLkMI1+sCDuaBc+6hatQCiMiJmQWAlNLt2gDn3KOZfc5gRZZlu+Px+Lk2IMZ4s3BRF+j8CBgMBhNVvWP6la9MH2oOeK+z+H/0DXVqW/2HTe57AAAAAElFTkSuQmCC" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -246,6 +261,7 @@
   .ibtn[disabled]{opacity:.4;cursor:not-allowed}
   .istatus{font-size:13.5px;color:var(--muted);margin-top:14px;min-height:18px}
   .istatus.ok{color:var(--accent2)}
+  .istatus.err{color:var(--accent)}
 
   footer{background:var(--ink);border-top:1px solid var(--rule);padding:60px 0 110px;font-size:13.5px;color:var(--muted);position:relative;z-index:3}
   @media(min-width:881px){footer{padding-bottom:32px}}
@@ -572,7 +588,9 @@
   document.querySelectorAll('.chips').forEach(group=>{const multi=group.hasAttribute('data-multi');group.querySelectorAll('.chip').forEach(chip=>chip.addEventListener('click',()=>{if(multi){chip.classList.toggle('sel');}else{group.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel'));chip.classList.add('sel');}}));});
   function collect(){data.need=[...document.querySelectorAll('[data-step="1"] .chip.sel')].map(c=>c.dataset.val);const b2=document.querySelector('[data-step="2"] .chip.sel');data.biz=b2?b2.dataset.val:'';const b3=document.querySelector('[data-step="3"] .chip.sel');data.budget=b3?b3.dataset.val:'';data.name=document.getElementById('iname').value.trim();data.contact=document.getElementById('icontact').value.trim();data.brief=document.getElementById('ibrief').value.trim();}
   function valid(){collect();if(step===1&&!data.need.length){stat.textContent='Pick at least one.';return false;}if(step===2&&!data.biz){stat.textContent='Pick one.';return false;}if(step===3&&!data.budget){stat.textContent='Pick one.';return false;}if(step===4){if(!data.name){stat.textContent='Add your name.';return false;}if(!data.contact){stat.textContent='Add an email or phone.';return false;}}return true;}
-  next.addEventListener('click',()=>{if(!valid())return;if(step<total){step++;render();return;}const subj=`New project — ${data.name} (${data.biz||'business'})`;const body=`Need: ${data.need.join(', ')}\nBusiness: ${data.biz}\nBudget: ${data.budget}\nName: ${data.name}\nContact: ${data.contact}\n\n${data.brief||''}`;window.location.href=`mailto:lala1blicky@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;stat.className='istatus ok';stat.textContent='Opening your email with everything filled in — just hit send. Prefer texting? Use “Text me”.';});
+  /* Web3Forms key — get yours free at web3forms.com (enter lala1blicky@gmail.com) then paste the key below */
+  const W3F='YOUR_WEB3FORMS_KEY';
+  next.addEventListener('click',()=>{if(!valid())return;if(step<total){step++;render();return;}const subj=`New project — ${data.name} (${data.biz||'business'})`;const body=`Need: ${data.need.join(', ')}\nBusiness: ${data.biz}\nBudget: ${data.budget}\nName: ${data.name}\nContact: ${data.contact}\n\n${data.brief||''}`;if(W3F==='YOUR_WEB3FORMS_KEY'){window.location.href=`mailto:lala1blicky@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;stat.className='istatus ok';stat.textContent='Opening your email — just hit send.';return;}next.disabled=true;stat.textContent='Sending…';fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:W3F,subject:subj,name:data.name,email:data.contact,message:body,from_name:'YE Studio Website'})}).then(r=>r.json()).then(d=>{if(d.success){stat.className='istatus ok';stat.textContent='Got it — I\'ll hit you back within 24 hours.';next.textContent='Sent ✓';}else{next.disabled=false;stat.className='istatus err';stat.textContent='Something went wrong. Text me directly: 672-258-0656.';}}).catch(()=>{next.disabled=false;stat.className='istatus err';stat.textContent='Network issue. Text me: 672-258-0656.';});});
   back.addEventListener('click',()=>{if(step>1){step--;render();}});
   render();
 })();
