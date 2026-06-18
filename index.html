@@ -153,6 +153,13 @@
   .work-body p{font-size:13.5px;color:var(--muted);font-weight:300;line-height:1.55;flex:1}
   .work-body .visit{margin-top:6px;font-size:13px;font-weight:500;color:var(--accent);display:inline-flex;align-items:center;gap:7px}
   .work-card.soon{border-style:dashed;align-items:center;justify-content:center;text-align:center;padding:40px 28px;background:transparent}
+  .work-shot .wphoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92;transition:transform .7s var(--ease)}
+  .work-card:hover .work-shot .wphoto{transform:scale(1.07)}
+  .work-shot .wplate{width:70%;background:#fff;border-radius:16px;padding:18px 20px;display:grid;place-items:center;box-shadow:0 20px 55px -22px rgba(0,0,0,.75);transition:transform .6s var(--ease)}
+  .work-shot .wplate.cream{background:#ECE4D6}
+  .work-card:hover .work-shot .wplate{transform:scale(1.05) translateY(-3px)}
+  .work-shot .wplate img{max-height:86px;width:auto;object-fit:contain}
+  .work-shot .wplate.boss img{max-height:118px}
 
   .process{background:var(--ink2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -204,7 +211,7 @@
   .contact-info .row .v{font-size:17px}.contact-info .row a:hover{color:var(--accent)}
   .quick{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
   .quick a{flex:1;min-width:130px;text-align:center;padding:14px;border-radius:14px;border:1px solid var(--rule-strong);font-size:14px;font-weight:500;transition:all .3s}
-  .quick a.text{background:#25D366;color:#04210f;border-color:#25D366}
+  .quick a.text{background:var(--accent);color:#fff;border-color:var(--accent)}
   .quick a:hover{transform:translateY(-2px)}
 
   .intake{border:1px solid var(--rule);border-radius:22px;background:var(--surface);padding:30px;position:relative;overflow:hidden}
@@ -249,15 +256,48 @@
 
   .mbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(8,7,10,.9);backdrop-filter:blur(14px);border-top:1px solid var(--rule)}
   .mbar a{flex:1;text-align:center;padding:14px;border-radius:13px;font-size:14px;font-weight:600;min-height:50px;display:flex;align-items:center;justify-content:center}
-  .mbar a.text{background:#25D366;color:#04210f}
+  .mbar a.text{background:var(--surface2);color:var(--paper);border:1px solid var(--rule-strong)}
   .mbar a.start{background:var(--accent);color:#fff}
   @media(max-width:880px){.mbar{display:flex}}
+
+  /* floating Start-a-project button (desktop) */
+  .fab{position:fixed;right:24px;bottom:24px;z-index:75;display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:999px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;border:1px solid var(--accent);box-shadow:0 16px 42px -12px var(--glow);transform:translateY(140%) scale(.92);opacity:0;pointer-events:none;transition:transform .55s var(--ease),opacity .45s,background .3s,box-shadow .3s}
+  .fab.show{transform:none;opacity:1;pointer-events:auto}
+  .fab:hover{background:var(--accent2);box-shadow:0 22px 54px -10px var(--glow)}
+  .fab .fab-dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:fabpulse 2.2s infinite}
+  .fab .arw{transition:transform .3s var(--ease)}.fab:hover .arw{transform:translateX(4px)}
+  @keyframes fabpulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.55)}70%{box-shadow:0 0 0 9px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+  @media(max-width:880px){.fab{display:none}}
+
+  /* first-open intro curtain */
+  .intro{position:fixed;inset:0;z-index:200;background:radial-gradient(circle at 50% 40%,#141318,var(--ink) 70%);display:grid;place-items:center;animation:introLift .9s var(--ease) 1.7s forwards}
+  .intro-inner{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:0 24px}
+  .intro-mark{width:62px;height:auto;color:var(--paper);opacity:0;transform:translateY(12px) scale(.9);animation:introMark .9s var(--ease) .15s forwards}
+  .intro-word{font-size:13px;letter-spacing:.46em;text-transform:uppercase;color:var(--paper);opacity:0;animation:introFade .8s ease .5s forwards}
+  .intro-sub{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);opacity:0;animation:introFade .8s ease .68s forwards}
+  .intro-bar{position:absolute;bottom:26%;left:50%;transform:translateX(-50%);width:120px;height:2px;background:var(--rule);border-radius:999px;overflow:hidden}
+  .intro-bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 12px var(--glow);animation:introBar 1.25s var(--ease) .4s forwards}
+  .intro.gone{display:none}
+  @keyframes introMark{to{opacity:1;transform:none}}
+  @keyframes introFade{to{opacity:1}}
+  @keyframes introBar{to{width:100%}}
+  @keyframes introLift{to{transform:translateY(-100%);visibility:hidden}}
+  @media(prefers-reduced-motion:reduce){.intro{display:none}}
 </style>
 </head>
 <body>
 <div class="grain"></div>
 <div id="progress"></div>
 <div class="cursor"></div><div class="cursor-dot"></div>
+
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-inner">
+    <svg class="intro-mark" viewBox="0 0 140 150" aria-hidden="true"><polygon points="61,44 61,129 79,129 79,44" fill="currentColor"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68" fill="currentColor"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32" fill="currentColor"/><polygon points="70,65 122,65 122,47 70,47" fill="currentColor"/><polygon points="70,97 112,97 112,79 70,79" fill="currentColor"/><polygon points="70,129 122,129 122,111 70,111" fill="currentColor"/></svg>
+    <span class="intro-word">YE Studio</span>
+    <span class="intro-sub">Websites · Brands · AI</span>
+  </div>
+  <div class="intro-bar"><i></i></div>
+</div>
 
 <nav id="nav">
   <div class="wrap nav-inner">
@@ -324,15 +364,15 @@
     <div class="section-head reveal"><div><span class="eyebrow"><span class="dot">02</span> / Recent work</span><h2 style="margin-top:16px">Real businesses.<br>Live sites.</h2></div><p class="sub">Tap any card to see it live. These are real local builds — barbers, wellness, trades.</p></div>
     <div class="work-grid reveal" data-stagger>
       <a class="work-card" href="https://afterhour-barbershop.vercel.app" target="_blank" rel="noopener" data-cursor>
-        <div class="work-shot barber"><span class="badge">Live ↗</span><svg class="wm" viewBox="0 0 140 150"><polygon points="61,44 61,129 79,129 79,44" fill="currentColor"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68" fill="currentColor"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32" fill="currentColor"/><polygon points="70,65 122,65 122,47 70,47" fill="currentColor"/><polygon points="70,97 112,97 112,79 70,79" fill="currentColor"/><polygon points="70,129 122,129 122,111 70,111" fill="currentColor"/></svg></div>
+        <div class="work-shot barber"><span class="badge">Live ↗</span><img class="wphoto" src="assets/barber-neon.jpg" alt="After Hour Barber Shop neon logo" loading="lazy"></div>
         <div class="work-body"><span class="cat">Barbershop · Website</span><h3>After Hour Barbershop</h3><p>A sharp, booking-ready site that matches the chair experience — dark, confident, built for mobile.</p><span class="visit">Visit live site →</span></div>
       </a>
       <a class="work-card" href="https://hamsa-yoga-studio.vercel.app" target="_blank" rel="noopener" data-cursor>
-        <div class="work-shot yoga"><span class="badge">Live ↗</span><svg class="wm" viewBox="0 0 140 150"><polygon points="61,44 61,129 79,129 79,44" fill="currentColor"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68" fill="currentColor"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32" fill="currentColor"/><polygon points="70,65 122,65 122,47 70,47" fill="currentColor"/><polygon points="70,97 112,97 112,79 70,79" fill="currentColor"/><polygon points="70,129 122,129 122,111 70,111" fill="currentColor"/></svg></div>
+        <div class="work-shot yoga"><span class="badge">Live ↗</span><span class="wplate cream"><img src="assets/hamsa.png" alt="Hamsa Yoga Studio logo" loading="lazy"></span></div>
         <div class="work-body"><span class="cat">Wellness · Website</span><h3>Hamsa Yoga Studio</h3><p>Calm, breathable, class-schedule-ready — a studio site that feels like the practice itself.</p><span class="visit">Visit live site →</span></div>
       </a>
       <a class="work-card" href="https://boss-and-friends-construction.vercel.app" target="_blank" rel="noopener" data-cursor>
-        <div class="work-shot trades"><span class="badge">Live ↗</span><svg class="wm" viewBox="0 0 140 150"><polygon points="61,44 61,129 79,129 79,44" fill="currentColor"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68" fill="currentColor"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32" fill="currentColor"/><polygon points="70,65 122,65 122,47 70,47" fill="currentColor"/><polygon points="70,97 112,97 112,79 70,79" fill="currentColor"/><polygon points="70,129 122,129 122,111 70,111" fill="currentColor"/></svg></div>
+        <div class="work-shot trades"><span class="badge">Live ↗</span><span class="wplate boss"><img src="assets/boss.png" alt="Boss &amp; Friends Construction logo" loading="lazy"></span></div>
         <div class="work-body"><span class="cat">Construction · Website</span><h3>Boss &amp; Friends Construction</h3><p>A trades site that builds trust fast — services, proof, and a clear way to get a quote.</p><span class="visit">Visit live site →</span></div>
       </a>
     </div>
@@ -402,10 +442,10 @@
     <div class="contact-grid">
       <div class="contact-info reveal">
         <div class="row"><span class="k">Text / Call</span><span class="v"><a href="tel:+16722580656" data-cursor>+1 (672) 258-0656</a></span></div>
-        <div class="row"><span class="k">WhatsApp</span><span class="v"><a href="https://wa.me/16722580656?text=Hi%20Balkar%2C%20I%27d%20like%20a%20website%20for%20my%20business" target="_blank" rel="noopener" data-cursor>Chat on WhatsApp →</a></span></div>
+        <div class="row"><span class="k">Instagram</span><span class="v"><a href="https://instagram.com/yeinc" target="_blank" rel="noopener" data-cursor>@yeinc →</a></span></div>
         <div class="row"><span class="k">Email</span><span class="v"><a href="mailto:lala1blicky@gmail.com" data-cursor>lala1blicky@gmail.com</a></span></div>
         <div class="row"><span class="k">Based</span><span class="v">Vancouver, BC · Canada</span></div>
-        <div class="quick"><a class="text" href="https://wa.me/16722580656?text=Hi%20Balkar%2C%20I%27d%20like%20a%20website%20for%20my%20business" target="_blank" rel="noopener" data-cursor>WhatsApp</a><a href="sms:+16722580656" data-cursor>Text</a><a href="mailto:lala1blicky@gmail.com" data-cursor>Email</a></div>
+        <div class="quick"><a class="text" href="sms:+16722580656" data-cursor>Text me</a><a href="mailto:lala1blicky@gmail.com" data-cursor>Email</a><a href="https://instagram.com/yeinc" target="_blank" rel="noopener" data-cursor>Instagram</a></div>
       </div>
       <div class="intake reveal">
         <div class="prog"><i id="progBar"></i></div>
@@ -471,19 +511,28 @@
       </div>
       <div><h4>Studio</h4><ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#founder">About</a></li></ul></div>
       <div><h4>Make</h4><ul><li>Websites</li><li>Brand &amp; logo</li><li>AI tools</li><li>Apps</li></ul></div>
-      <div><h4>Connect</h4><ul><li><a href="https://wa.me/16722580656" target="_blank" rel="noopener" data-cursor>WhatsApp</a></li><li><a href="https://instagram.com/yeinc" target="_blank" rel="noopener" data-cursor>Instagram</a></li><li><a href="https://tiktok.com/@yeinc" target="_blank" rel="noopener" data-cursor>TikTok</a></li><li><a href="mailto:lala1blicky@gmail.com" data-cursor>Email</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="https://instagram.com/yeinc" target="_blank" rel="noopener" data-cursor>Instagram</a></li><li><a href="https://tiktok.com/@yeinc" target="_blank" rel="noopener" data-cursor>TikTok</a></li><li><a href="sms:+16722580656" data-cursor>Text</a><li><a href="mailto:lala1blicky@gmail.com" data-cursor>Email</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2026 YE · Young Enthusiasts Inc. · Vancouver, BC</span><span>Made by Balkar “Laala” Singh</span></div>
   </div>
 </footer>
 
-<div class="mbar"><a class="text" href="https://wa.me/16722580656?text=Hi%20Balkar%2C%20I%27d%20like%20a%20website" target="_blank" rel="noopener">WhatsApp</a><a class="start" href="#contact">Start a project</a></div>
+<a class="fab" id="fab" href="#contact" data-cursor aria-label="Start a project"><span class="fab-dot"></span>Start a project <span class="arw">→</span></a>
+<div class="mbar"><a class="text" href="sms:+16722580656">Text me</a><a class="start" href="#contact">Start a project</a></div>
 
 <script>
 (function(){
   const nav=document.getElementById('nav'),prog=document.getElementById('progress'),hero=document.getElementById('hero');
-  requestAnimationFrame(()=>setTimeout(()=>hero.classList.add('lit'),120));
-  function onScroll(){const y=scrollY;nav.classList.toggle('solid',y>40);const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?(y/h)*100:0)+'%';}
+  const intro=document.getElementById('intro'),fab=document.getElementById('fab'),glow=document.querySelector('.hero-glow'),contactSec=document.getElementById('contact');
+  const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(intro&&!reduceMotion){document.body.style.overflow='hidden';scrollTo(0,0);
+    setTimeout(()=>{document.body.style.overflow='';},1700);
+    setTimeout(()=>{intro.classList.add('gone');},2750);
+  }else if(intro){intro.classList.add('gone');}
+  requestAnimationFrame(()=>setTimeout(()=>hero.classList.add('lit'),reduceMotion?60:120));
+  function onScroll(){const y=scrollY;nav.classList.toggle('solid',y>40);const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?(y/h)*100:0)+'%';
+    if(fab){const cr=contactSec.getBoundingClientRect();fab.classList.toggle('show',y>innerHeight*.7 && cr.top>innerHeight*.45);}
+    if(glow&&!reduceMotion&&y<innerHeight*1.3)glow.style.transform='translateY('+(y*.24)+'px)';}
   addEventListener('scroll',onScroll,{passive:true});onScroll();
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
   document.querySelectorAll('.reveal,[data-stagger]').forEach(el=>io.observe(el));
@@ -527,4 +576,3 @@
 </script>
 </body>
 </html>
-<!-- auto-deploy connected 2026-06-17 -->
