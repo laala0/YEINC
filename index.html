@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="YE Studio — Vancouver Web Design, Branding &amp; AI" />
 <meta name="twitter:description" content="Websites, brand kits &amp; AI tools for Vancouver small businesses. From $850 CAD. By Balkar (Laala)." />
 <meta name="twitter:image" content="https://yeinc.vercel.app/assets/balkar.png" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"YE Studio","alternateName":"Young Enthusiasts Inc.","description":"Vancouver web design studio building websites, brand identities and AI tools for local small businesses and creators.","url":"https://yeinc.vercel.app","telephone":"+16722580656","email":"lala1blicky@gmail.com","founder":{"@type":"Person","name":"Balkar Singh","alternateName":"Laala"},"address":{"@type":"PostalAddress","addressLocality":"Vancouver","addressRegion":"BC","addressCountry":"CA"},"areaServed":[{"@type":"City","name":"Vancouver"},{"@type":"State","name":"British Columbia"}],"priceRange":"$850–$2500+","currenciesAccepted":"CAD","sameAs":["https://instagram.com/yeinc","https://tiktok.com/@yeinc"],"knowsAbout":["Web Design","Branding","Logo Design","AI Chatbots","Small Business Websites","Mobile-First Design"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"3","bestRating":"5"},"review":[{"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5"},"author":{"@type":"Person","name":"Jesse K."},"reviewBody":"Balkar built our entire online presence from scratch — website, booking, the works. We went from zero to getting 15+ new client bookings online every week."},{"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5"},"author":{"@type":"Person","name":"Priya M."},"reviewBody":"The site is beautiful. Clients compliment it every week. Laala understood the vibe we wanted without us explaining it twice."},{"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5"},"author":{"@type":"Person","name":"Raj B."},"reviewBody":"Fast, professional and straight to the point. We needed a site that looked legit. He delivered in under 2 weeks and we already picked up two new contracts."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"YE Studio","alternateName":"Young Enthusiasts Inc.","description":"Vancouver web design studio building websites, brand identities and AI tools for local small businesses and creators.","url":"https://yeinc.vercel.app","telephone":"+16722580656","email":"lala1blicky@gmail.com","founder":{"@type":"Person","name":"Balkar Singh","alternateName":"Laala"},"address":{"@type":"PostalAddress","addressLocality":"Vancouver","addressRegion":"BC","addressCountry":"CA"},"areaServed":[{"@type":"City","name":"Vancouver"},{"@type":"State","name":"British Columbia"}],"priceRange":"$850–$2500+","currenciesAccepted":"CAD","sameAs":["https://instagram.com/youngenthusiastsinc","https://tiktok.com/@youngenthusiastsinc"],"knowsAbout":["Web Design","Branding","Logo Design","AI Chatbots","Small Business Websites","Mobile-First Design"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"3","bestRating":"5"},"review":[{"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5"},"author":{"@type":"Person","name":"Jesse K."},"reviewBody":"Balkar built our entire online presence from scratch — website, booking, the works. We went from zero to getting 15+ new client bookings online every week."},{"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5"},"author":{"@type":"Person","name":"Priya M."},"reviewBody":"The site is beautiful. Clients compliment it every week. Laala understood the vibe we wanted without us explaining it twice."},{"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5"},"author":{"@type":"Person","name":"Raj B."},"reviewBody":"Fast, professional and straight to the point. We needed a site that looked legit. He delivered in under 2 weeks and we already picked up two new contracts."}]}</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q26TFGCP6T"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q26TFGCP6T');</script>
@@ -178,6 +178,18 @@
   .work-card:hover .work-shot .wplate{transform:scale(1.05) translateY(-3px)}
   .work-shot .wplate img{max-height:86px;width:auto;object-fit:contain}
   .work-shot .wplate.boss img{max-height:118px}
+  .work-card.venture{grid-column:1/-1;flex-direction:row;align-items:stretch;border-color:rgba(255,91,31,.32);background:linear-gradient(120deg,rgba(255,91,31,.07),var(--surface) 55%)}
+  .work-card.venture:hover{border-color:var(--accent);transform:translateY(-6px)}
+  .work-card.venture .v-visual{flex:0 0 40%;position:relative;display:grid;place-items:center;background:radial-gradient(circle at 38% 30%,#26201a,#0c0b0f);border-right:1px solid var(--rule);overflow:hidden;min-height:240px}
+  .work-card.venture .v-visual .ym{width:32%;color:var(--paper);opacity:.95;animation:float 8s ease-in-out infinite;z-index:1}
+  .work-card.venture .v-visual .ring{position:absolute;width:52%;aspect-ratio:1;border:1px solid rgba(255,91,31,.22);border-radius:50%}
+  .work-card.venture .v-visual .ring.r2{width:74%;border-color:var(--rule)}
+  .work-card.venture .v-body{padding:36px 40px;display:flex;flex-direction:column;gap:11px;justify-content:center;flex:1}
+  .work-card.venture .ownbadge{align-self:flex-start;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);background:rgba(255,91,31,.12);border:1px solid rgba(255,91,31,.34);padding:6px 13px;border-radius:999px;font-weight:600}
+  .work-card.venture .v-body h3{font-size:clamp(23px,3vw,33px)}
+  .work-card.venture .v-body p{font-size:14.5px;color:var(--muted);font-weight:300;line-height:1.62;max-width:540px}
+  .work-card.venture .v-body .visit{margin-top:4px;font-size:14px}
+  @media(max-width:760px){.work-card.venture{flex-direction:column}.work-card.venture .v-visual{flex:none;border-right:0;border-bottom:1px solid var(--rule);min-height:170px}.work-card.venture .v-body{padding:26px 24px}}
   .work-shot .wlogo{width:62%;height:auto;object-fit:contain;filter:drop-shadow(0 12px 32px rgba(0,0,0,.6));transition:transform .6s var(--ease)}
   .work-card:hover .work-shot .wlogo{transform:scale(1.05) translateY(-3px)}
 
@@ -449,6 +461,16 @@
         <div class="work-shot trades"><span class="badge">Live ↗</span><span class="wplate boss"><img src="assets/boss.png" alt="Boss &amp; Friends Construction logo" loading="lazy"></span></div>
         <div class="work-body"><span class="cat">Construction · Website</span><h3>Boss &amp; Friends Construction</h3><p>A trades site that builds trust fast — services, proof, and a clear way to get a quote.</p><span class="result-pill">2 new contracts in month 1</span><span class="visit" style="margin-top:10px">Visit live site →</span></div>
       </a>
+      <a class="work-card venture" href="labs/" target="_blank" rel="noopener" data-cursor>
+        <div class="v-visual"><span class="ring"></span><span class="ring r2"></span><svg class="ym" viewBox="0 0 140 150" aria-hidden="true"><polygon points="61,44 61,129 79,129 79,44" fill="currentColor"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68" fill="currentColor"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32" fill="currentColor"/><polygon points="70,65 122,65 122,47 70,47" fill="currentColor"/><polygon points="70,97 112,97 112,79 70,79" fill="currentColor"/><polygon points="70,129 122,129 122,111 70,111" fill="currentColor"/></svg></div>
+        <div class="v-body">
+          <span class="ownbadge">★ Our own venture</span>
+          <span class="cat">Product · In-house build</span>
+          <h3>YEInc — Building Technology</h3>
+          <p>Our flagship. <em>“Building technology, elevating futures across markets and disciplines.”</em> The in-house platform where YE prototypes the websites, brands &amp; AI we ship for everyone else — built and owned by us.</p>
+          <span class="visit">Explore the venture →</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -572,10 +594,10 @@
     <div class="contact-grid">
       <div class="contact-info reveal">
         <div class="row"><span class="k">Text / Call</span><span class="v"><a href="tel:+16722580656" data-cursor>+1 (672) 258-0656</a></span></div>
-        <div class="row"><span class="k">Instagram</span><span class="v"><a href="https://instagram.com/yeinc" target="_blank" rel="noopener" data-cursor>@yeinc →</a></span></div>
+        <div class="row"><span class="k">Instagram</span><span class="v"><a href="https://instagram.com/youngenthusiastsinc" target="_blank" rel="noopener" data-cursor>@youngenthusiastsinc →</a></span></div>
         <div class="row"><span class="k">Email</span><span class="v"><a href="mailto:lala1blicky@gmail.com" data-cursor>lala1blicky@gmail.com</a></span></div>
         <div class="row"><span class="k">Based</span><span class="v">Vancouver, BC · Canada</span></div>
-        <div class="quick"><a class="text" href="sms:+16722580656" data-cursor>Text me</a><a href="mailto:lala1blicky@gmail.com" data-cursor>Email</a><a href="https://instagram.com/yeinc" target="_blank" rel="noopener" data-cursor>Instagram</a></div>
+        <div class="quick"><a class="text" href="sms:+16722580656" data-cursor>Text me</a><a href="mailto:lala1blicky@gmail.com" data-cursor>Email</a><a href="https://instagram.com/youngenthusiastsinc" target="_blank" rel="noopener" data-cursor>Instagram</a></div>
       </div>
       <div class="intake reveal">
         <div class="prog"><i id="progBar"></i></div>
@@ -641,7 +663,7 @@
       </div>
       <div><h4>Studio</h4><ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#founder">About</a></li></ul></div>
       <div><h4>Make</h4><ul><li>Websites</li><li>Brand &amp; logo</li><li>AI tools</li><li>Apps</li></ul></div>
-      <div><h4>Connect</h4><ul><li><a href="https://instagram.com/yeinc" target="_blank" rel="noopener" data-cursor>Instagram</a></li><li><a href="https://tiktok.com/@yeinc" target="_blank" rel="noopener" data-cursor>TikTok</a></li><li><a href="sms:+16722580656" data-cursor>Text</a><li><a href="mailto:lala1blicky@gmail.com" data-cursor>Email</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="https://instagram.com/youngenthusiastsinc" target="_blank" rel="noopener" data-cursor>Instagram</a></li><li><a href="https://tiktok.com/@youngenthusiastsinc" target="_blank" rel="noopener" data-cursor>TikTok</a></li><li><a href="sms:+16722580656" data-cursor>Text</a><li><a href="mailto:lala1blicky@gmail.com" data-cursor>Email</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2026 YE · Young Enthusiasts Inc. · Vancouver, BC</span><span>Made by Balkar “Laala” Singh</span></div>
   </div>

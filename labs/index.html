@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>YEInc. — Building Technology. Elevating Futures.</title>
+<meta name="description" content="YEInc. (Young Enthusiasts Inc.) partners with visionary founders and enterprises to build, scale, and shape what's next." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        colors: {
+          ink: { 950: '#000000', 900: '#0a0a0a', 800: '#111111', 700: '#1a1a1a', 600: '#2a2a2a' },
+          muted: '#6B6B6B',
+          accent: { DEFAULT: '#2563FF', hover: '#1f54d6' },
+        },
+        letterSpacing: { 'extra-tight': '-0.04em' },
+      }
+    }
+  }
+</script>
+
+<style>
+  html, body { background:#0a0a0a; color:#fff; font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#2563FF; color:#fff; }
+
+  .grain::before{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>");
+  }
+  .gridlines{
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .reveal { opacity:0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity:1; transform:none; }
+  .marquee { animation: marquee 40s linear infinite; }
+  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  .scroll-cue::after{
+    content:""; position:absolute; left:50%; top:8px; width:2px; height:8px; background:#fff; border-radius:2px;
+    animation: scroll-tick 1.6s ease-in-out infinite;
+  }
+  @keyframes scroll-tick { 0%{transform:translate(-50%,0); opacity:.2} 40%{opacity:1} 100%{transform:translate(-50%,16px); opacity:0} }
+
+  .work-card .veil { transition: opacity .5s ease; }
+  .work-card:hover .veil { opacity:.25; }
+  .work-card:hover .work-meta { transform: translateY(0); opacity:1; }
+  .work-meta { transform: translateY(8px); opacity:.85; transition: all .4s ease; }
+
+  details[open] .chev { transform: rotate(45deg); }
+  .chev { transition: transform .25s ease; }
+
+  /* Logo block (extrusion-style YE) */
+  .ye-logo { font-weight:800; letter-spacing:-0.04em; }
+
+  input, select, textarea { color-scheme: dark; }
+  input::placeholder, textarea::placeholder { color:#6B6B6B; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; transform:none; opacity:1; }
+    .marquee { animation: none; }
+  }
+</style>
+</head>
+<body class="bg-ink-900 text-white antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[1000] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
+
+<!-- ====== NAV ====== -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2 group" aria-label="YEInc. home">
+      <span class="ye-logo text-xl">YEInc<span class="text-accent">.</span></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-9 text-[13px] uppercase tracking-[0.18em] text-white/70">
+      <a href="#about" class="hover:text-white transition">About</a>
+      <a href="#solutions" class="hover:text-white transition">Solutions</a>
+      <a href="#work" class="hover:text-white transition">Work</a>
+      <a href="#careers" class="hover:text-white transition">Careers</a>
+      <a href="#contact" class="hover:text-white transition">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#contact" class="hidden sm:inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.18em] px-4 py-2.5 rounded-full bg-white text-black hover:bg-white/90 transition">
+        Build the Future
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+      <button id="navToggle" class="md:hidden p-2 -mr-2" aria-label="Open menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileNav" class="md:hidden hidden border-t border-white/5 bg-black/90 backdrop-blur">
+    <div class="px-5 py-5 flex flex-col gap-4 text-sm uppercase tracking-[0.18em] text-white/80">
+      <a href="#about">About</a><a href="#solutions">Solutions</a><a href="#work">Work</a><a href="#careers">Careers</a><a href="#contact">Contact</a>
+      <a href="#contact" class="mt-2 inline-flex w-fit items-center gap-2 px-4 py-2.5 rounded-full bg-white text-black">Build the Future →</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ====== HERO ====== -->
+<section id="top" class="relative min-h-[100svh] flex flex-col justify-between overflow-hidden grain">
+  <div class="absolute inset-0 gridlines opacity-40 pointer-events-none"></div>
+  <div class="absolute -top-40 -right-40 w-[40rem] h-[40rem] rounded-full bg-accent/20 blur-[140px] pointer-events-none"></div>
+  <div class="absolute bottom-0 -left-40 w-[36rem] h-[36rem] rounded-full bg-white/5 blur-[120px] pointer-events-none"></div>
+
+  <div class="relative pt-28 sm:pt-32 max-w-7xl w-full mx-auto px-5 sm:px-8">
+    <div class="flex items-center gap-3 text-[11px] uppercase tracking-[0.28em] text-white/55">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+      Global HQ · Est. 2026 · Young Enthusiasts Inc.
+    </div>
+  </div>
+
+  <div class="relative max-w-7xl w-full mx-auto px-5 sm:px-8 mt-12 sm:mt-16">
+    <h1 class="reveal text-[44px] sm:text-[80px] lg:text-[112px] leading-[0.95] tracking-extra-tight font-extrabold">
+      BUILDING TECHNOLOGY.<br>
+      <span class="text-white/55">ELEVATING FUTURES.</span>
+    </h1>
+    <p class="reveal mt-8 max-w-xl text-base sm:text-lg text-white/65 leading-relaxed">
+      YEInc. partners with visionary founders and enterprises to build, scale,
+      and shape what&rsquo;s next — from first commit to category leader.
+    </p>
+    <div class="reveal mt-10 flex flex-wrap items-center gap-3">
+      <a href="#contact" class="group inline-flex items-center gap-2 px-6 py-4 rounded-full bg-accent hover:bg-accent-hover transition text-white text-sm uppercase tracking-[0.18em] font-medium">
+        Build the Future
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+      <a href="#solutions" class="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-white/15 hover:bg-white/5 transition text-sm uppercase tracking-[0.18em] text-white/85">
+        Explore Solutions
+      </a>
+    </div>
+  </div>
+
+  <div class="relative max-w-7xl w-full mx-auto px-5 sm:px-8 pb-10 sm:pb-14 mt-16 flex items-end justify-between gap-8">
+    <p class="hidden sm:block max-w-xs text-sm text-white/55 leading-relaxed border-l border-white/15 pl-4">
+      &ldquo;Ambition is our advantage. We don&rsquo;t chase trends — we build the infrastructure for the decade ahead.&rdquo;
+      <span class="block mt-2 text-[11px] uppercase tracking-[0.2em] text-white/40">— YEInc. Founding Charter</span>
+    </p>
+    <a href="#trusted" class="scroll-cue relative flex flex-col items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-white/55 pt-6">
+      Scroll
+    </a>
+  </div>
+</section>
+
+<!-- ====== TRUSTED BY ====== -->
+<section id="trusted" class="border-y border-white/5 bg-ink-950/60">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row items-center gap-6">
+    <div class="text-[11px] uppercase tracking-[0.28em] text-white/45 whitespace-nowrap">Trusted by innovators</div>
+    <div class="relative w-full overflow-hidden">
+      <div class="marquee flex items-center gap-16 whitespace-nowrap">
+        <!-- duplicated set for seamless loop -->
+        <span class="text-2xl font-semibold tracking-tight text-white/80">stripe</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">OpenAI</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">aws</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">▲ Vercel</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">NVIDIA</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">Linear</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">Figma</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">Anthropic</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">stripe</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">OpenAI</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">aws</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">▲ Vercel</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">NVIDIA</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">Linear</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">Figma</span>
+        <span class="text-2xl font-semibold tracking-tight text-white/80">Anthropic</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ABOUT / MANIFESTO ====== -->
+<section id="about" class="py-24 sm:py-36">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-12 gap-10">
+    <div class="lg:col-span-4">
+      <div class="text-[11px] uppercase tracking-[0.28em] text-accent">01 / About</div>
+      <h2 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.02]">A studio<br>for what&rsquo;s next.</h2>
+    </div>
+    <div class="lg:col-span-7 lg:col-start-6 space-y-6 text-white/70 text-lg leading-relaxed">
+      <p>YEInc. is a venture studio and engineering practice founded by builders who refuse to wait for permission. We work alongside ambitious founders and enterprises to design, ship, and scale the products that define the next cycle.</p>
+      <p>From AI infrastructure to consumer category creation, our team operates as your missing co-founder — equity-aligned, execution-obsessed, and quietly relentless.</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-white/10">
+        <div><div class="text-3xl font-bold tracking-tight">120+</div><div class="mt-1 text-xs uppercase tracking-[0.18em] text-white/40">Builds shipped</div></div>
+        <div><div class="text-3xl font-bold tracking-tight">$840M</div><div class="mt-1 text-xs uppercase tracking-[0.18em] text-white/40">Capital deployed</div></div>
+        <div><div class="text-3xl font-bold tracking-tight">17</div><div class="mt-1 text-xs uppercase tracking-[0.18em] text-white/40">Markets</div></div>
+        <div><div class="text-3xl font-bold tracking-tight">96<span class="text-accent">%</span></div><div class="mt-1 text-xs uppercase tracking-[0.18em] text-white/40">Founder NPS</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SOLUTIONS (mirrors Services list) ====== -->
+<section id="solutions" class="py-24 sm:py-32 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.28em] text-accent">02 / Solutions</div>
+        <h2 class="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight">The Practice.</h2>
+      </div>
+      <p class="max-w-md text-white/55">Nine disciplines, one operating system. Engage end-to-end or surgically — every line item is built to ship.</p>
+    </div>
+
+    <ol class="divide-y divide-white/10 border-y border-white/10">
+      <!-- 1 -->
+      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
+        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">01</div>
+        <div class="col-span-10 sm:col-span-5">
+          <div class="text-xl sm:text-2xl font-semibold">Venture Building</div>
+          <div class="text-sm text-white/45 mt-1">0 → 1 product, team, and infrastructure</div>
+        </div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">12–24 wks</div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $250k</div>
+        <div class="col-span-12 sm:col-span-2 text-right">
+          <a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Engage <span aria-hidden>→</span></a>
+        </div>
+      </li>
+      <!-- 2 -->
+      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
+        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">02</div>
+        <div class="col-span-10 sm:col-span-5">
+          <div class="text-xl sm:text-2xl font-semibold">Strategic Capital</div>
+          <div class="text-sm text-white/45 mt-1">Pre-seed to Series B with operator leverage</div>
+        </div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">Rolling</div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">$50k – $5M</div>
+        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Engage <span aria-hidden>→</span></a></div>
+      </li>
+      <!-- 3 -->
+      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
+        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">03</div>
+        <div class="col-span-10 sm:col-span-5">
+          <div class="text-xl sm:text-2xl font-semibold">Engineering Studio</div>
+          <div class="text-sm text-white/45 mt-1">Embedded squads — web, mobile, platform</div>
+        </div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">6–18 wks</div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $80k</div>
+        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Engage <span aria-hidden>→</span></a></div>
+      </li>
+      <!-- 4 -->
+      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
+        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">04</div>
+        <div class="col-span-10 sm:col-span-5">
+          <div class="text-xl sm:text-2xl font-semibold">Product &amp; Design</div>
+          <div class="text-sm text-white/45 mt-1">Discovery, IA, systems, motion, brand</div>
+        </div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">4–10 wks</div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $45k</div>
+        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Engage <span aria-hidden>→</span></a></div>
+      </li>
+      <!-- 5 -->
+      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
+        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">05</div>
+        <div class="col-span-10 sm:col-span-5">
+          <div class="text-xl sm:text-2xl font-semibold">AI &amp; Data Infrastructure</div>
+          <div class="text-sm text-white/45 mt-1">Agents, RAG, evals, model ops</div>
+        </div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">6–16 wks</div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $120k</div>
+        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Engage <span aria-hidden>→</span></a></div>
+      </li>
+      <!-- 6 -->
+      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
+        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">06</div>
+        <div class="col-span-10 sm:col-span-5">
+          <div class="text-xl sm:text-2xl font-semibold">Brand &amp; Go-to-Market</div>
+          <div class="text-sm text-white/45 mt-1">Narrative, launch, growth loops</div>
+        </div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">8–12 wks</div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $65k</div>
+        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Engage <span aria-hidden>→</span></a></div>
+      </li>
+      <!-- 7 -->
+      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
+        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">07</div>
+        <div class="col-span-10 sm:col-span-5">
+          <div class="text-xl sm:text-2xl font-semibold">Talent &amp; Recruiting</div>
+          <div class="text-sm text-white/45 mt-1">Founding teams, exec search, fractional ops</div>
+        </div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">Rolling</div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $25k</div>
+        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Engage <span aria-hidden>→</span></a></div>
+      </li>
+      <!-- 8 -->
+      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
+        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">08</div>
+        <div class="col-span-10 sm:col-span-5">
+          <div class="text-xl sm:text-2xl font-semibold">Operations Advisory</div>
+          <div class="text-sm text-white/45 mt-1">Finance, legal, RevOps, board prep</div>
+        </div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">Quarterly</div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $18k/mo</div>
+        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Engage <span aria-hidden>→</span></a></div>
+      </li>
+      <!-- 9 -->
+      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
+        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">09</div>
+        <div class="col-span-10 sm:col-span-5">
+          <div class="text-xl sm:text-2xl font-semibold">Global Expansion</div>
+          <div class="text-sm text-white/45 mt-1">Market entry across NA, EU, APAC, MENA</div>
+        </div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">12–36 wks</div>
+        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $150k</div>
+        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Engage <span aria-hidden>→</span></a></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ====== WORK / PORTFOLIO ====== -->
+<section id="work" class="py-24 sm:py-32 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.28em] text-accent">03 / Work</div>
+        <h2 class="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight">Selected portfolio.</h2>
+      </div>
+      <a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition uppercase tracking-[0.18em]">All case studies <span aria-hidden>→</span></a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- card template -->
+      <a href="#contact" class="work-card relative aspect-[4/5] overflow-hidden rounded-2xl group bg-ink-700">
+        <div class="absolute inset-0" style="background:radial-gradient(120% 80% at 30% 20%, rgba(37,99,255,.55), rgba(0,0,0,.9))"></div>
+        <div class="absolute inset-0 veil bg-black opacity-0"></div>
+        <div class="absolute inset-0 gridlines opacity-50"></div>
+        <div class="absolute top-5 left-5 text-[11px] uppercase tracking-[0.22em] text-white/70">Case 001 · AI Infra</div>
+        <div class="absolute bottom-5 left-5 right-5 work-meta">
+          <div class="text-2xl font-semibold leading-tight">Orbital Compute</div>
+          <div class="text-sm text-white/65 mt-1">Reduced inference cost by 71% for a frontier model lab.</div>
+        </div>
+      </a>
+      <a href="#contact" class="work-card relative aspect-[4/5] overflow-hidden rounded-2xl group bg-ink-700">
+        <div class="absolute inset-0" style="background:linear-gradient(135deg,#1a1a1a 0%, #2a2a2a 60%, #0a0a0a 100%)"></div>
+        <div class="absolute inset-0 gridlines opacity-30"></div>
+        <div class="absolute inset-0" style="background:radial-gradient(60% 40% at 80% 80%, rgba(37,99,255,.35), transparent 70%)"></div>
+        <div class="absolute inset-0 veil bg-black opacity-0"></div>
+        <div class="absolute top-5 left-5 text-[11px] uppercase tracking-[0.22em] text-white/70">Case 002 · Fintech</div>
+        <div class="absolute bottom-5 left-5 right-5 work-meta">
+          <div class="text-2xl font-semibold leading-tight">Vector Capital</div>
+          <div class="text-sm text-white/65 mt-1">B2B treasury platform — 0 to $4.2B in flows.</div>
+        </div>
+      </a>
+      <a href="#contact" class="work-card relative aspect-[4/5] overflow-hidden rounded-2xl group bg-ink-700">
+        <div class="absolute inset-0" style="background:conic-gradient(from 220deg at 50% 50%, #2563FF, #0a0a0a 40%, #1a1a1a 70%, #2563FF 100%)"></div>
+        <div class="absolute inset-0 bg-black/55"></div>
+        <div class="absolute inset-0 veil bg-black opacity-0"></div>
+        <div class="absolute top-5 left-5 text-[11px] uppercase tracking-[0.22em] text-white/70">Case 003 · Consumer</div>
+        <div class="absolute bottom-5 left-5 right-5 work-meta">
+          <div class="text-2xl font-semibold leading-tight">Halo Health</div>
+          <div class="text-sm text-white/65 mt-1">Wearable + clinical loop, 1.2M monthly actives.</div>
+        </div>
+      </a>
+      <a href="#contact" class="work-card relative aspect-[4/5] overflow-hidden rounded-2xl group bg-ink-700">
+        <div class="absolute inset-0" style="background:linear-gradient(180deg,#000 0%,#0a0a0a 100%)"></div>
+        <div class="absolute inset-0 gridlines opacity-60"></div>
+        <div class="absolute inset-0" style="background:radial-gradient(70% 50% at 50% 20%, rgba(255,255,255,.08), transparent 70%)"></div>
+        <div class="absolute inset-0 veil bg-black opacity-0"></div>
+        <div class="absolute top-5 left-5 text-[11px] uppercase tracking-[0.22em] text-white/70">Case 004 · Climate</div>
+        <div class="absolute bottom-5 left-5 right-5 work-meta">
+          <div class="text-2xl font-semibold leading-tight">North Grid</div>
+          <div class="text-sm text-white/65 mt-1">Grid-scale battery orchestration software.</div>
+        </div>
+      </a>
+      <a href="#contact" class="work-card relative aspect-[4/5] overflow-hidden rounded-2xl group bg-ink-700">
+        <div class="absolute inset-0" style="background:linear-gradient(135deg, rgba(37,99,255,.35), rgba(0,0,0,.95))"></div>
+        <div class="absolute inset-0 gridlines opacity-30"></div>
+        <div class="absolute inset-0 veil bg-black opacity-0"></div>
+        <div class="absolute top-5 left-5 text-[11px] uppercase tracking-[0.22em] text-white/70">Case 005 · Robotics</div>
+        <div class="absolute bottom-5 left-5 right-5 work-meta">
+          <div class="text-2xl font-semibold leading-tight">Lumen Labs</div>
+          <div class="text-sm text-white/65 mt-1">Warehouse autonomy — deployed in 38 sites.</div>
+        </div>
+      </a>
+      <a href="#contact" class="work-card relative aspect-[4/5] overflow-hidden rounded-2xl group bg-ink-700">
+        <div class="absolute inset-0" style="background:radial-gradient(80% 60% at 20% 80%, rgba(255,255,255,.12), transparent 60%), #0a0a0a"></div>
+        <div class="absolute inset-0 gridlines opacity-40"></div>
+        <div class="absolute inset-0" style="background:linear-gradient(0deg, rgba(37,99,255,.18), transparent 50%)"></div>
+        <div class="absolute inset-0 veil bg-black opacity-0"></div>
+        <div class="absolute top-5 left-5 text-[11px] uppercase tracking-[0.22em] text-white/70">Case 006 · Developer Tools</div>
+        <div class="absolute bottom-5 left-5 right-5 work-meta">
+          <div class="text-2xl font-semibold leading-tight">Forge OS</div>
+          <div class="text-sm text-white/65 mt-1">CI/CD primitives shipped to 22k repos.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== VOICES / TESTIMONIALS ====== -->
+<section id="voices" class="py-24 sm:py-32 border-t border-white/5 bg-ink-950/40">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.28em] text-accent">04 / Voices</div>
+        <h2 class="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight">Founders, in their words.</h2>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="text-4xl font-bold tracking-tight">4.9</div>
+        <div class="flex flex-col">
+          <div class="flex gap-0.5 text-accent">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 22l-6-4-6 4 1.5-8.5L2 9h7z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 22l-6-4-6 4 1.5-8.5L2 9h7z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 22l-6-4-6 4 1.5-8.5L2 9h7z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 22l-6-4-6 4 1.5-8.5L2 9h7z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 22l-6-4-6 4 1.5-8.5L2 9h7z"/></svg>
+          </div>
+          <a href="#contact" class="text-xs uppercase tracking-[0.18em] text-white/55 mt-1 hover:text-white">See all references →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- 6 testimonials -->
+      <figure class="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-white/20 transition">
+        <div class="flex gap-0.5 text-accent mb-4">★★★★★</div>
+        <blockquote class="text-white/85 leading-relaxed">YEInc. plugged in as our co-founders. Six months later we had a product, a team, and a Series A.</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-accent/20 grid place-items-center text-sm font-semibold">AK</div>
+          <div><div class="text-sm font-semibold">Aanya Kapoor</div><div class="text-xs text-white/45">CEO · Orbital Compute · via LinkedIn</div></div>
+        </figcaption>
+      </figure>
+      <figure class="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-white/20 transition">
+        <div class="flex gap-0.5 text-accent mb-4">★★★★★</div>
+        <blockquote class="text-white/85 leading-relaxed">The bar these folks set for design and engineering is unreasonable — in the best possible way.</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-accent/20 grid place-items-center text-sm font-semibold">MO</div>
+          <div><div class="text-sm font-semibold">Marcus Okafor</div><div class="text-xs text-white/45">Founder · Vector Capital · via G2</div></div>
+        </figcaption>
+      </figure>
+      <figure class="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-white/20 transition">
+        <div class="flex gap-0.5 text-accent mb-4">★★★★★</div>
+        <blockquote class="text-white/85 leading-relaxed">Strategic capital that actually shows up. They built our growth model with us, not for us.</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-accent/20 grid place-items-center text-sm font-semibold">RS</div>
+          <div><div class="text-sm font-semibold">Renée Saito</div><div class="text-xs text-white/45">COO · Halo Health · via Crunchbase</div></div>
+        </figcaption>
+      </figure>
+      <figure class="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-white/20 transition">
+        <div class="flex gap-0.5 text-accent mb-4">★★★★★</div>
+        <blockquote class="text-white/85 leading-relaxed">We rebuilt our entire platform with their studio. Latency down 4x, churn down 38%.</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-accent/20 grid place-items-center text-sm font-semibold">DL</div>
+          <div><div class="text-sm font-semibold">David Lin</div><div class="text-xs text-white/45">CTO · North Grid · via LinkedIn</div></div>
+        </figcaption>
+      </figure>
+      <figure class="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-white/20 transition">
+        <div class="flex gap-0.5 text-accent mb-4">★★★★★</div>
+        <blockquote class="text-white/85 leading-relaxed">A rare partner that earns the right to challenge the brief. They made our roadmap sharper.</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-accent/20 grid place-items-center text-sm font-semibold">EP</div>
+          <div><div class="text-sm font-semibold">Elif Pamuk</div><div class="text-xs text-white/45">Head of Product · Lumen Labs · via Twitter</div></div>
+        </figcaption>
+      </figure>
+      <figure class="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-white/20 transition">
+        <div class="flex gap-0.5 text-accent mb-4">★★★★★</div>
+        <blockquote class="text-white/85 leading-relaxed">From positioning to pricing to PR — they ran the full launch playbook and we crushed targets.</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-accent/20 grid place-items-center text-sm font-semibold">JN</div>
+          <div><div class="text-sm font-semibold">Jordan Ngata</div><div class="text-xs text-white/45">CEO · Forge OS · via Product Hunt</div></div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ====== LEADERSHIP (mirrors Barbers) ====== -->
+<section id="careers" class="py-24 sm:py-32 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.28em] text-accent">05 / Leadership</div>
+        <h2 class="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight">Meet the principals.</h2>
+      </div>
+      <p class="max-w-md text-white/55">Operators who&rsquo;ve built and exited at scale. Hands-on partners, not absentee board members.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Principal 1 -->
+      <article class="rounded-2xl border border-white/10 bg-white/[0.02] p-7 hover:border-white/25 transition">
+        <div class="flex items-start justify-between">
+          <div class="text-sm text-white/35 tabular-nums">01</div>
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-ink-700 grid place-items-center text-lg font-bold">MA</div>
+        </div>
+        <h3 class="mt-6 text-2xl font-semibold">Marcus Avery</h3>
+        <div class="text-xs uppercase tracking-[0.2em] text-white/45 mt-1">Managing Partner</div>
+        <blockquote class="mt-5 text-white/75 leading-relaxed">&ldquo;Speed compounds. We move so founders can.&rdquo;</blockquote>
+        <p class="mt-4 text-sm text-white/55 leading-relaxed">Previously founded and exited a developer infrastructure company. 14 years building products that ship.</p>
+        <ul class="mt-5 space-y-1.5 text-sm text-white/70">
+          <li class="flex items-center gap-2"><span class="text-accent">→</span> Venture strategy</li>
+          <li class="flex items-center gap-2"><span class="text-accent">→</span> AI infrastructure</li>
+          <li class="flex items-center gap-2"><span class="text-accent">→</span> Board operations</li>
+        </ul>
+        <a href="#contact" class="mt-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-white/85 hover:text-accent transition">Book a session →</a>
+      </article>
+
+      <!-- Principal 2 -->
+      <article class="rounded-2xl border border-white/10 bg-white/[0.02] p-7 hover:border-white/25 transition">
+        <div class="flex items-start justify-between">
+          <div class="text-sm text-white/35 tabular-nums">02</div>
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-white/15 to-ink-700 grid place-items-center text-lg font-bold">JK</div>
+        </div>
+        <h3 class="mt-6 text-2xl font-semibold">Jay Kobayashi</h3>
+        <div class="text-xs uppercase tracking-[0.2em] text-white/45 mt-1">Partner · Product</div>
+        <blockquote class="mt-5 text-white/75 leading-relaxed">&ldquo;Taste is a system. We build the system.&rdquo;</blockquote>
+        <p class="mt-4 text-sm text-white/55 leading-relaxed">Former design lead at two unicorns. Obsessed with the millimeters that separate great products from forgettable ones.</p>
+        <ul class="mt-5 space-y-1.5 text-sm text-white/70">
+          <li class="flex items-center gap-2"><span class="text-accent">→</span> Product design</li>
+          <li class="flex items-center gap-2"><span class="text-accent">→</span> Design systems</li>
+          <li class="flex items-center gap-2"><span class="text-accent">→</span> 0→1 discovery</li>
+        </ul>
+        <a href="#contact" class="mt-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-white/85 hover:text-accent transition">Book a session →</a>
+      </article>
+
+      <!-- Principal 3 -->
+      <article class="rounded-2xl border border-white/10 bg-white/[0.02] p-7 hover:border-white/25 transition">
+        <div class="flex items-start justify-between">
+          <div class="text-sm text-white/35 tabular-nums">03</div>
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-accent/60 to-black grid place-items-center text-lg font-bold">KN</div>
+        </div>
+        <h3 class="mt-6 text-2xl font-semibold">Kenji Nakamura</h3>
+        <div class="text-xs uppercase tracking-[0.2em] text-white/45 mt-1">Partner · Engineering</div>
+        <blockquote class="mt-5 text-white/75 leading-relaxed">&ldquo;Boring tech, brilliant outcomes.&rdquo;</blockquote>
+        <p class="mt-4 text-sm text-white/55 leading-relaxed">Distributed systems veteran. Has shipped to a billion users. Likes long latency budgets and short standups.</p>
+        <ul class="mt-5 space-y-1.5 text-sm text-white/70">
+          <li class="flex items-center gap-2"><span class="text-accent">→</span> Platform engineering</li>
+          <li class="flex items-center gap-2"><span class="text-accent">→</span> Data &amp; ML infra</li>
+          <li class="flex items-center gap-2"><span class="text-accent">→</span> Scale architecture</li>
+        </ul>
+        <a href="#contact" class="mt-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-white/85 hover:text-accent transition">Book a session →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT / PARTNERSHIP FORM (mirrors Booking) ====== -->
+<section id="contact" class="py-24 sm:py-32 border-t border-white/5 bg-ink-950/70">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8">
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-12">
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.28em] text-accent">06 / Contact</div>
+        <h2 class="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight">Start a partnership.</h2>
+      </div>
+      <p class="text-white/55 max-w-sm text-sm">Tell us about your ambition. We&rsquo;ll respond within one business day.</p>
+    </div>
+
+    <form id="partnerForm" class="rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-10 space-y-6" novalidate>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <label for="name" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Full Name <span class="text-accent">*</span></label>
+          <input id="name" name="name" type="text" autocomplete="name" required
+            class="w-full bg-transparent border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition" />
+        </div>
+        <div>
+          <label for="company" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Company <span class="text-accent">*</span></label>
+          <input id="company" name="company" type="text" autocomplete="organization" required
+            class="w-full bg-transparent border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition" />
+        </div>
+        <div>
+          <label for="email" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Email <span class="text-accent">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" required
+            class="w-full bg-transparent border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition" />
+        </div>
+        <div>
+          <label for="phone" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel"
+            class="w-full bg-transparent border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition" />
+        </div>
+        <div>
+          <label for="engagement" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Engagement <span class="text-accent">*</span></label>
+          <select id="engagement" name="engagement" required
+            class="w-full bg-ink-800 border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition">
+            <option value="">Select an engagement…</option>
+            <option>Venture Building</option>
+            <option>Strategic Capital</option>
+            <option>Engineering Studio</option>
+            <option>Product &amp; Design</option>
+            <option>AI &amp; Data Infrastructure</option>
+            <option>Brand &amp; Go-to-Market</option>
+            <option>Talent &amp; Recruiting</option>
+            <option>Operations Advisory</option>
+            <option>Global Expansion</option>
+          </select>
+        </div>
+        <div>
+          <label for="stage" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Stage</label>
+          <select id="stage" name="stage"
+            class="w-full bg-ink-800 border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition">
+            <option>Pre-product</option><option>MVP / Pre-seed</option><option>Seed</option><option>Series A</option><option>Series B+</option><option>Enterprise</option>
+          </select>
+        </div>
+        <div>
+          <label for="budget" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Budget Range</label>
+          <select id="budget" name="budget"
+            class="w-full bg-ink-800 border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition">
+            <option>&lt; $50k</option><option>$50k – $150k</option><option>$150k – $500k</option><option>$500k – $1M</option><option>$1M+</option>
+          </select>
+        </div>
+        <div>
+          <label for="timing" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Start Timing</label>
+          <select id="timing" name="timing"
+            class="w-full bg-ink-800 border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition">
+            <option>This week</option><option>Within 30 days</option><option>This quarter</option><option>Exploring</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="brief" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Brief</label>
+        <textarea id="brief" name="brief" rows="5" placeholder="What are you building, and what would success look like in 90 days?"
+          class="w-full bg-transparent border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition resize-y"></textarea>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-2">
+        <p class="text-xs text-white/45">By submitting, you agree to our&nbsp;<a href="#" class="underline underline-offset-2 hover:text-white">terms</a> and&nbsp;<a href="#" class="underline underline-offset-2 hover:text-white">privacy</a>.</p>
+        <button type="submit" id="submitBtn"
+          class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-accent hover:bg-accent-hover transition text-white text-sm uppercase tracking-[0.18em] font-medium disabled:opacity-60 disabled:cursor-not-allowed">
+          <span id="submitLabel">Build the Future</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </button>
+      </div>
+      <div id="formStatus" role="status" aria-live="polite" class="text-sm text-white/70 hidden"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ====== BIG CTA BANNER ====== -->
+<section class="border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24 grid sm:grid-cols-3 gap-8 items-end">
+    <h3 class="sm:col-span-2 text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.05]">
+      Ambition is our <span class="text-accent">advantage.</span><br>
+      <span class="text-white/55">Let&rsquo;s build what&rsquo;s next.</span>
+    </h3>
+    <a href="#contact" class="justify-self-start sm:justify-self-end inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white text-black hover:bg-white/90 transition text-sm uppercase tracking-[0.18em] font-medium">
+      Start a partnership <span aria-hidden>→</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer class="border-t border-white/10 bg-ink-950">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-10">
+    <div class="col-span-2 lg:col-span-2">
+      <div class="ye-logo text-2xl">YEInc<span class="text-accent">.</span></div>
+      <p class="mt-4 text-white/55 max-w-xs leading-relaxed">Young Enthusiasts Inc. — building technology, elevating futures across markets and disciplines.</p>
+      <div class="mt-6 flex items-center gap-3">
+        <a href="#" aria-label="LinkedIn" class="w-10 h-10 grid place-items-center rounded-full border border-white/15 hover:bg-white/5 transition">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7 0h3.83v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7.6c0-1.81-.04-4.14-2.52-4.14-2.52 0-2.91 1.97-2.91 4.01V24h-4V8z"/></svg>
+        </a>
+        <a href="#" aria-label="X" class="w-10 h-10 grid place-items-center rounded-full border border-white/15 hover:bg-white/5 transition">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.49 7.42L22 22h-6.844l-4.79-6.27L4.8 22H2l6.96-7.96L2 2h7l4.32 5.79L18.244 2zm-2.4 18h1.91L7.24 4H5.22l10.624 16z"/></svg>
+        </a>
+        <a href="#" aria-label="GitHub" class="w-10 h-10 grid place-items-center rounded-full border border-white/15 hover:bg-white/5 transition">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.47.11-3.07 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 5.83 0c2.22-1.49 3.2-1.18 3.2-1.18.63 1.6.23 2.78.11 3.07.75.81 1.2 1.84 1.2 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.77 1.06.77 2.14v3.17c0 .31.21.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="w-10 h-10 grid place-items-center rounded-full border border-white/15 hover:bg-white/5 transition">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs uppercase tracking-[0.22em] text-white/45 mb-4">Studio</div>
+      <ul class="space-y-2.5 text-sm text-white/80">
+        <li><a href="#about" class="hover:text-white">About</a></li>
+        <li><a href="#solutions" class="hover:text-white">Solutions</a></li>
+        <li><a href="#work" class="hover:text-white">Work</a></li>
+        <li><a href="#careers" class="hover:text-white">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="text-xs uppercase tracking-[0.22em] text-white/45 mb-4">Offices</div>
+      <ul class="space-y-2.5 text-sm text-white/80">
+        <li>New York · HQ</li>
+        <li>London</li>
+        <li>Singapore</li>
+        <li>Dubai</li>
+      </ul>
+    </div>
+    <div>
+      <div class="text-xs uppercase tracking-[0.22em] text-white/45 mb-4">Contact</div>
+      <ul class="space-y-2.5 text-sm text-white/80">
+        <li><a href="mailto:partners@yeinc.co" class="hover:text-white">partners@yeinc.co</a></li>
+        <li><a href="mailto:careers@yeinc.co" class="hover:text-white">careers@yeinc.co</a></li>
+        <li><a href="mailto:press@yeinc.co" class="hover:text-white">press@yeinc.co</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/45">
+      <div>© 2026 Young Enthusiasts Inc. All rights reserved.</div>
+      <div class="flex items-center gap-5">
+        <a href="#" class="hover:text-white">Privacy</a>
+        <a href="#" class="hover:text-white">Terms</a>
+        <a href="#" class="hover:text-white">Security</a>
+        <a href="#top" class="inline-flex items-center gap-1 hover:text-white" aria-label="Back to top">
+          Top <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  navToggle?.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('hidden') === false;
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.add('hidden');
+    navToggle.setAttribute('aria-expanded','false');
+  }));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Form submit (stubbed)
+  const form = document.getElementById('partnerForm');
+  const status = document.getElementById('formStatus');
+  const btn = document.getElementById('submitBtn');
+  const label = document.getElementById('submitLabel');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const required = form.querySelectorAll('[required]');
+    let firstInvalid = null;
+    required.forEach(el => {
+      const ok = el.checkValidity();
+      el.classList.toggle('border-red-500', !ok);
+      if (!ok && !firstInvalid) firstInvalid = el;
+    });
+    if (firstInvalid) {
+      firstInvalid.focus();
+      status.classList.remove('hidden');
+      status.textContent = 'Please fill in the highlighted fields.';
+      status.className = 'text-sm text-red-400';
+      return;
+    }
+    btn.disabled = true;
+    label.textContent = 'Sending…';
+    setTimeout(() => {
+      btn.disabled = false;
+      label.textContent = 'Build the Future';
+      status.classList.remove('hidden');
+      status.textContent = 'Thanks — your partnership request has been received. We’ll be in touch within one business day.';
+      status.className = 'text-sm text-emerald-400';
+      form.reset();
+    }, 900);
+  });
+</script>
+</body>
+</html>
