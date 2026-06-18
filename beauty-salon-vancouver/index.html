@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Barbershop Website Design Vancouver | YE Studio — From $850 CAD</title>
-<meta name="description" content="We build sharp, booking-ready websites for Vancouver barbershops. Mobile-first, live in ~2 weeks, starting at $850 CAD. Real proof: After Hour Barbershop now gets 15+ online bookings/week." />
-<meta name="keywords" content="barbershop website Vancouver, barber website design Vancouver, hair salon website Vancouver, booking website barbershop, mobile website barber BC" />
-<link rel="canonical" href="https://yeinc.ca/barbershop-vancouver/" />
-<meta property="og:title" content="Barbershop Website Design Vancouver | YE Studio" />
-<meta property="og:description" content="Sharp, booking-ready websites for Vancouver barbershops from $850 CAD. Live in ~2 weeks. See real results from After Hour Barbershop." />
+<title>Beauty Salon Website Design Vancouver | YE Studio — From $850 CAD</title>
+<meta name="description" content="We build stunning, booking-ready websites for Vancouver beauty salons, hair salons & spas. Mobile-first, live in ~2 weeks, from $850 CAD. New clients booked online every week." />
+<meta name="keywords" content="beauty salon website Vancouver, hair salon website design Vancouver, spa website design Vancouver, nail salon website Vancouver, salon website Vancouver BC" />
+<link rel="canonical" href="https://yeinc.ca/beauty-salon-vancouver/" />
+<meta property="og:title" content="Beauty Salon Website Design Vancouver | YE Studio" />
+<meta property="og:description" content="Stunning, booking-ready websites for Vancouver beauty salons & spas from $850 CAD. Live in ~2 weeks. More clients, fewer no-shows." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://yeinc.ca/barbershop-vancouver/" />
-<meta property="og:image" content="https://yeinc.ca/assets/afterhour-logo.png" />
+<meta property="og:url" content="https://yeinc.ca/beauty-salon-vancouver/" />
+<meta property="og:image" content="https://yeinc.ca/assets/balkar.png" />
 <meta property="og:locale" content="en_CA" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Barbershop Website Design Vancouver | YE Studio" />
-<meta name="twitter:description" content="Sharp, booking-ready websites for Vancouver barbershops from $850 CAD." />
-<meta name="twitter:image" content="https://yeinc.ca/assets/afterhour-logo.png" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Barbershop Website Design Vancouver","provider":{"@type":"ProfessionalService","name":"YE Studio","url":"https://yeinc.ca","telephone":"+16722580656","email":"lala1blicky@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Vancouver","addressRegion":"BC","addressCountry":"CA"}},"serviceType":"Web Design","areaServed":{"@type":"City","name":"Vancouver"},"description":"Custom mobile-first websites for barbershops and hair salons in Vancouver BC. Online booking integration, professional design, live in 2 weeks.","offers":{"@type":"Offer","price":"850","priceCurrency":"CAD","priceSpecification":{"@type":"PriceSpecification","minPrice":"850","priceCurrency":"CAD"}}}</script>
+<meta name="twitter:title" content="Beauty Salon Website Design Vancouver | YE Studio" />
+<meta name="twitter:description" content="Stunning, booking-ready websites for Vancouver beauty salons from $850 CAD." />
+<meta name="twitter:image" content="https://yeinc.ca/assets/balkar.png" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Beauty Salon Website Design Vancouver","provider":{"@type":"ProfessionalService","name":"YE Studio","url":"https://yeinc.ca","telephone":"+16722580656","email":"lala1blicky@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Vancouver","addressRegion":"BC","addressCountry":"CA"}},"serviceType":"Web Design","areaServed":{"@type":"City","name":"Vancouver"},"description":"Custom mobile-first websites for beauty salons, hair salons, nail salons, and spas in Vancouver BC. Online booking integration, service menus, gallery, professional design. Live in 2 weeks.","offers":{"@type":"Offer","price":"850","priceCurrency":"CAD","priceSpecification":{"@type":"PriceSpecification","minPrice":"850","priceCurrency":"CAD"}}}</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q26TFGCP6T"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q26TFGCP6T');</script>
@@ -63,13 +63,21 @@
   .btn-ghost:hover{border-color:rgba(255,91,31,.5);background:rgba(255,91,31,.06)}
   .hero-trust{margin-top:24px;font-size:12.5px;color:var(--muted2);letter-spacing:.06em}
 
+  /* Stats row */
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;padding-top:48px;border-top:1px solid var(--rule)}
+  @media(max-width:600px){.stats-row{grid-template-columns:1fr;gap:14px;text-align:center}}
+  .stat-item .num{font-size:clamp(32px,5vw,52px);font-weight:600;letter-spacing:-.03em;color:var(--paper);line-height:1}
+  .stat-item .num span{color:var(--accent2)}
+  .stat-item .lbl{font-size:13px;color:var(--muted);font-weight:300;margin-top:6px;line-height:1.5}
+
   /* Proof card */
   .proof-section{padding:20px 0 80px}
   .proof-card{background:var(--surface);border:1px solid var(--rule);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:0}
   @media(max-width:680px){.proof-card{grid-template-columns:1fr}}
-  .proof-visual{background:#0A0909;min-height:320px;display:flex;align-items:center;justify-content:center;padding:48px;border-right:1px solid var(--rule)}
+  .proof-visual{min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px;border-right:1px solid var(--rule);gap:24px}
   @media(max-width:680px){.proof-visual{min-height:240px;border-right:0;border-bottom:1px solid var(--rule)}}
-  .proof-visual img{max-width:200px;margin:0 auto}
+  .proof-visual .salon-icon{font-size:72px;line-height:1}
+  .proof-visual .salon-text{font-size:13px;color:var(--muted);text-align:center;line-height:1.5;max-width:200px}
   .proof-body{padding:40px}
   .proof-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;background:rgba(255,91,31,.12);border:1px solid rgba(255,91,31,.25);border-radius:999px;font-size:11.5px;color:var(--accent2);font-weight:600;letter-spacing:.06em;margin-bottom:20px}
   .proof-body h3{font-size:clamp(20px,2.5vw,28px);font-weight:500;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
@@ -78,8 +86,8 @@
   .proof-quote{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule)}
   .proof-quote blockquote{font-size:14px;color:var(--paper);font-weight:300;line-height:1.7;font-style:italic}
   .proof-quote cite{display:block;margin-top:10px;font-size:12.5px;color:var(--muted);font-style:normal;letter-spacing:.06em}
-  .proof-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13px;color:var(--accent2);border-bottom:1px solid rgba(255,138,76,.3);padding-bottom:2px;transition:border-color .25s}
-  .proof-link:hover{border-color:var(--accent2)}
+  .proof-cta{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13.5px;color:#fff;background:var(--accent);padding:12px 20px;border-radius:8px;font-weight:600;transition:background .25s}
+  .proof-cta:hover{background:var(--accent2)}
 
   /* Why */
   .why-section{padding:80px 0}
@@ -138,7 +146,7 @@
   .faq-ico{font-size:20px;color:var(--accent);transition:transform .35s var(--ease);line-height:1;flex:none}
   .faq-item.open .faq-ico{transform:rotate(45deg)}
   .faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
-  .faq-item.open .faq-a{max-height:280px}
+  .faq-item.open .faq-a{max-height:300px}
   .faq-a p{font-size:14px;color:var(--muted);font-weight:300;line-height:1.72;padding-bottom:20px}
   .faq-a a{color:var(--accent2);text-decoration:underline;text-underline-offset:3px}
 
@@ -159,6 +167,10 @@
   /* Eyebrow */
   .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
   .eyebrow .dot{color:var(--accent)}
+
+  /* Spot badge */
+  .spot-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(255,91,31,.1);border:1px solid rgba(255,91,31,.3);border-radius:999px;font-size:12.5px;color:var(--accent2);font-weight:500;margin-top:20px}
+  .spot-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;flex-shrink:0}
 </style>
 </head>
 <body>
@@ -177,59 +189,77 @@
 <!-- Hero -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero-tag"><span class="dot"></span>Vancouver Barbershop Specialist</div>
-    <h1>Your barbershop deserves a site <em>that gets you booked.</em></h1>
-    <p class="hero-sub">Sharp, mobile-first websites for Vancouver barbers and salons. Online booking built in. Live in ~2 weeks. Proven results — not just pretty pixels.</p>
+    <div class="hero-tag"><span class="dot"></span>Vancouver Beauty Salon Specialist</div>
+    <h1>A salon website that keeps your chair <em>fully booked.</em></h1>
+    <p class="hero-sub">Custom mobile-first websites for Vancouver beauty salons, hair salons, nail studios & spas. Clients book online, 24/7. Live in ~2 weeks. Starting at $850 CAD.</p>
     <div class="hero-ctas">
       <a href="#quote" class="btn-primary">Get a free quote →</a>
-      <a href="sms:+16722580656?body=Hey Balkar! I saw your barbershop page and I'm interested in getting a website." class="btn-ghost">💬 Text Balkar directly</a>
+      <a href="sms:+16722580656?body=Hey Balkar! I saw your beauty salon page and I'm interested in getting a website for my salon." class="btn-ghost">💬 Text Balkar directly</a>
     </div>
     <p class="hero-trust">Free quote &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; Reply same day &nbsp;·&nbsp; From $850 CAD</p>
-  </div>
-</section>
 
-<!-- Proof card: After Hour Barbershop -->
-<section class="proof-section">
-  <div class="wrap">
-    <span class="eyebrow"><span class="dot">✦</span> Real client · Real results</span>
-    <div class="proof-card">
-      <div class="proof-visual">
-        <img src="../assets/afterhour-logo.png" alt="After Hour Barbershop — Vancouver" loading="lazy">
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="num"><span>~2</span> wks</div>
+        <div class="lbl">From first call to live website — no waiting months</div>
       </div>
-      <div class="proof-body">
-        <span class="proof-badge">✓ Live site</span>
-        <h3>After Hour Barbershop<br>· Vancouver, BC</h3>
-        <div class="result">15+</div>
-        <div class="result-label">new client bookings online every week</div>
-        <div class="proof-quote">
-          <blockquote>"Balkar built our entire online presence from scratch — website, booking, the works. We went from zero to getting 15+ new client bookings online every week. Couldn't have asked for better."</blockquote>
-          <cite>— Jesse K., Owner · After Hour Barbershop</cite>
-        </div>
-        <a href="https://afterhour-barbershop.vercel.app" target="_blank" rel="noopener" class="proof-link">Visit live site ↗</a>
+      <div class="stat-item">
+        <div class="num">$<span>850</span></div>
+        <div class="lbl">Starting price in CAD — transparent, no surprise fees</div>
+      </div>
+      <div class="stat-item">
+        <div class="num"><span>100</span>%</div>
+        <div class="lbl">Yours to own — no platform lock-in, no monthly build fees</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Why barbershops need this -->
+<!-- Be our first featured salon -->
+<section class="proof-section">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot">✦</span> Limited availability · Vancouver</span>
+    <div class="proof-card">
+      <div class="proof-visual" style="background:#0D0B10;">
+        <div class="salon-icon">💅</div>
+        <div class="salon-text">Looking for Vancouver's next great salon to feature here</div>
+      </div>
+      <div class="proof-body">
+        <span class="proof-badge">★ 1 spot available</span>
+        <h3>Be YE Studio's first<br>featured beauty salon</h3>
+        <div class="result">$250</div>
+        <div class="result-label">off for our next beauty salon client</div>
+        <div class="proof-quote">
+          <blockquote>"We've built booking-driving websites for barbershops, yoga studios, and contractors across Vancouver. A beauty salon is next — and the first one gets a $250 discount and a featured spot on this page."</blockquote>
+          <cite>— Balkar (Laala), Founder · YE Studio</cite>
+        </div>
+        <a href="sms:+16722580656?body=Hey Balkar! I want to be your first featured beauty salon. Tell me more!" class="proof-cta">Claim the spot →</a>
+        <div class="spot-badge"><span class="dot"></span>1 of 1 discounted spots remaining</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why salons need this -->
 <section class="why-section">
   <div class="wrap">
-    <h2>Why your barbershop needs<br>a great website <em style="font-style:italic;font-weight:300;color:var(--accent2)">right now</em></h2>
+    <h2>Why your salon needs<br>a great website <em style="font-style:italic;font-weight:300;color:var(--accent2)">right now</em></h2>
     <div class="why-grid">
       <div class="why-card">
         <div class="ico">📱</div>
-        <h3>People book on their phone</h3>
-        <p>Most of your potential customers find barbers on Google while they're already out. If your site isn't mobile-first and loads in under 2 seconds — they're gone.</p>
+        <h3>Clients search on their phone</h3>
+        <p>Most people Google "hair salon near me" while they're out. If your site looks bad on mobile, or loads slowly, they book somewhere else before they even see your work.</p>
       </div>
       <div class="why-card">
         <div class="ico">📅</div>
-        <h3>Online booking = more clients</h3>
-        <p>After Hour went from 0 to 15+ weekly online bookings. A booking button on your site works 24/7 — even while you're in the chair.</p>
+        <h3>Online booking reduces no-shows</h3>
+        <p>A booking button on your site works around the clock. Clients self-schedule, get reminders, and show up — all without you picking up the phone between clients.</p>
       </div>
       <div class="why-card">
-        <div class="ico">🏆</div>
-        <h3>Look like the best shop in the city</h3>
-        <p>First impressions happen online first. A site that matches your shop's energy — dark, clean, confident — builds trust before they ever walk in.</p>
+        <div class="ico">📸</div>
+        <h3>Show your work, win the booking</h3>
+        <p>Your Instagram is great, but a gallery on your own website — with your services, prices and booking button one scroll away — converts browsers into booked appointments.</p>
       </div>
     </div>
   </div>
@@ -238,39 +268,39 @@
 <!-- What's included -->
 <section class="inc-section" style="background:var(--surface2);padding-top:80px;padding-bottom:80px;margin:0">
   <div class="wrap">
-    <h2>What's included in every<br>barbershop site</h2>
+    <h2>What's included in every<br>salon website</h2>
     <div class="inc-grid">
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Mobile-first custom design</h4><p>Designed around your brand — logo, colours, vibe. Not a generic template.</p></div>
+        <div><h4>Mobile-first custom design</h4><p>Built around your brand — your logo, colours, and vibe. Looks stunning on every screen.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Online booking button</h4><p>Links to your existing booking system (Booksy, StyleSeat, Square, etc.) or we set one up.</p></div>
+        <div><h4>Online booking integration</h4><p>Links to Vagaro, Fresha, Square, Acuity, or your existing system. Clients book themselves while you focus on the chair.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Services + pricing page</h4><p>Clear layout of cuts, services, and prices so clients show up ready to book — no back-and-forth.</p></div>
+        <div><h4>Services & pricing menu</h4><p>Clean, scannable service list with prices. Clients arrive knowing exactly what they want — and what it costs.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Google Maps + hours</h4><p>Your location, hours, and phone number front and centre. Rank better on local Google searches.</p></div>
+        <div><h4>Portfolio / gallery section</h4><p>Showcase your colour work, cuts, nails or lashes. High-impact images that make your craft impossible to scroll past.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Gallery / portfolio section</h4><p>Showcase your best cuts. Social-media quality photos displayed the right way.</p></div>
+        <div><h4>Google Maps + location</h4><p>Your address, hours, and parking info front-and-centre. Helps you rank on local Google searches.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Lightning-fast load speed</h4><p>Optimized to load in under 2 seconds on any phone — because slow sites lose clients before they book.</p></div>
+        <div><h4>Instagram feed or link</h4><p>Connect your social presence to your site so visitors see fresh content and follow you in one tap.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>Domain setup + hosting</h4><p>We handle the technical side — your domain, your hosting. Nothing confusing for you to manage.</p></div>
+        <div><h4>Team / stylist profiles</h4><p>Let clients find their favourite stylist and book with them directly — builds loyalty and repeat business.</p></div>
       </div>
       <div class="inc-row">
         <span class="ck">✓</span>
-        <div><h4>2 weeks of revision support</h4><p>After you go live, you get 2 weeks of tweaks and changes included — no extra charge.</p></div>
+        <div><h4>Domain + hosting setup</h4><p>We handle the technical side completely. Your domain, your hosting, zero confusion.</p></div>
       </div>
     </div>
   </div>
@@ -279,17 +309,17 @@
 <!-- Pricing -->
 <section class="price-section" id="pricing">
   <div class="wrap">
-    <h2>Simple pricing for<br>barbershops</h2>
+    <h2>Simple pricing for<br>Vancouver salons</h2>
     <p class="sub">Quoted up front. No hourly rates. No surprises.</p>
     <div class="price-cols">
       <div class="pcol">
         <span class="pin">Launch</span>
         <h3>One-page site</h3>
         <div class="price">$850 <small>CAD · from</small></div>
-        <p>Everything a new or growing barber shop needs to look pro and start booking online.</p>
+        <p>Everything a growing salon needs to look polished and start booking clients online.</p>
         <ul>
           <li><span class="ck">✓</span>Custom mobile-first design</li>
-          <li><span class="ck">✓</span>Booking button integration</li>
+          <li><span class="ck">✓</span>Online booking button</li>
           <li><span class="ck">✓</span>Services + pricing section</li>
           <li><span class="ck">✓</span>Gallery / portfolio section</li>
           <li><span class="ck">✓</span>Domain + hosting setup</li>
@@ -301,29 +331,29 @@
         <span class="pin">★ Full brand package</span>
         <h3>Site + logo + brand kit</h3>
         <div class="price">$2,500 <small>CAD · from</small></div>
-        <p>The complete package — your website and visual identity built together so everything matches.</p>
+        <p>Your entire visual identity built alongside your website so everything is cohesive and beautiful.</p>
         <ul>
           <li><span class="ck">✓</span>Everything in Launch</li>
           <li><span class="ck">✓</span>Custom logo design</li>
           <li><span class="ck">✓</span>Full brand kit (colours, fonts, assets)</li>
-          <li><span class="ck">✓</span>Multi-page site</li>
+          <li><span class="ck">✓</span>Multi-page site with stylist profiles</li>
           <li><span class="ck">✓</span>Basic AI booking assistant</li>
           <li><span class="ck">✓</span>Priority turnaround (~2 weeks)</li>
         </ul>
         <a href="#quote" class="pbtn">Build my brand →</a>
       </div>
     </div>
-    <p style="margin-top:20px;font-size:13px;color:var(--muted2);text-align:center">Not sure which one? <a href="sms:+16722580656?body=Hey Balkar, I need a website for my barbershop. What do you recommend?" style="color:var(--accent2);text-decoration:underline;text-underline-offset:3px">Text me and I'll tell you →</a></p>
+    <p style="margin-top:20px;font-size:13px;color:var(--muted2);text-align:center">Not sure which one? <a href="sms:+16722580656?body=Hey Balkar, I need a website for my salon. What do you recommend?" style="color:var(--accent2);text-decoration:underline;text-underline-offset:3px">Text me and I'll tell you →</a></p>
   </div>
 </section>
 
 <!-- CTA strip -->
 <div class="wrap">
   <div class="cta-strip" id="quote">
-    <h2>Ready to get your<br>barbershop online?</h2>
+    <h2>Ready to get your<br>salon fully booked online?</h2>
     <p>Text me, email me, or fill out a quick quote — I reply within the hour on weekdays.</p>
     <div class="ctarow">
-      <a href="sms:+16722580656?body=Hey Balkar! I want a website for my barbershop." class="btn-primary">💬 Text Balkar — +1 (672) 258-0656</a>
+      <a href="sms:+16722580656?body=Hey Balkar! I want a website for my salon." class="btn-primary">💬 Text Balkar — +1 (672) 258-0656</a>
       <a href="../#contact" class="btn-ghost">Quick quote form →</a>
     </div>
     <p class="note">Free quote &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; Same-day reply &nbsp;·&nbsp; Vancouver, BC</p>
@@ -336,24 +366,24 @@
     <h2>Quick questions</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q">How long does it take to build a barbershop website?<span class="faq-ico">+</span></button>
-        <div class="faq-a"><p>The Launch site (one-pager) is typically live within 5–7 business days. The full brand package takes about 2 weeks. We work fast and show you everything before it goes live.</p></div>
+        <button class="faq-q">How long does it take to build a salon website?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><p>The Launch site (one-pager) is typically live within 5–7 business days. The full brand package takes about 2 weeks. You'll see a draft before anything goes live.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Can you set up online booking on my site?<span class="faq-ico">+</span></button>
-        <div class="faq-a"><p>Yes. We can link your existing booking system (Booksy, StyleSeat, Square Appointments, etc.) or help you set one up from scratch. The After Hour site books 15+ clients online every week.</p></div>
+        <button class="faq-q">Can you integrate my existing booking system?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><p>Yes — Vagaro, Fresha, Square Appointments, Acuity, Booksy, and most others. If you don't have one yet, I can recommend and help set up the right system for your salon size.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Do I need to have a logo already?<span class="faq-ico">+</span></button>
-        <div class="faq-a"><p>Nope. The Launch tier applies your existing branding. If you want a logo built too, the Brand Package covers that — logo, colours, fonts, everything.</p></div>
+        <button class="faq-q">I don't have a logo. Is that a problem?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><p>Not at all. The Launch tier works with what you have. If you want a full logo and identity built, the Brand Package includes everything — colours, fonts, icons, the works.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Will I own the site after it's done?<span class="faq-ico">+</span></button>
-        <div class="faq-a"><p>100% yours. The code, the design, the domain — all transferred to you. No monthly fees locked to a platform, no holding your site hostage.</p></div>
+        <button class="faq-q">Do I own the site after you build it?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><p>100% yours. The code, the design, the domain — all transferred to you. No monthly platform fees, no hostage situations. You own everything outright.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Do you work with barbershops outside Vancouver?<span class="faq-ico">+</span></button>
-        <div class="faq-a"><p>Yes — everything runs remotely through calls, screen shares and shared docs. I've worked with clients across BC. Location is never a barrier.</p></div>
+        <button class="faq-q">Can you work with salons outside of Vancouver?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><p>Absolutely — everything runs remotely through video calls, shared docs and screen shares. I've worked with clients across BC. Location is never a barrier.</p></div>
       </div>
     </div>
   </div>
@@ -380,20 +410,20 @@
       <div>
         <p style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px">More industries</p>
         <ul style="list-style:none;line-height:2.2">
+          <li><a href="../barbershop-vancouver/">Barbershop websites</a></li>
           <li><a href="../yoga-studio-vancouver/">Yoga studio websites</a></li>
           <li><a href="../contractor-website-vancouver/">Contractor websites</a></li>
           <li><a href="../restaurant-website-vancouver/">Restaurant websites</a></li>
-          <li><a href="../beauty-salon-vancouver/">Beauty salon websites</a></li>
           <li><a href="../">All services</a></li>
         </ul>
       </div>
     </div>
-    <p style="margin-top:40px;font-size:12px;color:var(--muted2);border-top:1px solid var(--rule);padding-top:24px">© 2026 YE · Young Enthusiasts Inc. · Vancouver, BC · Barbershop Website Design Specialist</p>
+    <p style="margin-top:40px;font-size:12px;color:var(--muted2);border-top:1px solid var(--rule);padding-top:24px">© 2026 YE · Young Enthusiasts Inc. · Vancouver, BC · Beauty Salon Website Design Specialist</p>
   </div>
 </footer>
 
 <div class="mbar">
-  <a href="sms:+16722580656?body=Hey Balkar, I want a website for my barbershop." class="t">Text me</a>
+  <a href="sms:+16722580656?body=Hey Balkar, I want a website for my salon." class="t">Text me</a>
   <a href="#quote" class="s">Get a free quote</a>
 </div>
 
@@ -408,9 +438,8 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
 });
 
 function gev(n,p){if(typeof gtag==='function')gtag('event',n,p||{});}
-document.querySelectorAll('a[href="#quote"],a[href="../#contact"]').forEach(el=>el.addEventListener('click',()=>gev('cta_click',{page:'barbershop',location:el.closest('nav')?'nav':'page'})));
-document.querySelectorAll('a[href^="sms:"]').forEach(el=>el.addEventListener('click',()=>gev('text_click',{page:'barbershop'})));
-document.querySelectorAll('a[href^="tel:"]').forEach(el=>el.addEventListener('click',()=>gev('phone_click',{page:'barbershop'})));
+document.querySelectorAll('a[href="#quote"],a[href="../#contact"]').forEach(el=>el.addEventListener('click',()=>gev('cta_click',{page:'beauty-salon',location:el.closest('nav')?'nav':'page'})));
+document.querySelectorAll('a[href^="sms:"]').forEach(el=>el.addEventListener('click',()=>gev('text_click',{page:'beauty-salon'})));
 </script>
 </body>
 </html>
