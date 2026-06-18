@@ -360,6 +360,12 @@
   .faq-a p{font-size:14.5px;color:var(--muted);font-weight:300;line-height:1.72;padding-bottom:22px}
   .faq-a a{color:var(--accent2);text-decoration:underline;text-underline-offset:3px}
   @media(max-width:600px){.faq-q{font-size:14.5px}}
+
+  /* ── Industry chips ── */
+  .industry-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+  .ichip{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border-radius:10px;background:var(--surface);border:1px solid var(--rule);font-size:13.5px;font-weight:500;color:var(--paper);transition:border-color .25s,background .25s,transform .25s var(--ease),color .25s;white-space:nowrap}
+  .ichip:hover{border-color:rgba(255,91,31,.45);background:rgba(255,91,31,.07);transform:translateY(-2px);color:var(--accent2)}
+  .ichip .ie{font-size:18px;flex-shrink:0}
 </style>
 </head>
 <body>
@@ -474,6 +480,30 @@
         </div>
       </a>
     </div>
+  </div>
+</section>
+
+<section class="block" id="clients" style="padding:clamp(56px,8vw,96px) 0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow"><span class="dot">✦</span> / Vancouver businesses we build for</span><h2 style="margin-top:16px">Recognize<br><span class="serif-accent">your business?</span></h2></div>
+      <p class="sub">Every industry in Metro Vancouver needs a different look. Here's who I already know how to build for — fast and right the first time.</p>
+    </div>
+    <div class="industry-grid" data-stagger>
+      <span class="ichip reveal"><span class="ie">✂️</span>Barbershop &amp; Salon</span>
+      <span class="ichip reveal"><span class="ie">🍜</span>Restaurant &amp; Café</span>
+      <span class="ichip reveal"><span class="ie">🧘</span>Yoga &amp; Fitness Studio</span>
+      <span class="ichip reveal"><span class="ie">🔨</span>Contractor &amp; Trades</span>
+      <span class="ichip reveal"><span class="ie">🛍️</span>Retail &amp; Boutique</span>
+      <span class="ichip reveal"><span class="ie">📸</span>Photographer &amp; Artist</span>
+      <span class="ichip reveal"><span class="ie">🏡</span>Real Estate &amp; Mortgage</span>
+      <span class="ichip reveal"><span class="ie">💅</span>Beauty &amp; Wellness</span>
+      <span class="ichip reveal"><span class="ie">🎵</span>Music &amp; Events</span>
+      <span class="ichip reveal"><span class="ie">🚀</span>Tech Startup</span>
+      <span class="ichip reveal"><span class="ie">⚕️</span>Health &amp; Care</span>
+      <span class="ichip reveal"><span class="ie">⚖️</span>Professional Services</span>
+    </div>
+    <p style="margin-top:32px;color:var(--muted);font-size:14px">Don't see your industry? <a href="#contact" style="color:var(--accent2);text-decoration:underline;text-underline-offset:3px">Reach out anyway →</a></p>
   </div>
 </section>
 
@@ -664,7 +694,7 @@
         <p style="margin-top:18px;max-width:330px;font-weight:300;line-height:1.6">Websites, brands &amp; AI tools that make small businesses and creators look world-class. Built in Vancouver by Balkar (Laala).</p>
       </div>
       <div><h4>Studio</h4><ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#founder">About</a></li></ul></div>
-      <div><h4>Make</h4><ul><li>Websites</li><li>Brand &amp; logo</li><li>AI tools</li><li>Apps</li></ul></div>
+      <div><h4>Serving</h4><p style="font-weight:300;line-height:2.1;font-size:13px">Vancouver · Burnaby · Surrey<br>Richmond · North Van · Coquitlam<br>Langley · New Westminster<br>Abbotsford · All Metro Vancouver</p></div>
       <div><h4>Connect</h4><ul><li><a href="https://instagram.com/youngenthusiastsinc" target="_blank" rel="noopener" data-cursor>Instagram</a></li><li><a href="https://tiktok.com/@youngenthusiastsinc" target="_blank" rel="noopener" data-cursor>TikTok</a></li><li><a href="sms:+16722580656" data-cursor>Text</a><li><a href="mailto:lala1blicky@gmail.com" data-cursor>Email</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2026 YE · Young Enthusiasts Inc. · Vancouver, BC</span><span>Made by Balkar “Laala” Singh</span></div>
