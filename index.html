@@ -361,6 +361,18 @@
   .faq-a a{color:var(--accent2);text-decoration:underline;text-underline-offset:3px}
   @media(max-width:600px){.faq-q{font-size:14.5px}}
 
+  /* ── Comparison table ── */
+  .compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:40px}
+  .compare{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+  .compare th{padding:14px 20px;text-align:center;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);border-bottom:1px solid var(--rule)}
+  .compare th.ours{background:rgba(255,91,31,.08);color:var(--accent2);border:1px solid rgba(255,91,31,.28);border-bottom:none;border-radius:12px 12px 0 0}
+  .compare td{padding:13px 20px;text-align:center;border-bottom:1px solid var(--rule);font-weight:300;color:var(--muted)}
+  .compare td.ours{background:rgba(255,91,31,.05);border-left:1px solid rgba(255,91,31,.22);border-right:1px solid rgba(255,91,31,.22);color:var(--paper);font-weight:500}
+  .compare tr:last-child td.ours{border-radius:0 0 12px 12px;border-bottom:1px solid rgba(255,91,31,.28)}
+  .compare td.label{text-align:left;font-weight:500;color:var(--paper)}
+  .compare .yes{color:var(--accent2)}
+  .compare .no{color:var(--muted2)}
+
   /* ── Industry chips ── */
   .industry-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
   .ichip{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border-radius:10px;background:var(--surface);border:1px solid var(--rule);font-size:13.5px;font-weight:500;color:var(--paper);transition:border-color .25s,background .25s,transform .25s var(--ease),color .25s;white-space:nowrap}
@@ -504,6 +516,72 @@
       <span class="ichip reveal"><span class="ie">⚖️</span>Professional Services</span>
     </div>
     <p style="margin-top:32px;color:var(--muted);font-size:14px">Don't see your industry? <a href="#contact" style="color:var(--accent2);text-decoration:underline;text-underline-offset:3px">Reach out anyway →</a></p>
+  </div>
+</section>
+
+<section class="block process" id="compare" style="padding:clamp(56px,8vw,96px) 0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow"><span class="dot">✦</span> / Why not Wix or an agency?</span><h2 style="margin-top:16px">The honest<br><span class="serif-accent">comparison.</span></h2></div>
+      <p class="sub">Wix looks cheap. Agencies look expensive. Here's what you actually get.</p>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th style="text-align:left"></th>
+            <th>Wix / Squarespace</th>
+            <th class="ours">★ YE Studio</th>
+            <th>Big agency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">Price</td>
+            <td>$20–50/mo forever<br><span style="font-size:12px">(you never own it)</span></td>
+            <td class="ours">$850–$2,500 CAD<br><span style="font-size:12px;color:var(--accent2)">one-time, yours to keep</span></td>
+            <td>$5,000–$25,000+</td>
+          </tr>
+          <tr>
+            <td class="label">Time to launch</td>
+            <td>Days (if you build it)</td>
+            <td class="ours"><span class="yes">~2 weeks</span></td>
+            <td>6–16 weeks</td>
+          </tr>
+          <tr>
+            <td class="label">Custom design</td>
+            <td class="no">Templates only</td>
+            <td class="ours"><span class="yes">✓ Fully custom</span></td>
+            <td><span class="yes">✓ Custom</span></td>
+          </tr>
+          <tr>
+            <td class="label">You own the site</td>
+            <td class="no">✕ Locked to their platform</td>
+            <td class="ours"><span class="yes">✓ 100% yours</span></td>
+            <td><span class="yes">✓ Usually yes</span></td>
+          </tr>
+          <tr>
+            <td class="label">Knows your industry</td>
+            <td class="no">Generic</td>
+            <td class="ours"><span class="yes">✓ Built for Vancouver SMBs</span></td>
+            <td class="no">Depends</td>
+          </tr>
+          <tr>
+            <td class="label">Direct access to builder</td>
+            <td class="no">Support ticket</td>
+            <td class="ours"><span class="yes">✓ Text Balkar directly</span></td>
+            <td class="no">Account manager</td>
+          </tr>
+          <tr>
+            <td class="label">Mobile-first performance</td>
+            <td class="no">Often sluggish</td>
+            <td class="ours"><span class="yes">✓ Built for phones first</span></td>
+            <td><span class="yes">✓ If you pay enough</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:28px;text-align:center;font-size:13.5px;color:var(--muted)">Ready to stop renting and start owning? <a href="#contact" style="color:var(--accent2);text-decoration:underline;text-underline-offset:3px">Start a project →</a></p>
   </div>
 </section>
 
