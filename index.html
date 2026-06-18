@@ -200,7 +200,8 @@
   .portrait .ymark{width:44%;color:var(--paper);opacity:.92;animation:float 8s ease-in-out infinite}
   .portrait .ring{position:absolute;width:68%;aspect-ratio:1;border:1px solid var(--rule);border-radius:50%}
   .portrait .ring.r2{width:88%;border-color:rgba(255,91,31,.18)}
-  .portrait .tagchip{position:absolute;bottom:18px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);background:rgba(0,0,0,.4);padding:7px 14px;border-radius:999px;border:1px solid var(--rule)}
+  .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .portrait .tagchip{position:absolute;bottom:18px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);background:rgba(0,0,0,.55);padding:7px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(8px)}
   .founder p{color:var(--muted);font-size:15.5px;margin-bottom:16px;font-weight:300;line-height:1.7}
   .founder p strong{color:var(--paper);font-weight:500}
 
@@ -424,8 +425,8 @@
   <div class="wrap">
     <div class="section-head reveal"><div><span class="eyebrow"><span class="dot">05</span> / Who's behind it</span><h2 style="margin-top:16px">Hey — I'm Balkar.</h2></div></div>
     <div class="founder">
-      <div class="portrait reveal" aria-hidden="true"><div class="ring"></div><div class="ring r2"></div>
-        <svg class="ymark" viewBox="0 0 140 150"><polygon points="61,44 61,129 79,129 79,44" fill="currentColor"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68" fill="currentColor"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32" fill="currentColor"/><polygon points="70,65 122,65 122,47 70,47" fill="currentColor"/><polygon points="70,97 112,97 112,79 70,79" fill="currentColor"/><polygon points="70,129 122,129 122,111 70,111" fill="currentColor"/></svg>
+      <div class="portrait reveal">
+        <img src="assets/balkar.png" alt="Balkar Singh — Founder of YE Studio" loading="lazy">
         <span class="tagchip">aka Laala · Blicky</span>
       </div>
       <div class="reveal">
