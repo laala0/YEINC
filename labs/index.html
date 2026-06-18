@@ -702,9 +702,9 @@
     <div>
       <div class="text-xs uppercase tracking-[0.22em] text-white/45 mb-4">Contact</div>
       <ul class="space-y-2.5 text-sm text-white/80">
-        <li><a href="mailto:partners@yeinc.co" class="hover:text-white">partners@yeinc.co</a></li>
-        <li><a href="mailto:careers@yeinc.co" class="hover:text-white">careers@yeinc.co</a></li>
-        <li><a href="mailto:press@yeinc.co" class="hover:text-white">press@yeinc.co</a></li>
+        <li><a href="mailto:lala1blicky@gmail.com" class="hover:text-white">lala1blicky@gmail.com</a></li>
+        <li><a href="tel:+16722580656" class="hover:text-white">+1 (672) 258-0656</a></li>
+        <li><a href="sms:+16722580656" class="hover:text-white">Text us</a></li>
       </ul>
     </div>
   </div>
@@ -742,11 +742,13 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Form submit (stubbed)
+  // Form submit — Web3Forms (real delivery)
+  const W3F = 'f417bccd-cead-46ea-92cf-be784f2861cf';
   const form = document.getElementById('partnerForm');
   const status = document.getElementById('formStatus');
   const btn = document.getElementById('submitBtn');
   const label = document.getElementById('submitLabel');
+  function gev(name, params){ if (typeof gtag === 'function') gtag('event', name, params || {}); }
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const required = form.querySelectorAll('[required]');
@@ -763,16 +765,52 @@
       status.className = 'text-sm text-red-400';
       return;
     }
+    const f = id => (document.getElementById(id)?.value || '').trim();
+    const message =
+      `Engagement: ${f('engagement')}\n` +
+      `Company: ${f('company')}\n` +
+      `Stage: ${f('stage')}\n` +
+      `Budget: ${f('budget')}\n` +
+      `Start timing: ${f('timing')}\n` +
+      `Phone: ${f('phone')}\n\n` +
+      `Brief:\n${f('brief') || '—'}`;
     btn.disabled = true;
     label.textContent = 'Sending…';
-    setTimeout(() => {
+    gev('form_start', { form: 'labs_partnership' });
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: W3F,
+        subject: `New YEInc. partnership — ${f('name')} (${f('company') || 'company'})`,
+        name: f('name'),
+        email: f('email'),
+        message,
+        from_name: 'YEInc. Labs Site'
+      })
+    })
+    .then(r => r.json())
+    .then(d => {
       btn.disabled = false;
       label.textContent = 'Build the Future';
       status.classList.remove('hidden');
-      status.textContent = 'Thanks — your partnership request has been received. We’ll be in touch within one business day.';
-      status.className = 'text-sm text-emerald-400';
-      form.reset();
-    }, 900);
+      if (d.success) {
+        gev('form_complete', { form: 'labs_partnership' });
+        status.textContent = 'Thanks — your request is in. I\'ll be in touch within one business day.';
+        status.className = 'text-sm text-emerald-400';
+        form.reset();
+      } else {
+        status.textContent = 'Something went wrong. Text me directly: 672-258-0656.';
+        status.className = 'text-sm text-red-400';
+      }
+    })
+    .catch(() => {
+      btn.disabled = false;
+      label.textContent = 'Build the Future';
+      status.classList.remove('hidden');
+      status.textContent = 'Network issue — text me: 672-258-0656.';
+      status.className = 'text-sm text-red-400';
+    });
   });
 </script>
 </body>
