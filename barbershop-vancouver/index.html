@@ -423,5 +423,431 @@ document.querySelectorAll('a[href="#quote"],a[href="../#contact"]').forEach(el=>
 document.querySelectorAll('a[href^="sms:"]').forEach(el=>el.addEventListener('click',()=>gev('text_click',{page:'barbershop'})));
 document.querySelectorAll('a[href^="tel:"]').forEach(el=>el.addEventListener('click',()=>gev('phone_click',{page:'barbershop'})));
 </script>
+<!-- ═══════════════════════════════════════════════════════════
+     YEINC AI Chat Widget
+     Floating customer-service chatbot — scripted AI, lead capture
+     ═══════════════════════════════════════════════════════════ -->
+<style>
+#yc-btn{position:fixed;bottom:28px;left:28px;z-index:91;width:58px;height:58px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 36px -8px rgba(255,91,31,.8),0 0 0 0 rgba(255,91,31,.4);transition:transform .3s var(--ease),box-shadow .4s;color:#fff;outline:none}
+#yc-btn:hover{transform:scale(1.1)}
+#yc-btn.open svg.ic-chat{display:none}
+#yc-btn:not(.open) svg.ic-close{display:none}
+.yc-pulse-ring{position:absolute;inset:0;border-radius:50%;animation:ycring 2.4s cubic-bezier(.4,0,.6,1) infinite}
+@keyframes ycring{0%{box-shadow:0 0 0 0 rgba(255,91,31,.5)}70%{box-shadow:0 0 0 14px rgba(255,91,31,0)}100%{box-shadow:0 0 0 0 rgba(255,91,31,0)}}
+.yc-notif{position:absolute;top:-3px;right:-3px;width:16px;height:16px;background:#4ade80;border-radius:50%;border:2px solid var(--ink);animation:ycbounce .6s var(--ease) 1.2s both}
+@keyframes ycbounce{from{transform:scale(0)}to{transform:scale(1)}}
+#yc-win{position:fixed;bottom:100px;left:28px;z-index:91;width:348px;max-height:530px;background:var(--surface);border:1px solid rgba(255,255,255,.13);border-radius:22px;box-shadow:0 32px 96px -16px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.04);display:flex;flex-direction:column;overflow:hidden;transform:translateY(18px) scale(.95);opacity:0;pointer-events:none;transition:transform .38s var(--ease),opacity .3s}
+#yc-win.open{transform:none;opacity:1;pointer-events:auto}
+#yc-head{padding:14px 16px;background:linear-gradient(135deg,rgba(255,91,31,.12),rgba(255,91,31,.04));border-bottom:1px solid rgba(255,255,255,.085);display:flex;align-items:center;gap:11px;flex:none}
+.yc-av{width:40px;height:40px;border-radius:50%;background:rgba(255,91,31,.18);border:1px solid rgba(255,91,31,.4);display:grid;place-items:center;flex:none;box-shadow:0 4px 14px -4px rgba(255,91,31,.5)}
+.yc-av svg{width:19px;height:20px;color:var(--accent)}
+.yc-nt{flex:1;min-width:0}
+.yc-nm{font-size:14px;font-weight:600;color:var(--paper);letter-spacing:-.01em}
+.yc-st{font-size:11px;color:#4ade80;display:flex;align-items:center;gap:5px;margin-top:2px}
+.yc-st::before{content:"";width:6px;height:6px;border-radius:50%;background:#4ade80;flex:none}
+#yc-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:9px;scroll-behavior:smooth}
+#yc-msgs::-webkit-scrollbar{width:3px}
+#yc-msgs::-webkit-scrollbar-thumb{background:var(--rule-strong);border-radius:3px}
+.yc-row{display:flex;align-items:flex-end;gap:7px}
+.yc-row.u{flex-direction:row-reverse}
+.yc-row-av{width:26px;height:26px;border-radius:50%;background:rgba(255,91,31,.15);border:1px solid rgba(255,91,31,.3);display:grid;place-items:center;flex:none}
+.yc-row-av svg{width:12px;height:13px;color:var(--accent)}
+.yc-bubble{max-width:82%;padding:10px 13px;border-radius:16px;font-size:13.5px;line-height:1.55;white-space:pre-wrap;font-family:inherit}
+.yc-bubble.b{background:var(--ink2);color:var(--paper);border-bottom-left-radius:4px}
+.yc-bubble.u{background:var(--accent);color:#fff;border-bottom-right-radius:4px}
+.yc-typing .yc-bubble{display:flex;gap:4px;align-items:center;padding:12px 14px}
+.yc-typing .yc-bubble span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:ycdot 1s infinite}
+.yc-typing .yc-bubble span:nth-child(2){animation-delay:.18s}
+.yc-typing .yc-bubble span:nth-child(3){animation-delay:.36s}
+@keyframes ycdot{0%,80%,100%{transform:translateY(0);opacity:.5}40%{transform:translateY(-5px);opacity:1}}
+#yc-opts{padding:8px 12px 12px;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid rgba(255,255,255,.06);flex:none;min-height:0;transition:max-height .3s}
+.yc-opt{padding:7px 13px;border:1px solid rgba(255,255,255,.16);border-radius:999px;font-size:12.5px;font-family:inherit;color:var(--muted);background:transparent;cursor:pointer;transition:all .22s;text-align:left;line-height:1.3}
+.yc-opt:hover{border-color:var(--accent);color:var(--accent2);background:rgba(255,91,31,.08)}
+#yc-inp-row{display:none;padding:10px 12px 12px;border-top:1px solid rgba(255,255,255,.06);gap:8px;align-items:flex-end}
+#yc-inp-row.on{display:flex}
+#yc-inp{flex:1;background:var(--ink2);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 12px;color:var(--paper);font:inherit;font-size:13.5px;resize:none;min-height:40px;max-height:90px;outline:none;transition:border-color .2s;overflow-y:auto}
+#yc-inp:focus{border-color:var(--accent)}
+#yc-inp::placeholder{color:var(--muted2)}
+#yc-send{width:38px;height:38px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:grid;place-items:center;flex:none;transition:background .2s,transform .15s}
+#yc-send:hover{background:var(--accent2);transform:scale(1.08)}
+#yc-send svg{width:15px;height:15px;color:#fff}
+#yc-lead-form{display:none;flex-direction:column;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.06)}
+#yc-lead-form.on{display:flex}
+#yc-lead-form input{background:var(--ink2);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 12px;color:var(--paper);font:inherit;font-size:13.5px;outline:none;transition:border-color .2s}
+#yc-lead-form input:focus{border-color:var(--accent)}
+#yc-lead-form input::placeholder{color:var(--muted2)}
+#yc-lead-form button{padding:11px;border-radius:999px;background:var(--accent);color:#fff;border:none;cursor:pointer;font:inherit;font-size:14px;font-weight:600;transition:background .2s}
+#yc-lead-form button:hover{background:var(--accent2)}
+#yc-lead-form button:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:880px){
+  #yc-btn{bottom:calc(76px + env(safe-area-inset-bottom));left:16px;width:52px;height:52px}
+  #yc-win{left:12px;right:12px;width:auto;bottom:calc(140px + env(safe-area-inset-bottom));max-height:60vh}
+}
+@media(max-width:400px){#yc-win{left:8px;right:8px}}
+</style>
+
+<button id="yc-btn" aria-label="Chat with YEINC AI">
+  <div class="yc-pulse-ring"></div>
+  <span class="yc-notif" id="yc-notif"></span>
+  <svg class="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+</button>
+
+<div id="yc-win" role="dialog" aria-label="YEINC AI Chat">
+  <div id="yc-head">
+    <div class="yc-av">
+      <svg viewBox="0 0 140 150" fill="currentColor"><polygon points="61,44 61,129 79,129 79,44"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32"/><polygon points="70,65 122,65 122,47 70,47"/><polygon points="70,97 112,97 112,79 70,79"/><polygon points="70,129 122,129 122,111 70,111"/></svg>
+    </div>
+    <div class="yc-nt">
+      <div class="yc-nm">YEINC Assistant</div>
+      <div class="yc-st">Online now</div>
+    </div>
+  </div>
+  <div id="yc-msgs"></div>
+  <div id="yc-opts"></div>
+  <div id="yc-inp-row">
+    <textarea id="yc-inp" placeholder="Type a message…" rows="1"></textarea>
+    <button id="yc-send" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+  <div id="yc-lead-form">
+    <input type="text" id="yc-name" placeholder="Your name" autocomplete="given-name">
+    <input type="text" id="yc-contact" placeholder="Phone or email" autocomplete="tel">
+    <button id="yc-submit">Send to Balkar →</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var btn=document.getElementById('yc-btn'),
+      win=document.getElementById('yc-win'),
+      msgs=document.getElementById('yc-msgs'),
+      opts=document.getElementById('yc-opts'),
+      inpRow=document.getElementById('yc-inp-row'),
+      inp=document.getElementById('yc-inp'),
+      send=document.getElementById('yc-send'),
+      leadForm=document.getElementById('yc-lead-form'),
+      notif=document.getElementById('yc-notif'),
+      nameI=document.getElementById('yc-name'),
+      contactI=document.getElementById('yc-contact'),
+      submitB=document.getElementById('yc-submit'),
+      open=false, started=false, leadCtx='';
+
+  /* ── Flows ── */
+  var F={
+    start:{
+      msg:"Hey! 👋 I'm the YEINC assistant.
+
+Looking to automate your business, get a website, or have questions?",
+      opts:[
+        {t:"What does YEINC build?",n:"what_we_build"},
+        {t:"Pricing",n:"pricing"},
+        {t:"How fast can you deliver?",n:"timeline"},
+        {t:"I want to get started",n:"get_started"}
+      ]
+    },
+    what_we_build:{
+      msg:"We install AI-powered business operating systems.
+
+That means: premium website + AI chat agent (24/7) + CRM pipeline + automated lead follow-up + booking and quote workflows — all connected.
+
+Not just a website. The full engine behind your business.",
+      opts:[
+        {t:"How much does it cost?",n:"pricing"},
+        {t:"Who do you work with?",n:"who_we_serve"},
+        {t:"Book a discovery call",n:"get_started"}
+      ]
+    },
+    pricing:{
+      msg:"Three tiers:
+
+🔹 Starter — $1,500 CAD
+Website + AI chat agent
+
+🔸 Growth — $3,500 CAD
+Website + CRM + automation workflows
+
+⭐ Premium — Custom pricing
+Complete AI business operating system
+
+All quoted upfront. No hourly rates, no surprises.",
+      opts:[
+        {t:"What's in Growth?",n:"growth_details"},
+        {t:"What's Premium?",n:"premium_details"},
+        {t:"How long does it take?",n:"timeline"},
+        {t:"Book a call",n:"get_started"}
+      ]
+    },
+    growth_details:{
+      msg:"Growth package — $3,500 CAD:
+
+✓ Custom mobile-first website
+✓ AI chat agent (24/7 lead capture)
+✓ CRM pipeline setup
+✓ Automated follow-up (SMS + email)
+✓ Quote & booking workflows
+✓ Live in about a week",
+      opts:[
+        {t:"This is what I need",n:"get_started"},
+        {t:"What's the Premium tier?",n:"premium_details"},
+        {t:"Back to pricing",n:"pricing"}
+      ]
+    },
+    premium_details:{
+      msg:"Premium — Complete AI Business OS:
+
+✓ Everything in Growth
+✓ AI voice / receptionist agent
+✓ Client portal
+✓ Reporting dashboards
+✓ Full workflow automation suite
+✓ Ongoing partnership & support
+
+Custom priced based on your business needs.",
+      opts:[
+        {t:"Get a custom quote",n:"get_started"},
+        {t:"Back to pricing",n:"pricing"}
+      ]
+    },
+    timeline:{
+      msg:"Most systems go live in about a week:
+
+📋 Day 1–2 — Audit & design approval
+⚙️ Day 3–6 — Build (site + AI + CRM in parallel)
+🚀 Day 7 — Live, trained, running
+
+Complex automation builds: 10–14 days.",
+      opts:[
+        {t:"What does it cost?",n:"pricing"},
+        {t:"Book a discovery call",n:"get_started"}
+      ]
+    },
+    who_we_serve:{
+      msg:"We work with local service businesses where manual operations leak leads:
+
+🔨 Contractors & trades
+🏥 Clinics & health services
+🏡 Real estate teams
+✂️ Salons & barbershops
+🐾 Pet services
+⚖️ Law firms
+🧹 Cleaning services
+📸 Photographers
+
+If your business runs on phone calls and spreadsheets — we can fix that.",
+      opts:[
+        {t:"What do you build?",n:"what_we_build"},
+        {t:"See pricing",n:"pricing"},
+        {t:"Get started",n:"get_started"}
+      ]
+    },
+    ai_chatbot:{
+      msg:"An AI chat agent is a bot that lives on your website and:
+
+→ Answers common questions instantly (24/7)
+→ Qualifies leads before they reach you
+→ Books appointments automatically
+→ Collects contact info and notifies you
+
+It's the difference between a website that waits and one that works.",
+      opts:[
+        {t:"How much does it cost?",n:"pricing"},
+        {t:"Book a call",n:"get_started"}
+      ]
+    },
+    crm:{
+      msg:"A CRM (Customer Relationship Manager) is a system that:
+
+→ Tracks every lead that contacts you
+→ Shows where each lead is in your pipeline
+→ Triggers automated follow-ups so no one slips through
+→ Gives you a clear view of your revenue pipeline
+
+Most businesses we work with are managing leads in their head or in a spreadsheet — that's costing them money.",
+      opts:[
+        {t:"See pricing",n:"pricing"},
+        {t:"Book a discovery call",n:"get_started"}
+      ]
+    },
+    get_started:{
+      msg:"Let's connect. Drop your name and a phone number or email — Balkar will reach out same day. 👇",
+      opts:[],
+      form:true
+    }
+  };
+
+  /* ── Keyword matching for free-text input ── */
+  var KW=[
+    {r:/pric|cost|how much|\$|dollar|cad/i, n:"pricing"},
+    {r:/time|fast|long|week|day|deliver|quick/i, n:"timeline"},
+    {r:/crm|pipeline|follow.?up|track/i, n:"crm"},
+    {r:/ai|chat.?bot|bot|agent|automat/i, n:"ai_chatbot"},
+    {r:/what.*(you|yeinc|build|do)|what.*offer|service/i, n:"what_we_build"},
+    {r:/who|industry|industries|contractor|clinic|real.?est|salon|barber/i, n:"who_we_serve"},
+    {r:/start|call|quote|book|talk|contact|get start|meet|help/i, n:"get_started"},
+    {r:/growth|middle|2nd|second/i, n:"growth_details"},
+    {r:/premium|full|complete|top/i, n:"premium_details"},
+  ];
+
+  /* ── Helpers ── */
+  function botRow(txt,typing){
+    var row=document.createElement('div');
+    row.className='yc-row';
+    var av=document.createElement('div');
+    av.className='yc-row-av';
+    av.innerHTML='<svg viewBox="0 0 140 150" fill="currentColor"><polygon points="61,44 61,129 79,129 79,44"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32"/><polygon points="70,65 122,65 122,47 70,47"/><polygon points="70,97 112,97 112,79 70,79"/><polygon points="70,129 122,129 122,111 70,111"/></svg>';
+    var bub=document.createElement('div');
+    if(typing){
+      row.className+=' yc-typing';
+      bub.className='yc-bubble b';
+      bub.innerHTML='<span></span><span></span><span></span>';
+    } else {
+      bub.className='yc-bubble b';
+      bub.textContent=txt;
+    }
+    row.appendChild(av);
+    row.appendChild(bub);
+    return row;
+  }
+
+  function userRow(txt){
+    var row=document.createElement('div');
+    row.className='yc-row u';
+    var bub=document.createElement('div');
+    bub.className='yc-bubble u';
+    bub.textContent=txt;
+    row.appendChild(bub);
+    return row;
+  }
+
+  function scrollBot(){msgs.scrollTop=msgs.scrollHeight;}
+
+  function clearOpts(){opts.innerHTML='';opts.style.display='none';}
+  function clearForms(){leadForm.classList.remove('on');inpRow.classList.remove('on');}
+
+  function setOpts(list){
+    clearOpts();
+    if(!list||!list.length){opts.style.display='none';return;}
+    opts.style.display='flex';
+    list.forEach(function(o){
+      var b=document.createElement('button');
+      b.className='yc-opt';
+      b.textContent=o.t;
+      b.onclick=function(){go(o.n,o.t);};
+      opts.appendChild(b);
+    });
+  }
+
+  function showTyping(cb,delay){
+    var t=botRow('',true);
+    msgs.appendChild(t);
+    scrollBot();
+    setTimeout(function(){msgs.removeChild(t);cb();},delay||1100);
+  }
+
+  function go(node,label){
+    if(label){msgs.appendChild(userRow(label));}
+    clearOpts();
+    clearForms();
+    leadCtx=label||node;
+    var f=F[node];
+    if(!f){f=F.start;}
+    showTyping(function(){
+      var row=botRow(f.msg);
+      msgs.appendChild(row);
+      scrollBot();
+      if(f.form){
+        leadForm.classList.add('on');
+      } else {
+        setOpts(f.opts);
+        inpRow.classList.add('on');
+      }
+    }, f.msg.length<80?900:f.msg.length<200?1300:1700);
+  }
+
+  function handleFreeText(txt){
+    txt=txt.trim();
+    if(!txt)return;
+    var match=null;
+    for(var i=0;i<KW.length;i++){if(KW[i].r.test(txt)){match=KW[i].n;break;}}
+    msgs.appendChild(userRow(txt));
+    clearOpts();inpRow.classList.remove('on');
+    if(match){go(match);}
+    else{
+      showTyping(function(){
+        var row=botRow("Good question. Let me connect you with Balkar directly — he can answer anything specific to your business.");
+        msgs.appendChild(row);scrollBot();
+        leadForm.classList.add('on');
+      },900);
+    }
+    inp.value='';
+  }
+
+  /* ── Lead submission ── */
+  submitB.onclick=function(){
+    var name=nameI.value.trim(), contact=contactI.value.trim();
+    if(!name||!contact){nameI.style.borderColor='var(--accent)';contactI.style.borderColor='var(--accent)';return;}
+    submitB.disabled=true;submitB.textContent='Sending…';
+    var body=new FormData();
+    body.append('access_key','f417bccd-cead-46ea-92cf-be784f2861cf');
+    body.append('subject','YEINC Chat Lead: '+name);
+    body.append('name',name);
+    body.append('contact',contact);
+    body.append('context','Chat widget — topic: '+leadCtx);
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:body})
+      .then(function(){
+        leadForm.classList.remove('on');
+        showTyping(function(){
+          msgs.appendChild(botRow("Got it! Balkar will reach out to "+name+" today. 🙌
+
+If it's urgent, text him directly: +1 (672) 258-0656"));
+          scrollBot();
+        },700);
+        nameI.value='';contactI.value='';
+        submitB.disabled=false;submitB.textContent='Send to Balkar →';
+        if(typeof gtag!=='undefined')gtag('event','chat_lead',{name:name,context:leadCtx});
+      })
+      .catch(function(){
+        submitB.disabled=false;submitB.textContent='Send to Balkar →';
+        msgs.appendChild(botRow("Something went wrong. Text Balkar directly: +1 (672) 258-0656"));
+        leadForm.classList.remove('on');scrollBot();
+      });
+  };
+
+  /* ── Send button / Enter key ── */
+  send.onclick=function(){handleFreeText(inp.value);};
+  inp.addEventListener('keydown',function(e){
+    if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();handleFreeText(inp.value);}
+  });
+  inp.addEventListener('input',function(){
+    this.style.height='auto';
+    this.style.height=Math.min(this.scrollHeight,90)+'px';
+  });
+
+  /* ── Open / Close ── */
+  btn.onclick=function(){
+    open=!open;
+    btn.classList.toggle('open',open);
+    win.classList.toggle('open',open);
+    if(open){
+      if(notif)notif.remove();
+      if(!started){started=true;setTimeout(function(){go('start');},320);}
+      setTimeout(function(){inp.focus();},400);
+    }
+  };
+
+  /* ── Auto-ping after 8s if not opened ── */
+  setTimeout(function(){
+    if(!open&&notif&&notif.parentNode){
+      /* already visible — no action needed */
+    }
+  },8000);
+
+})();
+</script>
+
+
 </body>
 </html>
