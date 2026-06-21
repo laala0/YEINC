@@ -444,6 +444,48 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes scrollcue{to{top:42px}}
+
+/* ── SUBNAV ── */
+.subnav{position:fixed;top:72px;left:0;right:0;z-index:58;background:rgba(250,249,246,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transform:translateY(-100%);transition:transform .3s var(--ease);display:none}
+@media(min-width:881px){.subnav{display:block}}
+.subnav-inner{display:flex;align-items:center;height:42px}
+.subnav-inner a{font-size:12.5px;color:var(--muted);font-weight:500;transition:color .15s;padding:0 18px;height:100%;display:flex;align-items:center}
+.subnav-inner a:first-child{padding-left:0}
+.subnav-inner a:hover{color:var(--ink)}
+.subnav-cta{margin-left:auto;background:var(--accent)!important;color:#fff!important;border-radius:999px;padding:6px 18px!important;height:auto!important;font-weight:600;transition:background .15s!important}
+.subnav-cta:hover{background:var(--accent2)!important}
+.subnav.show{transform:none}
+
+/* ── FOUNDER MICRO ── */
+.founder-micro{display:flex;align-items:center;gap:11px;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}
+.founder-micro img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--border-em);flex:none}
+.founder-micro span{font-size:13px;color:var(--muted);font-weight:400;line-height:1.4}
+.founder-micro strong{color:var(--ink);font-weight:500}
+
+/* ── LOGO STRIP ── */
+.logo-strip{border-bottom:1px solid var(--border);background:var(--bg);padding:18px 0}
+.logo-strip>.wrap{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.ls-label{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted2);white-space:nowrap;font-weight:600;flex:none}
+.ls-sep{width:1px;height:18px;background:var(--border);flex:none}
+.ls-logos{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.ls-logos img{height:22px;width:auto;opacity:.3;filter:grayscale(1);transition:opacity .25s}
+.ls-logos img:hover{opacity:.6}
+@media(max-width:600px){.ls-logos img{height:18px}.ls-logos{gap:18px}}
+
+/* ── DEMO SECTION ── */
+.demo-frame{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);background:var(--ink);aspect-ratio:16/9;position:relative;max-width:900px;margin:0 auto}
+.demo-frame iframe{width:100%;height:100%;border:none;display:block}
+.demo-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:var(--ink)}
+.demo-play{width:72px;height:72px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;transition:transform .2s var(--ease),background .15s;padding-left:5px}
+.demo-play:hover{transform:scale(1.1);background:var(--accent2)}
+.demo-caption{font-size:12px;letter-spacing:.12em;color:rgba(255,255,255,.35);text-transform:uppercase}
+.demo-tabs{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.demo-tab{padding:8px 18px;border-radius:999px;font-size:13px;font-weight:500;border:1px solid var(--border-em);color:var(--muted);background:var(--bg);cursor:pointer;transition:border-color .15s,background .15s,color .15s;font-family:inherit}
+.demo-tab.act{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+
+/* ── DASH ROW LIVE PULSE ── */
+@keyframes dashpulse{0%{background:var(--bg2)}45%{background:rgba(255,91,31,.09)}100%{background:var(--bg2)}}
+.dash-row.pulse{animation:dashpulse .9s var(--ease)}
 </style>
 </head>
 <body>
@@ -468,6 +510,15 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     </button>
   </div>
 </nav>
+<div class="subnav" id="subnav">
+  <div class="wrap subnav-inner">
+    <a href="#systems">Systems</a>
+    <a href="#work">Work</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="subnav-cta">Book a call →</a>
+  </div>
+</div>
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="mm-close" id="mmClose" aria-label="Close menu">
@@ -506,6 +557,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
           <div class="pain-item"><span class="px">×</span>Leads that never heard back from you</div>
           <div class="pain-item"><span class="px">×</span>No system tracking who's interested</div>
           <div class="pain-item"><span class="px">×</span>Manual follow-up you never get to</div>
+        </div>
+        <div class="founder-micro">
+          <img src="assets/balkar.png" alt="Balkar Singh — founder of YEINC" loading="lazy">
+          <span>Built &amp; run by <strong>Balkar "Laala" Singh</strong> — real operator, not a faceless agency.</span>
         </div>
       </div>
       <div class="hero-right">
@@ -549,6 +604,18 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
     <div class="stat-item"><div class="sn">~1<em>wk</em></div><div class="sl">System delivery</div></div>
     <div class="stat-item"><div class="sn">$0</div><div class="sl">Hidden fees ever</div></div>
   </div></div>
+</div>
+
+<div class="logo-strip">
+  <div class="wrap">
+    <span class="ls-label">Trusted by</span>
+    <div class="ls-sep"></div>
+    <div class="ls-logos">
+      <img src="assets/afterhour-logo.png" alt="After Hour Barbershop" loading="lazy">
+      <img src="assets/hamsa.png" alt="Hamsa Yoga Studio" loading="lazy">
+      <img src="assets/boss.png" alt="Boss &amp; Friends Construction" loading="lazy">
+    </div>
+  </div>
 </div>
 
 <div class="ticker"><div class="ticker-track" id="tickerTrack">
@@ -829,6 +896,28 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   </div>
 </section>
 
+<section class="block" id="demo" style="background:var(--bg);border-top:1px solid var(--border);padding:clamp(56px,8vw,96px) 0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow"><span class="dot">✦</span> / See it live</span><h2 style="margin-top:16px">Watch the AI<br><span class="serif-accent">in action.</span></h2></div>
+      <p class="sub">Live demo of the AI voice receptionist answering a call. Drop in your screen recording or YouTube link below.</p>
+    </div>
+    <div class="demo-frame reveal">
+      <!-- SWAP THIS: replace .demo-placeholder with your iframe, e.g.:
+           <iframe src="https://www.youtube.com/embed/YOUR_ID" title="YEINC AI Demo" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
+      <div class="demo-placeholder">
+        <button class="demo-play" id="demoPlay" aria-label="Play demo">▶</button>
+        <span class="demo-caption">AI Voice Receptionist — live call demo</span>
+      </div>
+    </div>
+    <div class="demo-tabs">
+      <button class="demo-tab act" data-demo="voice">Voice Receptionist</button>
+      <button class="demo-tab" data-demo="chat">AI Chat Agent</button>
+      <button class="demo-tab" data-demo="crm">CRM Pipeline</button>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="faq" style="background:var(--bg)">
   <div class="wrap">
     <div class="section-head reveal"><div><span class="eyebrow"><span class="dot">08</span> / Common questions</span><h2 style="margin-top:16px">Got questions?<br><span class="serif-accent">Let's clear it up.</span></h2></div></div>
@@ -963,10 +1052,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 (function(){
   const nav=document.getElementById('nav'),prog=document.getElementById('progress'),
         hero=document.getElementById('hero'),fab=document.getElementById('fab'),
-        contactSec=document.getElementById('contact');
+        contactSec=document.getElementById('contact'),subnav=document.getElementById('subnav');
   const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
   requestAnimationFrame(()=>setTimeout(()=>hero.classList.add('lit'),reduceMotion?0:120));
-  function onScroll(){const y=scrollY;nav.classList.toggle('solid',y>40);const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?(y/h)*100:0)+'%';if(fab){const cr=contactSec.getBoundingClientRect();fab.classList.toggle('show',y>innerHeight*.7&&cr.top>innerHeight*.45);}}
+  function onScroll(){const y=scrollY;nav.classList.toggle('solid',y>40);const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?(y/h)*100:0)+'%';if(fab){const cr=contactSec.getBoundingClientRect();fab.classList.toggle('show',y>innerHeight*.7&&cr.top>innerHeight*.45);}if(subnav)subnav.classList.toggle('show',y>innerHeight*.65);}
   addEventListener('scroll',onScroll,{passive:true});onScroll();
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
   document.querySelectorAll('.reveal,[data-stagger]').forEach(el=>io.observe(el));
@@ -997,6 +1086,26 @@ document.querySelectorAll('a[href^="sms:"]').forEach(el=>el.addEventListener('cl
 document.querySelectorAll('a[href^="mailto:"]').forEach(el=>el.addEventListener('click',()=>gev('email_click')));
 document.addEventListener('ye:form_start',()=>gev('form_start'));
 document.addEventListener('ye:form_complete',()=>gev('form_complete',{method:'web3forms'}));
+// Dash card live numbers
+(function(){
+  const rows=[
+    {n:0,base:3,label:'calls answered tonight',max:11},
+    {n:1,base:12,label:'leads captured today',max:26},
+    {n:2,base:8,label:'deals in progress',max:14},
+    {n:3,base:47,label:'follow-ups sent',max:88}
+  ];
+  const counts=rows.map(r=>r.base);
+  function tick(){
+    const r=rows[Math.floor(Math.random()*rows.length)];
+    if(counts[r.n]>=r.max)return;
+    counts[r.n]++;
+    const el=document.querySelector('.dash-row:nth-child('+(r.n+1)+') .dash-row-stat');
+    if(el){el.textContent=counts[r.n]+' '+r.label;const row=el.closest('.dash-row');if(row){row.classList.remove('pulse');void row.offsetWidth;row.classList.add('pulse');}}
+  }
+  setInterval(tick,3200+Math.random()*2400);
+})();
+// Demo tabs
+document.querySelectorAll('.demo-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.demo-tab').forEach(t=>t.classList.remove('act'));tab.classList.add('act');});});
 </script>
 
 <style>
