@@ -761,6 +761,52 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   </div>
 </section>
 
+<style>
+  .cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){.cs-grid{grid-template-columns:1fr}}
+  .cs-card{display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .cs-card:hover{transform:translateY(-4px);box-shadow:0 10px 40px rgba(14,13,11,.12)}
+  .cs-top{padding:22px 24px 0}
+  .cs-card .tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .cs-card h3{font-size:20px;margin:8px 0 14px;color:var(--ink)}
+  .cs-row{padding:12px 24px;border-top:1px solid var(--border);font-size:13.5px;line-height:1.55;color:var(--ink2)}
+  .cs-row b{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-bottom:4px;font-weight:600}
+  .cs-result{margin-top:auto;padding:14px 24px;background:var(--bg2);border-top:1px solid var(--border);font-size:14px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .cs-result .r{color:var(--accent)}
+  .cs-link{padding:14px 24px;border-top:1px solid var(--border);font-size:13px;font-weight:600;color:var(--accent)}
+</style>
+<section class="block" id="results" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow"><span class="dot">✦</span> / Case studies</span><h2 style="margin-top:16px">Real businesses.<br><span class="serif-accent">Real results.</span></h2></div>
+      <p class="sub">Not stock photos — actual local builds, what we changed, and what it did for the owner.</p>
+    </div>
+    <div class="cs-grid reveal" data-stagger>
+      <a class="cs-card" href="https://afterhour-barbershop.vercel.app" target="_blank" rel="noopener">
+        <div class="cs-top"><span class="tag">Barbershop</span><h3>After Hour Barbershop</h3></div>
+        <div class="cs-row"><b>Challenge</b>Walk-ins only, missed after-hours calls, no way to book online.</div>
+        <div class="cs-row"><b>What we built</b>A dark, mobile-first site with online booking built around the chair experience.</div>
+        <div class="cs-result"><span class="r">↑</span> 15+ new bookings a week, online</div>
+        <div class="cs-link">View live site →</div>
+      </a>
+      <a class="cs-card" href="https://hamsa-yoga-studio.vercel.app" target="_blank" rel="noopener">
+        <div class="cs-top"><span class="tag">Wellness</span><h3>Hamsa Yoga Studio</h3></div>
+        <div class="cs-row"><b>Challenge</b>No online presence; schedule and vibe lived only on paper and DMs.</div>
+        <div class="cs-row"><b>What we built</b>A calm, class-schedule-ready site that feels like the practice itself.</div>
+        <div class="cs-result"><span class="r">★</span> Clients compliment it every week</div>
+        <div class="cs-link">View live site →</div>
+      </a>
+      <a class="cs-card" href="https://boss-and-friends-construction.vercel.app" target="_blank" rel="noopener">
+        <div class="cs-top"><span class="tag">Construction</span><h3>Boss &amp; Friends</h3></div>
+        <div class="cs-row"><b>Challenge</b>Word-of-mouth only; nothing to send leads to, no way to look legit fast.</div>
+        <div class="cs-row"><b>What we built</b>A trust-first trades site — services, proof, and a clear path to a quote.</div>
+        <div class="cs-result"><span class="r">↑</span> 2 new contracts in month one</div>
+        <div class="cs-link">View live site →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="testimonials" style="background:var(--bg2);border-top:1px solid var(--border)">
   <div class="wrap">
     <div class="section-head reveal">
@@ -786,6 +832,33 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
       <div class="faq-item"><button class="faq-q">What's included in the Starter tier?<span class="faq-ico">+</span></button><div class="faq-a"><p>The Starter package ($1,500 CAD) includes a custom mobile-first website and an AI chat agent that captures and qualifies leads 24/7, instant lead notifications, booking or contact integration, and 2 weeks of revision support after launch. <a href="#pricing">See full pricing →</a></p></div></div>
       <div class="faq-item"><button class="faq-q">Who owns the site and systems after they're done?<span class="faq-ico">+</span></button><div class="faq-a"><p>You do. 100%. All code, content, and assets are yours. No proprietary platforms, no monthly SaaS lock-in. The Care Plan is optional — it's not a hostage situation.</p></div></div>
     </div>
+  </div>
+</section>
+
+<style>
+  .ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:900px){.ins-grid{grid-template-columns:1fr}}
+  .ins-card{display:flex;flex-direction:column;gap:10px;padding:24px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .35s var(--ease),border-color .35s var(--ease)}
+  .ins-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .ins-card .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .ins-card h3{font-size:17px;line-height:1.3;color:var(--ink)}
+  .ins-card .go{margin-top:auto;font-size:13px;font-weight:600;color:var(--accent)}
+</style>
+<section class="block" id="insights" style="background:var(--bg)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow"><span class="dot">✦</span> / Insights</span><h2 style="margin-top:16px">Guides for Vancouver<br><span class="serif-accent">business owners.</span></h2></div>
+      <p class="sub">Straight answers on websites, costs and AI — no jargon, no agency fluff.</p>
+    </div>
+    <div class="ins-grid reveal" data-stagger>
+      <a class="ins-card" href="blog/website-cost-vancouver/"><span class="k">Pricing guide</span><h3>How much does a website cost in Vancouver?</h3><span class="go">Read →</span></a>
+      <a class="ins-card" href="blog/ai-chatbot-small-business-vancouver/"><span class="k">AI guide</span><h3>AI chatbots for Vancouver small businesses</h3><span class="go">Read →</span></a>
+      <a class="ins-card" href="blog/get-more-clients-from-your-website/"><span class="k">Growth</span><h3>7 reasons your website isn't getting you clients</h3><span class="go">Read →</span></a>
+      <a class="ins-card" href="blog/automate-your-business-vancouver/"><span class="k">Automation</span><h3>How to automate your Vancouver service business</h3><span class="go">Read →</span></a>
+      <a class="ins-card" href="blog/wix-vs-custom-website-vancouver/"><span class="k">Comparison</span><h3>Wix vs custom website: which is worth it?</h3><span class="go">Read →</span></a>
+      <a class="ins-card" href="blog/ai-automation-agency-vancouver/"><span class="k">AI guide</span><h3>Best AI automation agency in Vancouver (2026)</h3><span class="go">Read →</span></a>
+    </div>
+    <div style="margin-top:28px"><a href="blog/" class="btn btn-ghost">Read the blog →</a></div>
   </div>
 </section>
 
@@ -1020,6 +1093,51 @@ document.addEventListener('ye:form_complete',()=>gev('form_complete',{method:'we
   inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();handleFreeText(inp.value);}});
   inp.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,90)+'px';});
   btn.onclick=function(){open=!open;btn.classList.toggle('open',open);win.classList.toggle('open',open);if(open){if(notif)notif.remove();if(!started){started=true;setTimeout(function(){go('start');},320);}setTimeout(function(){inp.focus();},400);}};
+})();
+</script>
+
+<style>
+  #ckBanner{position:fixed;left:16px;right:16px;bottom:16px;z-index:200;max-width:560px;background:var(--bg);border:1px solid var(--border);border-radius:14px;box-shadow:0 18px 60px rgba(14,13,11,.22);padding:22px 24px;display:none}
+  #ckBanner.show{display:block;animation:ckUp .4s var(--ease)}
+  @keyframes ckUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  #ckBanner h4{font-size:16px;color:var(--ink);margin-bottom:6px}
+  #ckBanner p{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:14px}
+  .ck-row{display:flex;gap:10px;flex-wrap:wrap}
+  .ck-btn{padding:11px 18px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--bg);color:var(--ink);transition:.25s}
+  .ck-btn:hover{border-color:var(--ink2)}
+  .ck-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .ck-btn.primary:hover{background:var(--accent2)}
+  .ck-prefs{display:none;margin:12px 0 14px;border-top:1px solid var(--border);padding-top:12px}
+  .ck-prefs.show{display:block}
+  .ck-pref{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--ink2);padding:7px 0}
+  .ck-pref small{color:var(--muted);font-size:11px;display:block}
+</style>
+<div id="ckBanner" role="dialog" aria-label="Privacy">
+  <h4>We value your privacy</h4>
+  <p>We use cookies to improve your experience and analyze traffic. Choose what you're comfortable with.</p>
+  <div class="ck-prefs" id="ckPrefs">
+    <div class="ck-pref"><span>Necessary<small>Required for the site to work.</small></span><span style="font-size:12px;color:var(--muted2)">Always on</span></div>
+    <div class="ck-pref"><span>Analytics<small>Helps us understand visits (Google Analytics).</small></span><label><input type="checkbox" id="ckAnalytics" checked></label></div>
+  </div>
+  <div class="ck-row">
+    <button class="ck-btn primary" data-ck="all">Accept all</button>
+    <button class="ck-btn" data-ck="reject">Reject all</button>
+    <button class="ck-btn" data-ck="customise">Customise</button>
+    <button class="ck-btn" data-ck="save" id="ckSave" style="display:none">Save preferences</button>
+  </div>
+</div>
+<script>
+(function(){
+  var GA='G-Q26TFGCP6T',b=document.getElementById('ckBanner'),pr=document.getElementById('ckPrefs'),sv=document.getElementById('ckSave');
+  function apply(an){window['ga-disable-'+GA]=!an;try{localStorage.setItem('ye-consent',an?'all':'necessary')}catch(e){}}
+  function close(){b.classList.remove('show')}
+  if(!localStorage.getItem('ye-consent')){b.classList.add('show')}else{apply(localStorage.getItem('ye-consent')==='all')}
+  b.addEventListener('click',function(e){var a=e.target.getAttribute('data-ck');if(!a)return;
+    if(a==='all'){apply(true);close()}
+    else if(a==='reject'){apply(false);close()}
+    else if(a==='customise'){pr.classList.add('show');sv.style.display='';}
+    else if(a==='save'){apply(document.getElementById('ckAnalytics').checked);close()}
+  });
 })();
 </script>
 
