@@ -486,6 +486,59 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 /* ── DASH ROW LIVE PULSE ── */
 @keyframes dashpulse{0%{background:var(--bg2)}45%{background:rgba(255,91,31,.09)}100%{background:var(--bg2)}}
 .dash-row.pulse{animation:dashpulse .9s var(--ease)}
+
+/* ── HERO TRACKS ── */
+.hero-tracks{display:flex;gap:20px;flex-wrap:wrap;margin-top:26px}
+.hero-track{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);font-weight:500}
+.htd{width:7px;height:7px;border-radius:50%;flex:none}
+.htd.biz{background:var(--accent)}
+.htd.mis{background:#22c55e}
+
+/* ── DASH TABS ── */
+.dash-tabs{display:flex;border-bottom:1px solid var(--border);margin:-4px 0 16px}
+.dtab{flex:1;background:none;border:0;border-bottom:2px solid transparent;padding:9px 4px;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;font-family:inherit;transition:color .15s,border-color .15s}
+.dtab.act{color:var(--accent);border-bottom-color:var(--accent)}
+.dpane{display:none;flex-direction:column;gap:10px}
+.dpane.on{display:flex}
+
+/* ── MISSION STRIP ── */
+.mission-strip{background:var(--ink);padding:clamp(80px,11vw,128px) 0;position:relative;overflow:hidden}
+.mission-strip::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(255,255,255,.06)}
+.ms-eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.35);font-weight:500}
+.ms-eyebrow .dot{color:var(--accent)}
+.ms-h2{font-size:clamp(30px,5vw,60px);font-weight:600;letter-spacing:-.035em;line-height:.98;color:#fff;margin-top:16px}
+.ms-sub{color:rgba(255,255,255,.45);max-width:380px;font-size:15px;font-weight:400;line-height:1.6}
+.ms-head{display:flex;justify-content:space-between;align-items:flex-end;gap:36px;margin-bottom:clamp(36px,6vw,56px);flex-wrap:wrap}
+.ms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.ms-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.ms-grid{grid-template-columns:1fr}}
+.mc{padding:28px 24px;border:1px solid rgba(255,255,255,.09);border-radius:var(--radius);background:rgba(255,255,255,.03);display:flex;flex-direction:column;gap:14px;transition:border-color .25s,background .25s}
+.mc:hover{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.06)}
+.mc .mc-icon{font-size:24px}
+.mc h3{font-size:17px;color:#fff;font-weight:600;letter-spacing:-.02em}
+.mc p{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.65;font-weight:400}
+.mc .mc-tag{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-top:auto}
+.ms-pledge{margin-top:40px;padding:26px 30px;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.ms-pledge p{font-size:15px;color:rgba(255,255,255,.55);max-width:520px;line-height:1.65}
+.ms-pledge strong{color:#fff;font-weight:500}
+.btn-mis{padding:13px 26px;border-radius:999px;font-size:14px;font-weight:600;border:1px solid rgba(255,255,255,.2);color:#fff;background:transparent;display:inline-flex;align-items:center;gap:10px;transition:border-color .15s,background .15s;cursor:pointer;font-family:inherit;text-decoration:none;min-height:50px}
+.btn-mis:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.38)}
+.btn-mis.primary{background:var(--accent);border-color:var(--accent)}
+.btn-mis.primary:hover{background:var(--accent2)}
+
+/* ── CHAPTERS ── */
+.ch-section{background:var(--bg);border-top:1px solid var(--border);padding:clamp(80px,11vw,128px) 0}
+.ch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+@media(max-width:900px){.ch-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.ch-grid{grid-template-columns:1fr 1fr}}
+.ch-card{padding:22px 18px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);transition:border-color .2s,transform .2s}
+.ch-card:hover{border-color:var(--border-em);transform:translateY(-2px)}
+.ch-flag{font-size:22px;margin-bottom:10px}
+.ch-card h3{font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-.01em;margin-bottom:4px}
+.ch-card p{font-size:12.5px;color:var(--muted);line-height:1.5}
+.ch-status{display:inline-block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-top:10px}
+.ch-status.live{color:#16a34a}
+.ch-status.soon{color:var(--muted2)}
 </style>
 </head>
 <body>
@@ -496,11 +549,11 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   <div class="wrap nav-inner">
     <a href="#top" class="brand">
       <svg class="brand-mark" viewBox="0 0 140 150" aria-hidden="true"><polygon points="61,44 61,129 79,129 79,44" fill="currentColor"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68" fill="currentColor"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32" fill="currentColor"/><polygon points="70,65 122,65 122,47 70,47" fill="currentColor"/><polygon points="70,97 112,97 112,79 70,79" fill="currentColor"/><polygon points="70,129 122,129 122,111 70,111" fill="currentColor"/></svg>
-      <span class="brand-text"><span class="big">YEINC</span><span class="small">AI Systems · Vancouver</span></span>
+      <span class="brand-text"><span class="big">YEINC</span><span class="small">AI · Business &amp; Mission</span></span>
     </a>
     <div class="nav-links">
-      <a href="#systems">Systems</a>
-      <a href="#work">Work</a>
+      <a href="#systems">Business AI</a>
+      <a href="#mission">Mission</a>
       <a href="#pricing">Pricing</a>
       <a href="#founder">About</a>
     </div>
@@ -512,10 +565,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 </nav>
 <div class="subnav" id="subnav">
   <div class="wrap subnav-inner">
-    <a href="#systems">Systems</a>
-    <a href="#work">Work</a>
+    <a href="#systems">Business AI</a>
+    <a href="#mission">Mission</a>
     <a href="#pricing">Pricing</a>
-    <a href="#faq">FAQ</a>
+    <a href="#chapters">Chapters</a>
     <a href="#contact" class="subnav-cta">Book a call →</a>
   </div>
 </div>
@@ -524,16 +577,17 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   <button class="mm-close" id="mmClose" aria-label="Close menu">
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M7 7l14 14M21 7L7 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
   </button>
-  <a href="#systems"><span class="idx">01</span>Systems</a>
-  <a href="#work"><span class="idx">02</span>Work</a>
+  <a href="#systems"><span class="idx">01</span>Business AI</a>
+  <a href="#mission"><span class="idx">02</span>Mission</a>
   <a href="#pricing"><span class="idx">03</span>Pricing</a>
-  <a href="#founder"><span class="idx">04</span>About</a>
+  <a href="#chapters"><span class="idx">04</span>Chapters</a>
+  <a href="#founder"><span class="idx">05</span>About</a>
   <a href="#contact"><span class="idx">→</span>Book a call</a>
 </div>
 
 <div class="avail-bar">
   <span class="adot"></span>
-  <strong>3 system installs open in June 2026</strong> &mdash; <a href="#contact">Claim your spot →</a>
+  <strong>3 business installs open · Mission AI partnerships open</strong> &mdash; <a href="#contact">Get started →</a>
 </div>
 
 <main id="top">
@@ -542,21 +596,21 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-left">
-        <span class="eyebrow"><span class="dot">●</span> AI Systems · Vancouver BC</span>
+        <span class="eyebrow"><span class="dot">●</span> AI · Business &amp; Mission · Canada &amp; Beyond</span>
         <h1>
-          <span class="line"><span>Your website is live.</span></span>
-          <span class="line"><span>Your leads <em class="ac">aren't.</em></span></span>
+          <span class="line"><span>Built for business.</span></span>
+          <span class="line"><span>Given to <em class="ac">everyone.</em></span></span>
         </h1>
-        <p class="lede">Most local businesses already have a website. What they're missing: <strong>an AI that answers after hours</strong>, a CRM tracking every lead, and automation following up before leads go cold. That's what YEINC installs.</p>
+        <p class="lede">YEINC installs AI that captures every lead for your business — and pays bills, delivers groceries, and answers calls for <strong>seniors, nonprofits, and public trusts</strong>. Two tracks. One mission. No one left behind.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Fix the leak <span class="arw">→</span></a>
-          <a href="#systems" class="btn btn-ghost">See what we install</a>
+          <a href="#systems" class="btn btn-primary">For businesses <span class="arw">→</span></a>
+          <a href="#mission" class="btn btn-ghost">For communities</a>
         </div>
-        <div class="pain-list">
-          <div class="pain-item"><span class="px">×</span>Calls going to voicemail after 5pm</div>
-          <div class="pain-item"><span class="px">×</span>Leads that never heard back from you</div>
-          <div class="pain-item"><span class="px">×</span>No system tracking who's interested</div>
-          <div class="pain-item"><span class="px">×</span>Manual follow-up you never get to</div>
+        <div class="hero-tracks">
+          <span class="hero-track"><span class="htd biz"></span>Business AI</span>
+          <span class="hero-track"><span class="htd mis"></span>Nonprofit AI</span>
+          <span class="hero-track"><span class="htd mis"></span>Senior Care AI</span>
+          <span class="hero-track"><span class="htd mis"></span>Public Trust AI</span>
         </div>
         <div class="founder-micro">
           <img src="assets/balkar.jpg" alt="Balkar Singh — founder of YEINC" loading="lazy">
@@ -569,7 +623,11 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
             <div class="dash-dot"></div>
             <div class="dash-title">YEINC System — Running</div>
           </div>
-          <div class="dash-rows">
+          <div class="dash-tabs">
+            <button class="dtab act" data-pane="biz">Business</button>
+            <button class="dtab" data-pane="mis">Mission</button>
+          </div>
+          <div class="dpane on" id="dpane-biz">
             <div class="dash-row">
               <div class="dash-row-icon">📞</div>
               <div class="dash-row-info"><div class="dash-row-name">AI Voice Receptionist</div><div class="dash-row-stat">3 calls answered tonight</div></div>
@@ -588,6 +646,28 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
             <div class="dash-row">
               <div class="dash-row-icon">⚡</div>
               <div class="dash-row-info"><div class="dash-row-name">Lead Automation</div><div class="dash-row-stat">47 follow-ups sent</div></div>
+              <div class="dash-live">Live</div>
+            </div>
+          </div>
+          <div class="dpane" id="dpane-mis">
+            <div class="dash-row">
+              <div class="dash-row-icon">🧾</div>
+              <div class="dash-row-info"><div class="dash-row-name">Bill Payment AI</div><div class="dash-row-stat">127 bills paid this week</div></div>
+              <div class="dash-live">Live</div>
+            </div>
+            <div class="dash-row">
+              <div class="dash-row-icon">🛒</div>
+              <div class="dash-row-info"><div class="dash-row-name">Grocery AI</div><div class="dash-row-stat">43 deliveries scheduled</div></div>
+              <div class="dash-live">Live</div>
+            </div>
+            <div class="dash-row">
+              <div class="dash-row-icon">🏥</div>
+              <div class="dash-row-info"><div class="dash-row-name">Appointment AI</div><div class="dash-row-stat">89 bookings made</div></div>
+              <div class="dash-live">Live</div>
+            </div>
+            <div class="dash-row">
+              <div class="dash-row-icon">🤝</div>
+              <div class="dash-row-info"><div class="dash-row-name">Community Support AI</div><div class="dash-row-stat">214 queries answered</div></div>
               <div class="dash-live">Live</div>
             </div>
           </div>
@@ -619,8 +699,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 </div>
 
 <div class="ticker"><div class="ticker-track" id="tickerTrack">
-  <span class="ticker-item"><b>AI Voice answers calls you'd miss tonight</b><span class="star">✦</span><b>CRM that tracks every lead automatically</b><span class="star">✦</span><b>15+ bookings/wk — After Hour Barbershop</b><span class="star">✦</span><b>Lead automation that follows up while you sleep</b><span class="star">✦</span><b>2 contracts in month 1 — Boss &amp; Friends</b><span class="star">✦</span><b>Your website is live. Your AI layer isn't.</b><span class="star">✦</span><b>Systems live in ~1 week · Vancouver BC</b><span class="star">✦</span></span>
-  <span class="ticker-item"><b>AI Voice answers calls you'd miss tonight</b><span class="star">✦</span><b>CRM that tracks every lead automatically</b><span class="star">✦</span><b>15+ bookings/wk — After Hour Barbershop</b><span class="star">✦</span><b>Lead automation that follows up while you sleep</b><span class="star">✦</span><b>2 contracts in month 1 — Boss &amp; Friends</b><span class="star">✦</span><b>Your website is live. Your AI layer isn't.</b><span class="star">✦</span><b>Systems live in ~1 week · Vancouver BC</b><span class="star">✦</span></span>
+  <span class="ticker-item"><b>AI Voice answers calls you'd miss tonight</b><span class="star">✦</span><b>Grocery AI delivered to 43 seniors this week</b><span class="star">✦</span><b>15+ bookings/wk — After Hour Barbershop</b><span class="star">✦</span><b>Bill Payment AI — 127 bills paid by voice command</b><span class="star">✦</span><b>2 contracts in month 1 — Boss &amp; Friends</b><span class="star">✦</span><b>AI for nonprofits, senior homes, public trusts</b><span class="star">✦</span><b>Systems live in ~1 week · Starting from Canada</b><span class="star">✦</span></span>
+  <span class="ticker-item"><b>AI Voice answers calls you'd miss tonight</b><span class="star">✦</span><b>Grocery AI delivered to 43 seniors this week</b><span class="star">✦</span><b>15+ bookings/wk — After Hour Barbershop</b><span class="star">✦</span><b>Bill Payment AI — 127 bills paid by voice command</b><span class="star">✦</span><b>2 contracts in month 1 — Boss &amp; Friends</b><span class="star">✦</span><b>AI for nonprofits, senior homes, public trusts</b><span class="star">✦</span><b>Systems live in ~1 week · Starting from Canada</b><span class="star">✦</span></span>
 </div></div>
 
 <section class="block" id="problem" style="background:var(--bg2);border-top:1px solid var(--border)">
@@ -680,6 +760,63 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         <div style="font-size:13.5px;color:var(--muted);font-weight:400">Already have a site? We plug in the AI layer. Starting fresh? We build the site too — mobile-first, fast, SEO-ready.</div>
       </div>
       <a href="#work" style="flex:none;font-size:13.5px;font-weight:600;color:var(--accent);white-space:nowrap">See our work →</a>
+    </div>
+  </div>
+</section>
+
+<section class="mission-strip" id="mission">
+  <div class="wrap">
+    <div class="ms-head reveal">
+      <div>
+        <span class="ms-eyebrow"><span class="dot">✦</span> / YEINC Mission</span>
+        <h2 class="ms-h2">AI for the ones<br><span class="serif-accent" style="color:rgba(255,255,255,.6)">who need it most.</span></h2>
+      </div>
+      <p class="ms-sub">We build AI systems for nonprofits, senior homes, and public trusts across Canada — and everywhere next. Voice-activated. Accessible. No tech skills required.</p>
+    </div>
+    <div class="ms-grid reveal" data-stagger>
+      <div class="mc">
+        <div class="mc-icon">🧾</div>
+        <h3>Bill Payment AI</h3>
+        <p>A senior says "pay my hydro bill" — the AI reads it, confirms the amount, and pays it. No computer. No login. Just a voice.</p>
+        <span class="mc-tag">Senior Homes · Nonprofits</span>
+      </div>
+      <div class="mc">
+        <div class="mc-icon">🛒</div>
+        <h3>Grocery & Delivery AI</h3>
+        <p>Order groceries, schedule prescription pickups, and book meal delivery — all by speaking. No app. No account. Just ask.</p>
+        <span class="mc-tag">Senior Care · Public Trusts</span>
+      </div>
+      <div class="mc">
+        <div class="mc-icon">🏥</div>
+        <h3>Appointment AI</h3>
+        <p>Books medical appointments, follow-ups, and transit rides. Sends reminders by call. Works 24/7 in any language we train it on.</p>
+        <span class="mc-tag">Clinics · Nonprofits</span>
+      </div>
+      <div class="mc">
+        <div class="mc-icon">📞</div>
+        <h3>24/7 Community Helpline AI</h3>
+        <p>An AI voice line for your nonprofit that answers questions, routes calls, and collects intake information — even when staff aren't available.</p>
+        <span class="mc-tag">Nonprofits · Public Trusts</span>
+      </div>
+      <div class="mc">
+        <div class="mc-icon">💳</div>
+        <h3>Financial Navigation AI</h3>
+        <p>Helps clients understand bills, track spending, find government benefits they qualify for, and flag unusual charges — by conversation.</p>
+        <span class="mc-tag">Public Trusts · Senior Homes</span>
+      </div>
+      <div class="mc">
+        <div class="mc-icon">🌐</div>
+        <h3>Multilingual Access AI</h3>
+        <p>AI that speaks to your community in their language. Punjabi, Mandarin, Spanish, Tagalog, Hindi — trained on real community needs.</p>
+        <span class="mc-tag">All Mission Partners</span>
+      </div>
+    </div>
+    <div class="ms-pledge reveal">
+      <p><strong>This isn't a product line.</strong> It's a pledge. Every business system YEINC deploys helps fund mission work for a community organization that can't afford enterprise AI. You grow — someone else gets access too.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#contact" class="btn-mis primary">Partner with us →</a>
+        <a href="#contact" class="btn-mis">Apply for mission AI</a>
+      </div>
     </div>
   </div>
 </section>
@@ -959,6 +1096,73 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
   </div>
 </section>
 
+<section class="ch-section" id="chapters">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow"><span class="dot">✦</span> / YEINC Chapters</span><h2 style="margin-top:16px">Bring YEINC to<br><span class="serif-accent">your community.</span></h2></div>
+      <p class="sub">We support modified, localized versions of YEINC — independent chapters, regional franchises, or community-run AI programs built on our systems and adapted for your people.</p>
+    </div>
+    <div class="ch-grid reveal" data-stagger>
+      <div class="ch-card">
+        <div class="ch-flag">🍁</div>
+        <h3>Canada</h3>
+        <p>British Columbia, Alberta, Ontario — senior homes, nonprofits, and businesses.</p>
+        <span class="ch-status live">● Active</span>
+      </div>
+      <div class="ch-card">
+        <div class="ch-flag">🇺🇸</div>
+        <h3>United States</h3>
+        <p>Community nonprofits and service businesses in major metro areas.</p>
+        <span class="ch-status soon">Coming soon</span>
+      </div>
+      <div class="ch-card">
+        <div class="ch-flag">🇬🇧</div>
+        <h3>United Kingdom</h3>
+        <p>Public trust partnerships and age-care AI pilot programs.</p>
+        <span class="ch-status soon">Coming soon</span>
+      </div>
+      <div class="ch-card">
+        <div class="ch-flag">🇳🇬</div>
+        <h3>Nigeria</h3>
+        <p>Youth-led YEINC chapter serving community organizations and local businesses.</p>
+        <span class="ch-status soon">Coming soon</span>
+      </div>
+      <div class="ch-card">
+        <div class="ch-flag">🇮🇳</div>
+        <h3>India</h3>
+        <p>Multilingual senior care AI and nonprofit automation across major cities.</p>
+        <span class="ch-status soon">Coming soon</span>
+      </div>
+      <div class="ch-card">
+        <div class="ch-flag">🇵🇭</div>
+        <h3>Philippines</h3>
+        <p>Community-driven mission AI serving barangay-level nonprofits.</p>
+        <span class="ch-status soon">Coming soon</span>
+      </div>
+      <div class="ch-card">
+        <div class="ch-flag">🇯🇲</div>
+        <h3>Caribbean</h3>
+        <p>Regional chapter in development — public trust and senior care focus.</p>
+        <span class="ch-status soon">Coming soon</span>
+      </div>
+      <div class="ch-card" style="border-style:dashed;display:flex;align-items:center;justify-content:center;text-align:center">
+        <div>
+          <div style="font-size:22px;margin-bottom:10px">🌍</div>
+          <h3 style="font-size:13px;color:var(--muted)">Your city</h3>
+          <a href="#contact" style="font-size:12.5px;font-weight:600;color:var(--accent);margin-top:6px;display:block">Apply to open a chapter →</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:24px 28px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg2);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap" class="reveal">
+      <div>
+        <div style="font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px">Want to run a YEINC chapter?</div>
+        <div style="font-size:13.5px;color:var(--muted);font-weight:400">We support any modified version of YEINC adapted for your region, language, and community — our systems, your leadership.</div>
+      </div>
+      <a href="#contact" style="flex:none;white-space:nowrap" class="btn btn-primary">Apply now <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="contact" style="background:var(--bg2);border-top:1px solid var(--border)">
   <div class="wrap">
     <div class="section-head reveal"><div><span class="eyebrow"><span class="dot">09</span> / Start a project</span><h2 style="margin-top:16px">Ready? Let's build it —<br><span class="serif-accent">reply within the hour.</span></h2></div><p class="sub">Takes 60 seconds. Or skip the form and just text me — I reply same day.</p></div>
@@ -1033,7 +1237,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
       <div>
         <a href="#top" class="brand" style="color:#fff">
           <svg class="brand-mark" viewBox="0 0 140 150" aria-hidden="true"><polygon points="61,44 61,129 79,129 79,44" fill="currentColor"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68" fill="currentColor"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32" fill="currentColor"/><polygon points="70,65 122,65 122,47 70,47" fill="currentColor"/><polygon points="70,97 112,97 112,79 70,79" fill="currentColor"/><polygon points="70,129 122,129 122,111 70,111" fill="currentColor"/></svg>
-          <span class="brand-text"><span class="big" style="color:#fff">YEINC</span><span class="small">AI Systems · Vancouver</span></span>
+          <span class="brand-text"><span class="big" style="color:#fff">YEINC</span><span class="small">AI · Business &amp; Mission</span></span>
         </a>
         <p style="margin-top:18px;max-width:330px;font-weight:400;line-height:1.6;color:rgba(255,255,255,.5)">YEINC installs AI voice receptionists, chatbots, CRM pipelines, and lead automation for contractors, clinics, and service businesses across Vancouver. Built by Balkar (Laala).</p>
       </div>
@@ -1106,6 +1310,8 @@ document.addEventListener('ye:form_complete',()=>gev('form_complete',{method:'we
 })();
 // Demo tabs
 document.querySelectorAll('.demo-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.demo-tab').forEach(t=>t.classList.remove('act'));tab.classList.add('act');});});
+// Dash card Business / Mission tabs
+document.querySelectorAll('.dtab').forEach(tab=>{tab.addEventListener('click',()=>{const pane=tab.dataset.pane;document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('act'));document.querySelectorAll('.dpane').forEach(p=>p.classList.remove('on'));tab.classList.add('act');const el=document.getElementById('dpane-'+pane);if(el)el.classList.add('on');});});
 </script>
 
 <style>
