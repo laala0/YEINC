@@ -191,7 +191,7 @@ section.block{padding:clamp(80px,11vw,128px) 0;position:relative;z-index:3}
 [data-stagger].in>*:nth-child(4){animation-delay:.21s}
 [data-stagger].in>*:nth-child(5){animation-delay:.28s}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.reveal,[data-stagger]>*{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}}
+@media(prefers-reduced-motion:reduce){.reveal,[data-stagger]>*,.dash-row.pulse{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}}
 
 /* ── PAIN CARDS ── */
 .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
@@ -445,6 +445,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes scrollcue{to{top:42px}}
 
+/* ── SCROLL OFFSET for fixed bars ── */
+section[id],div[id="top"]{scroll-margin-top:80px}
+@media(min-width:881px){section[id]{scroll-margin-top:122px}}
+
 /* ── SUBNAV ── */
 .subnav{position:fixed;top:72px;left:0;right:0;z-index:58;background:rgba(250,249,246,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transform:translateY(-100%);transition:transform .3s var(--ease);display:none}
 @media(min-width:881px){.subnav{display:block}}
@@ -452,8 +456,9 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 .subnav-inner a{font-size:12.5px;color:var(--muted);font-weight:500;transition:color .15s;padding:0 18px;height:100%;display:flex;align-items:center}
 .subnav-inner a:first-child{padding-left:0}
 .subnav-inner a:hover{color:var(--ink)}
-.subnav-cta{margin-left:auto;background:var(--accent)!important;color:#fff!important;border-radius:999px;padding:6px 18px!important;height:auto!important;font-weight:600;transition:background .15s!important}
-.subnav-cta:hover{background:var(--accent2)!important}
+.subnav-inner a.subnav-cta{margin-left:auto;background:var(--accent);color:#fff;border-radius:999px;padding:6px 18px;height:auto;font-weight:600;transition:background .15s}
+.subnav-inner a.subnav-cta:hover{background:var(--accent2)}
+nav.solid.sub{border-bottom-color:transparent}
 .subnav.show{transform:none}
 
 /* ── FOUNDER MICRO ── */
@@ -613,7 +618,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
           <span class="hero-track"><span class="htd mis"></span>Public Trust AI</span>
         </div>
         <div class="founder-micro">
-          <img src="assets/balkar.jpg" alt="Balkar Singh — founder of YEINC" loading="lazy">
+          <img src="assets/balkar.jpg" alt="Balkar Singh — founder of YEINC" loading="eager">
           <span>Built &amp; run by <strong>Balkar "Laala" Singh</strong> — real operator, not a faceless agency.</span>
         </div>
       </div>
@@ -950,6 +955,13 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
       </div>
     </div>
     <p class="price-note">Prices in CAD · Quoted up front, no surprises &nbsp;·&nbsp; <strong style="color:var(--accent)">3 spots open in June 2026</strong> &nbsp;·&nbsp; <a href="#contact" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Book a discovery call →</a></p>
+    <div style="margin-top:24px;padding:22px 26px;border:1px solid #22c55e33;border-radius:var(--radius);background:#f0fdf433;display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap" class="reveal">
+      <span style="font-size:22px;flex:none;margin-top:2px">🤝</span>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#16a34a;margin-bottom:4px">Mission AI Pricing — nonprofits, senior homes &amp; public trusts</div>
+        <p style="font-size:13.5px;color:var(--muted);font-weight:400;margin:0;line-height:1.6">Mission track pricing is grant-friendly and set based on your organization's capacity — not a fixed rate. Every business deployment cross-funds a mission partner. <a href="#contact" style="color:#16a34a;text-decoration:underline;text-underline-offset:3px">Apply for Mission AI →</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1065,6 +1077,9 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
       <div class="faq-item"><button class="faq-q">I'm not sure exactly what I need — is that okay?<span class="faq-ico">+</span></button><div class="faq-a"><p>Totally fine. Most clients don't know until we talk. Hit "Book a call," answer the quick questions, and I'll come back with a clear breakdown of what makes sense for your situation. Zero commitment.</p></div></div>
       <div class="faq-item"><button class="faq-q">What's included in the Starter tier?<span class="faq-ico">+</span></button><div class="faq-a"><p>The Starter package ($1,500 CAD) includes a custom mobile-first website and an AI chat agent that captures and qualifies leads 24/7, instant lead notifications, booking or contact integration, and 2 weeks of revision support after launch. <a href="#pricing">See full pricing →</a></p></div></div>
       <div class="faq-item"><button class="faq-q">Who owns the site and systems after they're done?<span class="faq-ico">+</span></button><div class="faq-a"><p>You do. 100%. All code, content, and assets are yours. No proprietary platforms, no monthly SaaS lock-in. The Care Plan is optional — it's not a hostage situation.</p></div></div>
+      <div class="faq-item"><button class="faq-q">How does YEINC help nonprofits and senior homes — and what does it cost?<span class="faq-ico">+</span></button><div class="faq-a"><p>Mission AI is a subsidized track for nonprofits, senior homes, and public trusts. We deploy voice AI that handles bill payment assistance, grocery ordering, appointment booking, and 24/7 helplines — all by voice command. Pricing is grant-friendly and adjusted for your organization's capacity. Apply through the intake form (select "Mission AI") and we'll figure out what's possible together.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Can a nonprofit or senior home get AI even if they have no tech budget?<span class="faq-ico">+</span></button><div class="faq-a"><p>That's exactly who Mission AI is built for. Every business system YEINC deploys helps cross-subsidize mission work. If you qualify as a community partner, we'll work with your available funding — including grants, government programs, or partner contributions. No one gets turned away for budget alone. Book a call and let's see what we can build.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What is a YEINC Chapter and how do I open one?<span class="faq-ico">+</span></button><div class="faq-a"><p>A YEINC Chapter is a localized, independently run version of YEINC — adapted for your city, language, and community. You bring the leadership and relationships; we provide the AI systems, training, and brand framework. Chapters can serve businesses, nonprofits, or both. Apply through the <a href="#chapters">Chapters section</a> — we're actively looking for partners in Canada, USA, UK, Nigeria, India, the Philippines, and the Caribbean.</p></div></div>
     </div>
   </div>
 </section>
@@ -1187,16 +1202,19 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
                 <span class="chip" data-val="CRM Setup"><span class="ce">📊</span>CRM</span>
                 <span class="chip" data-val="Lead Automation"><span class="ce">⚡</span>Automation</span>
                 <span class="chip" data-val="Website"><span class="ce">🌐</span>Website</span>
+                <span class="chip" data-val="Mission AI (nonprofit / senior home)"><span class="ce">🤝</span>Mission AI</span>
                 <span class="chip" data-val="Not sure yet"><span class="ce">🤔</span>Not sure</span>
               </div>
             </div>
             <div class="stepq" data-step="2">
-              <h3>What kind of business?</h3><p class="hint">Helps me tailor the system.</p>
+              <h3>What kind of organization?</h3><p class="hint">Helps me tailor the system.</p>
               <div class="chips" data-single>
                 <span class="chip" data-val="Trades / construction">🔨 Trades</span>
                 <span class="chip" data-val="Clinic / wellness">🏥 Clinic / Wellness</span>
                 <span class="chip" data-val="Barber / salon">💈 Barber / Salon</span>
                 <span class="chip" data-val="Real estate">🏡 Real Estate</span>
+                <span class="chip" data-val="Nonprofit / charity">🤝 Nonprofit</span>
+                <span class="chip" data-val="Senior home / public trust">🧓 Senior Home</span>
                 <span class="chip" data-val="Other">✷ Other</span>
               </div>
             </div>
@@ -1206,6 +1224,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
                 <span class="chip" data-val="Under $1k">Under $1k</span>
                 <span class="chip" data-val="$1k–$3k">$1k–$3k</span>
                 <span class="chip" data-val="$3k+">$3k+</span>
+                <span class="chip" data-val="Grant-funded / mission partner">Grant / Mission</span>
                 <span class="chip" data-val="Not sure">Not sure</span>
               </div>
             </div>
@@ -1259,7 +1278,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
         contactSec=document.getElementById('contact'),subnav=document.getElementById('subnav');
   const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
   requestAnimationFrame(()=>setTimeout(()=>hero.classList.add('lit'),reduceMotion?0:120));
-  function onScroll(){const y=scrollY;nav.classList.toggle('solid',y>40);const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?(y/h)*100:0)+'%';if(fab){const cr=contactSec.getBoundingClientRect();fab.classList.toggle('show',y>innerHeight*.7&&cr.top>innerHeight*.45);}if(subnav)subnav.classList.toggle('show',y>innerHeight*.65);}
+  function onScroll(){const y=scrollY;const subnavVisible=y>innerHeight*.65;nav.classList.toggle('solid',y>40);nav.classList.toggle('sub',subnavVisible);const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?(y/h)*100:0)+'%';if(fab&&contactSec){const cr=contactSec.getBoundingClientRect();fab.classList.toggle('show',y>innerHeight*.7&&cr.top>innerHeight*.45);}if(subnav)subnav.classList.toggle('show',subnavVisible);}
   addEventListener('scroll',onScroll,{passive:true});onScroll();
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
   document.querySelectorAll('.reveal,[data-stagger]').forEach(el=>io.observe(el));
@@ -1292,6 +1311,7 @@ document.addEventListener('ye:form_start',()=>gev('form_start'));
 document.addEventListener('ye:form_complete',()=>gev('form_complete',{method:'web3forms'}));
 // Dash card live numbers
 (function(){
+  const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
   const rows=[
     {n:0,base:3,label:'calls answered tonight',max:11},
     {n:1,base:12,label:'leads captured today',max:26},
@@ -1303,13 +1323,17 @@ document.addEventListener('ye:form_complete',()=>gev('form_complete',{method:'we
     const r=rows[Math.floor(Math.random()*rows.length)];
     if(counts[r.n]>=r.max)return;
     counts[r.n]++;
-    const el=document.querySelector('.dash-row:nth-child('+(r.n+1)+') .dash-row-stat');
-    if(el){el.textContent=counts[r.n]+' '+r.label;const row=el.closest('.dash-row');if(row){row.classList.remove('pulse');void row.offsetWidth;row.classList.add('pulse');}}
+    const el=document.querySelector('.dash-rows .dash-row:nth-child('+(r.n+1)+') .dash-row-stat');
+    if(el){el.textContent=counts[r.n]+' '+r.label;if(!reduceMotion){const row=el.closest('.dash-row');if(row){row.classList.remove('pulse');void row.offsetWidth;row.classList.add('pulse');}}}
   }
   setInterval(tick,3200+Math.random()*2400);
 })();
+// Demo play button
+const demoPlay=document.getElementById('demoPlay');
+if(demoPlay){demoPlay.addEventListener('click',()=>{const cap=demoPlay.closest('.demo-placeholder')?.querySelector('.demo-caption');if(cap)cap.textContent='Video coming soon — text me for a live walkthrough: 672-258-0656';demoPlay.style.opacity='.4';demoPlay.disabled=true;gev('demo_play_click');});}
 // Demo tabs
-document.querySelectorAll('.demo-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.demo-tab').forEach(t=>t.classList.remove('act'));tab.classList.add('act');});});
+const DEMO_LABELS={voice:'AI Voice Receptionist — live call demo',chat:'AI Chat Agent — live conversation demo',crm:'CRM Pipeline — lead tracking demo'};
+document.querySelectorAll('.demo-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.demo-tab').forEach(t=>t.classList.remove('act'));tab.classList.add('act');const cap=document.querySelector('.demo-caption');if(cap)cap.textContent=DEMO_LABELS[tab.dataset.demo]||cap.textContent;});});
 // Dash card Business / Mission tabs
 document.querySelectorAll('.dtab').forEach(tab=>{tab.addEventListener('click',()=>{const pane=tab.dataset.pane;document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('act'));document.querySelectorAll('.dpane').forEach(p=>p.classList.remove('on'));tab.classList.add('act');const el=document.getElementById('dpane-'+pane);if(el)el.classList.add('on');});});
 </script>
