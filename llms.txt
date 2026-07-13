@@ -84,7 +84,7 @@ Most systems go live in approximately one week from project kickoff.
 
 ## Client Results
 
-- **After Hour Barbershop (Vancouver)**: 15+ online bookings per week after YEINC
+- **PB11 The Barber Club (Vancouver)**: 15+ online bookings per week after YEINC
   installed a booking-ready website and AI chat agent. Previously relying on walk-ins
   and Instagram DMs.
 
