@@ -439,11 +439,11 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding:
 @keyframes scrollcue{to{top:42px}}
 
 /* ── SCROLL OFFSET for fixed bars ── */
-section[id],div[id="top"]{scroll-margin-top:80px}
-@media(min-width:881px){section[id]{scroll-margin-top:122px}}
+section[id],div[id="top"],#services{scroll-margin-top:80px}
+@media(min-width:881px){section[id],#services{scroll-margin-top:122px}}
 
 /* ── SUBNAV ── */
-.subnav{position:fixed;top:72px;left:0;right:0;z-index:58;background:rgba(250,249,246,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transform:translateY(-100%);transition:transform .3s var(--ease);display:none}
+.subnav{position:fixed;top:72px;left:0;right:0;z-index:58;background:rgba(250,249,246,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transform:translateY(calc(-100% - 72px));visibility:hidden;transition:transform .3s var(--ease),visibility .3s;display:none}
 @media(min-width:881px){.subnav{display:block}}
 .subnav-inner{display:flex;align-items:center;height:42px}
 .subnav-inner a{font-size:12.5px;color:var(--muted);font-weight:500;transition:color .15s;padding:0 18px;height:100%;display:flex;align-items:center}
@@ -452,7 +452,7 @@ section[id],div[id="top"]{scroll-margin-top:80px}
 .subnav-inner a.subnav-cta{margin-left:auto;background:var(--accent);color:#fff;border-radius:999px;padding:6px 18px;height:auto;font-weight:600;transition:background .15s}
 .subnav-inner a.subnav-cta:hover{background:var(--accent2)}
 nav.solid.sub{border-bottom-color:transparent}
-.subnav.show{transform:none}
+.subnav.show{transform:none;visibility:visible}
 
 /* ── FOUNDER MICRO ── */
 .founder-micro{display:flex;align-items:center;gap:11px;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}
@@ -471,17 +471,6 @@ nav.solid.sub{border-bottom-color:transparent}
 .ls-logos img.pb11{height:30px;opacity:.72;filter:none;border-radius:5px}
 .ls-logos img.pb11:hover{opacity:1}
 @media(max-width:600px){.ls-logos img{height:18px}.ls-logos{gap:18px}}
-
-/* ── DEMO SECTION ── */
-.demo-frame{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);background:var(--ink);aspect-ratio:16/9;position:relative;max-width:900px;margin:0 auto}
-.demo-frame iframe{width:100%;height:100%;border:none;display:block}
-.demo-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:var(--ink)}
-.demo-play{width:72px;height:72px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;transition:transform .2s var(--ease),background .15s;padding-left:5px}
-.demo-play:hover{transform:scale(1.1);background:var(--accent2)}
-.demo-caption{font-size:12px;letter-spacing:.12em;color:rgba(255,255,255,.35);text-transform:uppercase}
-.demo-tabs{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
-.demo-tab{padding:8px 18px;border-radius:999px;font-size:13px;font-weight:500;border:1px solid var(--border-em);color:var(--muted);background:var(--bg);cursor:pointer;transition:border-color .15s,background .15s,color .15s;font-family:inherit}
-.demo-tab.act{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
 
 /* ── DASH ROW LIVE PULSE ── */
 @keyframes dashpulse{0%{background:var(--bg2)}45%{background:rgba(255,91,31,.09)}100%{background:var(--bg2)}}
@@ -713,6 +702,7 @@ nav.solid.sub{border-bottom-color:transparent}
   </div>
 </section>
 
+<span id="services" aria-hidden="true"></span>
 <section class="block" id="systems" style="background:var(--bg)">
   <div class="wrap">
     <div class="section-head reveal">
@@ -1039,28 +1029,6 @@ nav.solid.sub{border-bottom-color:transparent}
   </div>
 </section>
 
-<section class="block" id="demo" style="background:var(--bg);border-top:1px solid var(--border);padding:clamp(56px,8vw,96px) 0">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div><span class="eyebrow"><span class="dot">✦</span> / See it live</span><h2 style="margin-top:16px">Watch the AI<br><span class="serif-accent">in action.</span></h2></div>
-      <p class="sub">Live demo of the AI voice receptionist answering a call. Drop in your screen recording or YouTube link below.</p>
-    </div>
-    <div class="demo-frame reveal">
-      <!-- SWAP THIS: replace .demo-placeholder with your iframe, e.g.:
-           <iframe src="https://www.youtube.com/embed/YOUR_ID" title="YEINC AI Demo" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
-      <div class="demo-placeholder">
-        <button class="demo-play" id="demoPlay" aria-label="Play demo">▶</button>
-        <span class="demo-caption">AI Voice Receptionist — live call demo</span>
-      </div>
-    </div>
-    <div class="demo-tabs">
-      <button class="demo-tab act" data-demo="voice">Voice Receptionist</button>
-      <button class="demo-tab" data-demo="chat">AI Chat Agent</button>
-      <button class="demo-tab" data-demo="crm">CRM Pipeline</button>
-    </div>
-  </div>
-</section>
-
 <section class="block" id="faq" style="background:var(--bg)">
   <div class="wrap">
     <div class="section-head reveal"><div><span class="eyebrow"><span class="dot">08</span> / Common questions</span><h2 style="margin-top:16px">Got questions?<br><span class="serif-accent">Let's clear it up.</span></h2></div></div>
@@ -1322,12 +1290,6 @@ document.addEventListener('ye:form_complete',()=>gev('form_complete',{method:'we
   }
   setInterval(tick,3200+Math.random()*2400);
 })();
-// Demo play button
-const demoPlay=document.getElementById('demoPlay');
-if(demoPlay){demoPlay.addEventListener('click',()=>{const cap=demoPlay.closest('.demo-placeholder')?.querySelector('.demo-caption');if(cap)cap.textContent='Video coming soon — text me for a live walkthrough: 672-258-0656';demoPlay.style.opacity='.4';demoPlay.disabled=true;gev('demo_play_click');});}
-// Demo tabs
-const DEMO_LABELS={voice:'AI Voice Receptionist — live call demo',chat:'AI Chat Agent — live conversation demo',crm:'CRM Pipeline — lead tracking demo'};
-document.querySelectorAll('.demo-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.demo-tab').forEach(t=>t.classList.remove('act'));tab.classList.add('act');const cap=document.querySelector('.demo-caption');if(cap)cap.textContent=DEMO_LABELS[tab.dataset.demo]||cap.textContent;});});
 // Dash card Business / Mission tabs
 document.querySelectorAll('.dtab').forEach(tab=>{tab.addEventListener('click',()=>{const pane=tab.dataset.pane;document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('act'));document.querySelectorAll('.dpane').forEach(p=>p.classList.remove('on'));tab.classList.add('act');const el=document.getElementById('dpane-'+pane);if(el)el.classList.add('on');});});
 </script>
