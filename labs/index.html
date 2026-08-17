@@ -10,6 +10,16 @@
 <meta property="og:description" content="An AI technology venture building the intelligent tools, agents and platforms of the next era." />
 <meta property="og:type" content="website" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 150'%3E%3Cg fill='%236E8BFF'%3E%3Cpolygon points='61,44 61,129 79,129 79,44'/%3E%3Cpolygon points='74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68'/%3E%3Cpolygon points='74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32'/%3E%3Cpolygon points='70,65 122,65 122,47 70,47'/%3E%3Cpolygon points='70,97 112,97 112,79 70,79'/%3E%3Cpolygon points='70,129 122,129 122,111 70,111'/%3E%3C/g%3E%3C/svg%3E" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<link rel="canonical" href="https://yeinc.ca/labs/" />
+<meta property="og:url" content="https://yeinc.ca/labs/" />
+<meta property="og:image" content="https://yeinc.ca/assets/balkar.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="YEInc — Technology Venture" />
+<meta name="twitter:description" content="An AI technology venture building the intelligent tools, agents and platforms of the next era." />
+<meta name="twitter:image" content="https://yeinc.ca/assets/balkar.jpg" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q26TFGCP6T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q26TFGCP6T');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,6 +32,9 @@
     --glow:rgba(110,139,255,.45);
     --grad:linear-gradient(100deg,var(--cyan),var(--accent) 50%,var(--violet));
     --ease:cubic-bezier(.22,.61,.36,1);
+    /* aliases for the shared chat-widget stylesheet, mapped to this page's palette */
+    --ink:var(--bg);--ink2:var(--surface2);--paper:var(--text);
+    --rule-strong:var(--line2);--accent2:var(--cyan);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -156,6 +169,106 @@
   .footer-grid ul{list-style:none}.footer-grid li{padding:7px 0}
   .footer-grid a{color:var(--muted);transition:color .25s}.footer-grid a:hover{color:var(--text)}
   .footer-bottom{padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--muted2)}
+
+/* ── SECTIONS PREVIOUSLY WRITTEN IN TAILWIND (no Tailwind is loaded) ── */
+.lb-sec{padding:96px 0;border-top:1px solid rgba(255,255,255,.05)}
+.lb-wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.lb-narrow{max-width:960px}
+.lb-head{display:flex;flex-direction:column;gap:24px;margin-bottom:48px}
+.lb-head h2{font-size:clamp(34px,5vw,58px);font-weight:800;letter-spacing:-.03em;line-height:1.04;margin-top:12px}
+.lb-head .lb-sub{color:var(--muted);max-width:420px;font-size:14px;line-height:1.65}
+.lb-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.28em;color:var(--accent)}
+.lb-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.18em;transition:color .2s}
+.lb-link:hover{color:var(--text)}
+@media(min-width:700px){
+  .lb-sec{padding:128px 0}
+  .lb-wrap{padding:0 32px}
+  .lb-head{flex-direction:row;align-items:flex-end;justify-content:space-between}
+}
+/* rate card / list rows */
+.lb-rows{list-style:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lb-row{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;padding:22px 8px;border-bottom:1px solid var(--line);transition:background .2s;align-items:center}
+.lb-row:last-child{border-bottom:0}
+.lb-row:hover{background:rgba(255,255,255,.02)}
+.lb-row-n{font-size:13px;color:var(--muted2);font-variant-numeric:tabular-nums}
+.lb-row-b{grid-column:2}
+.lb-row-t{font-size:19px;font-weight:600;line-height:1.3}
+.lb-row-d{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.55}
+.lb-row-m{grid-column:2;display:flex;gap:18px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.lb-row-cta{grid-column:2;margin-top:4px}
+.lb-row-cta a{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--text);transition:color .2s}
+.lb-row:hover .lb-row-cta a{color:var(--accent)}
+@media(min-width:760px){
+  .lb-row{grid-template-columns:44px minmax(0,1fr) 90px 150px auto;gap:16px;padding:26px 12px}
+  .lb-row-b,.lb-row-m,.lb-row-cta{grid-column:auto}
+  .lb-row-m{display:contents}
+  .lb-row-m span{font-size:13px;color:var(--muted);align-self:center}
+  .lb-row-cta{text-align:right;margin-top:0}
+}
+/* portfolio tiles */
+.lb-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.lb-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.lb-grid{grid-template-columns:repeat(3,1fr)}}
+.lb-card{position:relative;aspect-ratio:4/5;border-radius:16px;overflow:hidden;display:block;background:var(--surface);border:1px solid var(--line)}
+.lb-card-bg{position:absolute;inset:0}
+.lb-card-mid{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px}
+.lb-card-mid img{width:44%;max-height:52%;object-fit:contain;filter:drop-shadow(0 18px 32px rgba(0,0,0,.55))}
+.lb-card-tag{position:absolute;top:18px;left:18px;font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:var(--muted);z-index:2}
+.lb-card-meta{position:absolute;left:18px;right:18px;bottom:18px;z-index:2}
+.lb-card-meta h3{font-size:21px;font-weight:600;line-height:1.25}
+.lb-card-meta p{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.5}
+.lb-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,6,11,.92) 0%,rgba(5,6,11,.35) 42%,transparent 68%);z-index:1}
+.lb-card:hover{border-color:var(--line2)}
+/* founder + availability */
+.lb-two{display:grid;grid-template-columns:1fr;gap:22px}
+@media(min-width:900px){.lb-two{grid-template-columns:2fr 1fr}}
+.lb-panel{border:1px solid var(--line);background:rgba(255,255,255,.02);border-radius:16px;padding:28px;transition:border-color .2s}
+.lb-panel:hover{border-color:var(--line2)}
+.lb-founder{display:flex;flex-direction:column;gap:24px}
+@media(min-width:640px){.lb-founder{flex-direction:row}}
+.lb-avatar{width:92px;height:92px;border-radius:16px;overflow:hidden;flex:none;background:var(--surface2)}
+.lb-avatar img{width:100%;height:100%;object-fit:cover;object-position:top}
+.lb-founder h3{font-size:23px;font-weight:600}
+.lb-role{font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);margin-top:5px}
+.lb-quote{margin-top:16px;color:var(--text);opacity:.8;line-height:1.65;font-size:15px}
+.lb-bio{margin-top:12px;font-size:13.5px;color:var(--muted);line-height:1.65}
+.lb-skills{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:7px;font-size:13.5px;color:var(--muted)}
+.lb-skills li{display:flex;align-items:center;gap:9px}
+.lb-skills .a{color:var(--accent)}
+.lb-avail{border-color:rgba(110,139,255,.3);background:rgba(110,139,255,.05);display:flex;flex-direction:column;justify-content:space-between}
+.lb-avail h3{font-size:19px;font-weight:600;line-height:1.35}
+.lb-avail p{margin-top:12px;font-size:13.5px;color:var(--muted);line-height:1.65}
+.lb-btns{margin-top:28px;display:flex;flex-direction:column;gap:11px}
+.lb-btn{display:block;text-align:center;padding:14px 20px;border-radius:999px;font-size:13px;text-transform:uppercase;letter-spacing:.18em;font-weight:500;transition:background .2s,border-color .2s}
+.lb-btn.solid{background:var(--accent);color:#05060B}
+.lb-btn.solid:hover{background:var(--cyan)}
+.lb-btn.ghost{border:1px solid var(--line2);color:var(--text)}
+.lb-btn.ghost:hover{background:rgba(255,255,255,.05)}
+/* form */
+.lb-form{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:640px){.lb-form{grid-template-columns:1fr 1fr}}
+.lb-field{display:flex;flex-direction:column;gap:7px}
+.lb-field.full{grid-column:1/-1}
+.lb-field label{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+.lb-field input,.lb-field select,.lb-field textarea{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:13px 14px;color:var(--text);font-family:inherit;font-size:14px;transition:border-color .15s,box-shadow .15s}
+.lb-field textarea{resize:vertical;min-height:118px}
+.lb-field input:focus,.lb-field select:focus,.lb-field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(110,139,255,.18)}
+.lb-submit{grid-column:1/-1;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:999px;background:var(--accent);color:#05060B;border:0;font-family:inherit;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;cursor:pointer;transition:background .2s}
+.lb-submit:hover{background:var(--cyan)}
+.lb-submit:disabled{opacity:.6;cursor:not-allowed}
+.lb-status{grid-column:1/-1;font-size:13.5px;color:var(--muted);line-height:1.6}
+.lb-status.ok{color:#7ee2a8}
+.lb-status.err{color:#ff9b7a}
+.lb-status.hide{display:none}
+.lb-fineprint{grid-column:1/-1;font-size:12px;color:var(--muted2);line-height:1.6}
+/* closing banner */
+.lb-cta{display:grid;grid-template-columns:1fr;gap:28px;align-items:end;padding:72px 0}
+@media(min-width:760px){.lb-cta{grid-template-columns:2fr 1fr;padding:96px 0}}
+.lb-cta h3{font-size:clamp(28px,4.4vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.06}
+.lb-cta h3 .a{color:var(--accent)}
+.lb-cta h3 .m{color:var(--muted)}
+.lb-cta .lb-btn{justify-self:start;padding:16px 30px}
+@media(min-width:760px){.lb-cta .lb-btn{justify-self:end}}
 </style>
 </head>
 <body>
@@ -168,7 +281,7 @@
       <svg class="brand-mark" viewBox="0 0 140 150" aria-hidden="true"><g fill="currentColor"><polygon points="61,44 61,129 79,129 79,44"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32"/><polygon points="70,65 122,65 122,47 70,47"/><polygon points="70,97 112,97 112,79 70,79"/><polygon points="70,129 122,129 122,111 70,111"/></g></svg>
       <span class="brand-text"><span class="big">YEInc</span><span class="small">Technology Venture</span></span>
     </a>
-    <div class="nav-links"><a href="#vision">Vision</a><a href="#build">What we build</a><a href="#future">Who we build for</a><a href="#principles">Principles</a></div>
+    <div class="nav-links"><a href="#vision">Vision</a><a href="#build">What we build</a><a href="#future">Who we build for</a><a href="#principles">Services</a></div>
     <a href="#connect" class="nav-cta">Get in touch</a>
     <button class="menu-btn" id="menuBtn" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
   </div>
@@ -178,7 +291,7 @@
   <a href="#vision"><span class="idx">01</span>Vision</a>
   <a href="#build"><span class="idx">02</span>What we build</a>
   <a href="#future"><span class="idx">03</span>Who we build for</a>
-  <a href="#principles"><span class="idx">04</span>Principles</a>
+  <a href="#principles"><span class="idx">04</span>Services</a>
   <a href="#connect"><span class="idx">05</span>Get in touch</a>
 </div>
 
@@ -266,157 +379,97 @@
 <section class="block" id="principles">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow"><span class="n">04</span> / How we think</span>
-      <h2>The principles<br>we build by.</h2>
+      <span class="eyebrow"><span class="n">04</span> / Services &amp; rates</span>
+      <h2>What we build,<br>and what it costs.</h2>
     </div>
 
-    <ol class="divide-y divide-white/10 border-y border-white/10">
-      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
-        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">01</div>
-        <div class="col-span-10 sm:col-span-5">
-          <div class="text-xl sm:text-2xl font-semibold">Website Design &amp; Build</div>
-          <div class="text-sm text-white/45 mt-1">Custom, mobile-first — up to 6 sections, contact form, hosting</div>
-        </div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">~1 wk</div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $850 CAD</div>
-        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Start <span aria-hidden>→</span></a></div>
+    <ol class="lb-rows">
+      <li class="lb-row">
+        <div class="lb-row-n">01</div>
+        <div class="lb-row-b"><div class="lb-row-t">Website Design &amp; Build</div><div class="lb-row-d">Custom, mobile-first — up to 6 sections, contact form, hosting</div></div>
+        <div class="lb-row-m"><span>~1 wk</span><span>From $850 CAD</span></div>
+        <div class="lb-row-cta"><a href="#contact">Start <span aria-hidden="true">→</span></a></div>
       </li>
-      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
-        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">02</div>
-        <div class="col-span-10 sm:col-span-5">
-          <div class="text-xl sm:text-2xl font-semibold">Brand &amp; Logo Identity</div>
-          <div class="text-sm text-white/45 mt-1">Logo, colour palette, typography, brand kit</div>
-        </div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">1–2 wks</div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $1,200 CAD</div>
-        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Start <span aria-hidden>→</span></a></div>
+      <li class="lb-row">
+        <div class="lb-row-n">02</div>
+        <div class="lb-row-b"><div class="lb-row-t">Brand &amp; Logo Identity</div><div class="lb-row-d">Logo, colour palette, typography, brand kit</div></div>
+        <div class="lb-row-m"><span>1–2 wks</span><span>From $1,200 CAD</span></div>
+        <div class="lb-row-cta"><a href="#contact">Start <span aria-hidden="true">→</span></a></div>
       </li>
-      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
-        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">03</div>
-        <div class="col-span-10 sm:col-span-5">
-          <div class="text-xl sm:text-2xl font-semibold">Brand + Website Bundle</div>
-          <div class="text-sm text-white/45 mt-1">Full identity kit + custom site — best value package</div>
-        </div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">2–3 wks</div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $1,800 CAD</div>
-        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Start <span aria-hidden>→</span></a></div>
+      <li class="lb-row">
+        <div class="lb-row-n">03</div>
+        <div class="lb-row-b"><div class="lb-row-t">Brand + Website Bundle</div><div class="lb-row-d">Full identity kit plus custom site — best value package</div></div>
+        <div class="lb-row-m"><span>2–3 wks</span><span>From $1,800 CAD</span></div>
+        <div class="lb-row-cta"><a href="#contact">Start <span aria-hidden="true">→</span></a></div>
       </li>
-      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
-        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">04</div>
-        <div class="col-span-10 sm:col-span-5">
-          <div class="text-xl sm:text-2xl font-semibold">AI Chatbot &amp; Automation</div>
-          <div class="text-sm text-white/45 mt-1">Custom AI tools, booking bots, lead capture automation</div>
-        </div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">2–4 wks</div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $1,500 CAD</div>
-        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Start <span aria-hidden>→</span></a></div>
+      <li class="lb-row">
+        <div class="lb-row-n">04</div>
+        <div class="lb-row-b"><div class="lb-row-t">AI Chatbot &amp; Automation</div><div class="lb-row-d">Custom AI tools, booking bots, lead capture automation</div></div>
+        <div class="lb-row-m"><span>2–4 wks</span><span>From $1,500 CAD</span></div>
+        <div class="lb-row-cta"><a href="#contact">Start <span aria-hidden="true">→</span></a></div>
       </li>
-      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
-        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">05</div>
-        <div class="col-span-10 sm:col-span-5">
-          <div class="text-xl sm:text-2xl font-semibold">Online Booking Integration</div>
-          <div class="text-sm text-white/45 mt-1">Calendly, Square, custom booking embedded into your site</div>
-        </div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">3–5 days</div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $450 CAD</div>
-        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Start <span aria-hidden>→</span></a></div>
+      <li class="lb-row">
+        <div class="lb-row-n">05</div>
+        <div class="lb-row-b"><div class="lb-row-t">Online Booking Integration</div><div class="lb-row-d">Calendly, Square, or custom booking embedded into your site</div></div>
+        <div class="lb-row-m"><span>3–5 days</span><span>From $450 CAD</span></div>
+        <div class="lb-row-cta"><a href="#contact">Start <span aria-hidden="true">→</span></a></div>
       </li>
-      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
-        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">06</div>
-        <div class="col-span-10 sm:col-span-5">
-          <div class="text-xl sm:text-2xl font-semibold">Web App &amp; Custom Build</div>
-          <div class="text-sm text-white/45 mt-1">Dashboards, portals, tools — when a website isn't enough</div>
-        </div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">4–10 wks</div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $3,500 CAD</div>
-        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Start <span aria-hidden>→</span></a></div>
+      <li class="lb-row">
+        <div class="lb-row-n">06</div>
+        <div class="lb-row-b"><div class="lb-row-t">Web App &amp; Custom Build</div><div class="lb-row-d">Dashboards, portals, tools — when a website isn't enough</div></div>
+        <div class="lb-row-m"><span>4–10 wks</span><span>From $3,500 CAD</span></div>
+        <div class="lb-row-cta"><a href="#contact">Start <span aria-hidden="true">→</span></a></div>
       </li>
-      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
-        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">07</div>
-        <div class="col-span-10 sm:col-span-5">
-          <div class="text-xl sm:text-2xl font-semibold">SEO &amp; Speed Optimization</div>
-          <div class="text-sm text-white/45 mt-1">Local SEO setup, Core Web Vitals, Google indexing</div>
-        </div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">1 wk</div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $600 CAD</div>
-        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Start <span aria-hidden>→</span></a></div>
+      <li class="lb-row">
+        <div class="lb-row-n">07</div>
+        <div class="lb-row-b"><div class="lb-row-t">SEO &amp; Speed Optimization</div><div class="lb-row-d">Local SEO setup, Core Web Vitals, Google indexing</div></div>
+        <div class="lb-row-m"><span>1 wk</span><span>From $600 CAD</span></div>
+        <div class="lb-row-cta"><a href="#contact">Start <span aria-hidden="true">→</span></a></div>
       </li>
-      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
-        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">08</div>
-        <div class="col-span-10 sm:col-span-5">
-          <div class="text-xl sm:text-2xl font-semibold">Monthly Maintenance</div>
-          <div class="text-sm text-white/45 mt-1">Updates, edits, hosting management, priority support</div>
-        </div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">Ongoing</div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">From $200/mo CAD</div>
-        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Start <span aria-hidden>→</span></a></div>
+      <li class="lb-row">
+        <div class="lb-row-n">08</div>
+        <div class="lb-row-b"><div class="lb-row-t">Monthly Maintenance</div><div class="lb-row-d">Updates, edits, hosting management, priority support</div></div>
+        <div class="lb-row-m"><span>Ongoing</span><span>From $200/mo CAD</span></div>
+        <div class="lb-row-cta"><a href="#contact">Start <span aria-hidden="true">→</span></a></div>
       </li>
-      <li class="group grid grid-cols-12 items-center gap-4 py-7 hover:bg-white/[0.02] transition px-2 sm:px-4">
-        <div class="col-span-2 sm:col-span-1 text-sm text-white/35 tabular-nums">09</div>
-        <div class="col-span-10 sm:col-span-5">
-          <div class="text-xl sm:text-2xl font-semibold">Custom / Let's Talk</div>
-          <div class="text-sm text-white/45 mt-1">Something bigger or different? Tell me what you're building</div>
-        </div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">Flexible</div>
-        <div class="hidden sm:block col-span-2 text-sm text-white/55 tabular-nums">Quote on request</div>
-        <div class="col-span-12 sm:col-span-2 text-right"><a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/85 group-hover:text-accent transition">Start <span aria-hidden>→</span></a></div>
+      <li class="lb-row">
+        <div class="lb-row-n">09</div>
+        <div class="lb-row-b"><div class="lb-row-t">Custom / Let's Talk</div><div class="lb-row-d">Something bigger or different? Tell us what you're building</div></div>
+        <div class="lb-row-m"><span>Flexible</span><span>Quote on request</span></div>
+        <div class="lb-row-cta"><a href="#contact">Start <span aria-hidden="true">→</span></a></div>
       </li>
     </ol>
   </div>
 </section>
 
 <!-- ====== WORK / PORTFOLIO ====== -->
-<section id="work" class="py-24 sm:py-32 border-t border-white/5">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+<section class="lb-sec" id="work">
+  <div class="lb-wrap">
+    <div class="lb-head">
       <div>
-        <div class="text-[11px] uppercase tracking-[0.28em] text-accent">03 / Work</div>
-        <h2 class="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight">Selected portfolio.</h2>
+        <div class="lb-eyebrow">05 / Work</div>
+        <h2>Selected portfolio.</h2>
       </div>
-      <a href="#contact" class="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition uppercase tracking-[0.18em]">All case studies <span aria-hidden>→</span></a>
+      <a href="#contact" class="lb-link">Start a project <span aria-hidden="true">→</span></a>
     </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <a href="https://www.pb11barberclub.ca" target="_blank" rel="noopener" class="work-card relative aspect-[4/5] overflow-hidden rounded-2xl group bg-ink-700">
-        <div class="absolute inset-0" style="background:radial-gradient(120% 80% at 30% 20%, #26242c, #0c0b0f)"></div>
-        <div class="absolute inset-0 veil bg-black opacity-0"></div>
-        <div class="absolute inset-0 gridlines opacity-20"></div>
-        <div class="absolute inset-0 flex items-center justify-center">
-          <img src="../assets/pb11-logo.jpg" alt="PB11 The Barber Club" class="w-2/5 object-contain drop-shadow-2xl" />
-        </div>
-        <div class="absolute top-5 left-5 text-[11px] uppercase tracking-[0.22em] text-white/70">Case 001 · Barbershop</div>
-        <div class="absolute bottom-5 left-5 right-5 work-meta">
-          <div class="text-2xl font-semibold leading-tight">PB11 The Barber Club</div>
-          <div class="text-sm text-white/65 mt-1">↑ 15+ new bookings/week online after launch.</div>
-        </div>
+    <div class="lb-grid">
+      <a class="lb-card" href="https://www.pb11barberclub.ca" target="_blank" rel="noopener">
+        <div class="lb-card-bg" style="background:radial-gradient(120% 80% at 30% 20%,#26242c,#0c0b0f)"></div>
+        <div class="lb-card-mid"><img src="../assets/pb11-logo.jpg" alt="PB11 The Barber Club" loading="lazy"></div>
+        <div class="lb-card-tag">Case 001 · Barbershop</div>
+        <div class="lb-card-meta"><h3>PB11 The Barber Club</h3><p>15+ new bookings a week online after launch.</p></div>
       </a>
-      <a href="https://hamsa-yoga-studio.vercel.app" target="_blank" rel="noopener" class="work-card relative aspect-[4/5] overflow-hidden rounded-2xl group bg-ink-700">
-        <div class="absolute inset-0" style="background:radial-gradient(120% 80% at 60% 20%, #22202a, #0c0b0f)"></div>
-        <div class="absolute inset-0 veil bg-black opacity-0"></div>
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div style="background:#ECE4D6;border-radius:14px;padding:18px 22px;">
-            <img src="../assets/hamsa.png" alt="Hamsa Yoga Studio" class="max-h-20 object-contain" />
-          </div>
-        </div>
-        <div class="absolute top-5 left-5 text-[11px] uppercase tracking-[0.22em] text-white/70">Case 002 · Wellness</div>
-        <div class="absolute bottom-5 left-5 right-5 work-meta">
-          <div class="text-2xl font-semibold leading-tight">Hamsa Yoga Studio</div>
-          <div class="text-sm text-white/65 mt-1">New students booking every week.</div>
-        </div>
+      <a class="lb-card" href="https://hamsa-yoga-studio.vercel.app" target="_blank" rel="noopener">
+        <div class="lb-card-bg" style="background:radial-gradient(120% 80% at 30% 20%,#1d2430,#0c0b0f)"></div>
+        <div class="lb-card-mid"><img src="../assets/hamsa.png" alt="Hamsa Yoga Studio" loading="lazy"></div>
+        <div class="lb-card-tag">Case 002 · Wellness</div>
+        <div class="lb-card-meta"><h3>Hamsa Yoga Studio</h3><p>Class schedule and studio presence, built to match the practice.</p></div>
       </a>
-      <a href="https://boss-and-friends-construction.vercel.app" target="_blank" rel="noopener" class="work-card relative aspect-[4/5] overflow-hidden rounded-2xl group bg-ink-700">
-        <div class="absolute inset-0" style="background:radial-gradient(120% 80% at 50% 80%, #2a2520, #0c0b0f)"></div>
-        <div class="absolute inset-0 veil bg-black opacity-0"></div>
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div style="background:#fff;border-radius:14px;padding:18px 22px;">
-            <img src="../assets/boss.png" alt="Boss & Friends Construction" class="max-h-24 object-contain" />
-          </div>
-        </div>
-        <div class="absolute top-5 left-5 text-[11px] uppercase tracking-[0.22em] text-white/70">Case 003 · Construction</div>
-        <div class="absolute bottom-5 left-5 right-5 work-meta">
-          <div class="text-2xl font-semibold leading-tight">Boss &amp; Friends Construction</div>
-          <div class="text-sm text-white/65 mt-1">↑ 2 new contracts in month 1 after launch.</div>
-        </div>
+      <a class="lb-card" href="https://boss-and-friends-construction.vercel.app" target="_blank" rel="noopener">
+        <div class="lb-card-bg" style="background:radial-gradient(120% 80% at 30% 20%,#2a2620,#0c0b0f)"></div>
+        <div class="lb-card-mid"><img src="../assets/boss.png" alt="Boss &amp; Friends Construction" loading="lazy"></div>
+        <div class="lb-card-tag">Case 003 · Construction</div>
+        <div class="lb-card-meta"><h3>Boss &amp; Friends</h3><p>Two new contracts in the first month after launch.</p></div>
       </a>
     </div>
   </div>
@@ -437,44 +490,40 @@
 </section>
 
 <!-- ====== LEADERSHIP ====== -->
-<section id="careers" class="py-24 sm:py-32 border-t border-white/5">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+<section class="lb-sec" id="careers">
+  <div class="lb-wrap">
+    <div class="lb-head">
       <div>
-        <div class="text-[11px] uppercase tracking-[0.28em] text-accent">05 / Founder</div>
-        <h2 class="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight">Built by one person<br>who ships.</h2>
+        <div class="lb-eyebrow">06 / Founder</div>
+        <h2>Built by one person<br>who ships.</h2>
       </div>
-      <p class="max-w-md text-white/55">No agency overhead. No hand-offs. You work directly with the founder — start to finish.</p>
+      <p class="lb-sub">No agency overhead. No hand-offs. You work directly with the founder — start to finish.</p>
     </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <article class="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] p-7 hover:border-white/25 transition flex flex-col sm:flex-row gap-7">
-        <div class="w-24 h-24 rounded-2xl overflow-hidden flex-none bg-ink-700">
-          <img src="../assets/balkar.jpg" alt="Balkar Singh" class="w-full h-full object-cover object-top" />
-        </div>
+    <div class="lb-two">
+      <article class="lb-panel lb-founder">
+        <div class="lb-avatar"><img src="../assets/balkar.jpg" alt="Balkar Singh" loading="lazy"></div>
         <div>
-          <h3 class="text-2xl font-semibold">Balkar Singh</h3>
-          <div class="text-xs uppercase tracking-[0.2em] text-accent mt-1">Founder &amp; Builder · YE Studio / YEInc.</div>
-          <blockquote class="mt-4 text-white/75 leading-relaxed">&ldquo;I build fast, I build real, and I don&rsquo;t stop until it works.&rdquo;</blockquote>
-          <p class="mt-3 text-sm text-white/55 leading-relaxed">Vancouver-based designer, developer and strategist. Personally built PB11 The Barber Club, Hamsa Yoga Studio and Boss &amp; Friends Construction — from zero to live in under a week each. Every project ships with full code ownership, no lock-in, no BS.</p>
-          <ul class="mt-5 space-y-1.5 text-sm text-white/70">
-            <li class="flex items-center gap-2"><span class="text-accent">→</span> Web design &amp; development</li>
-            <li class="flex items-center gap-2"><span class="text-accent">→</span> Brand &amp; identity</li>
-            <li class="flex items-center gap-2"><span class="text-accent">→</span> AI tools &amp; automation</li>
+          <h3>Balkar Singh</h3>
+          <div class="lb-role">Founder &amp; Builder · YEInc</div>
+          <blockquote class="lb-quote">&ldquo;I build fast, I build real, and I don&rsquo;t stop until it works.&rdquo;</blockquote>
+          <p class="lb-bio">Vancouver-based engineer, designer and strategist. Personally built PB11 The Barber Club, Hamsa Yoga Studio and Boss &amp; Friends Construction — each from zero to live. Every project ships with full code ownership: no lock-in, no proprietary platform.</p>
+          <ul class="lb-skills">
+            <li><span class="a">→</span> Web design &amp; development</li>
+            <li><span class="a">→</span> Brand &amp; identity</li>
+            <li><span class="a">→</span> AI tools &amp; automation</li>
           </ul>
-          <a href="#contact" class="mt-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-white/85 hover:text-accent transition">Start a project →</a>
+          <p style="margin-top:22px"><a href="#contact" class="lb-link" style="color:var(--text)">Start a project <span aria-hidden="true">→</span></a></p>
         </div>
       </article>
-
-      <article class="rounded-2xl border border-accent/30 bg-accent/5 p-7 flex flex-col justify-between">
+      <article class="lb-panel lb-avail">
         <div>
-          <div class="text-[11px] uppercase tracking-[0.28em] text-accent mb-4">Available now</div>
-          <h3 class="text-xl font-semibold leading-snug">3 spots open<br>for June 2026</h3>
-          <p class="mt-3 text-sm text-white/55 leading-relaxed">Taking new projects this month. Once spots are filled, next availability is July.</p>
+          <div class="lb-eyebrow" style="margin-bottom:14px">Availability</div>
+          <h3>Taking on a small number of projects.</h3>
+          <p>Work is deliberately limited so each build gets proper attention. Tell us what you&rsquo;re planning and we&rsquo;ll be straight with you about timing.</p>
         </div>
-        <div class="mt-8 space-y-3">
-          <a href="#contact" class="block w-full text-center px-5 py-3.5 rounded-full bg-accent hover:bg-accent-hover transition text-white text-sm uppercase tracking-[0.18em] font-medium">Start a project →</a>
-          <a href="sms:+16722580656" class="block w-full text-center px-5 py-3.5 rounded-full border border-white/15 hover:bg-white/5 transition text-sm uppercase tracking-[0.18em] text-white/80">Text me directly</a>
+        <div class="lb-btns">
+          <a href="#contact" class="lb-btn solid">Start a project →</a>
+          <a href="sms:+16722580656" class="lb-btn ghost">Text directly</a>
         </div>
       </article>
     </div>
@@ -482,105 +531,78 @@
 </section>
 
 <!-- ====== CONTACT / PARTNERSHIP FORM (mirrors Booking) ====== -->
-<section id="contact" class="py-24 sm:py-32 border-t border-white/5 bg-ink-950/70">
-  <div class="max-w-5xl mx-auto px-5 sm:px-8">
-    <div class="flex items-end justify-between flex-wrap gap-4 mb-12">
+<section class="lb-sec" id="contact" style="background:rgba(10,12,20,.7)">
+  <div class="lb-wrap lb-narrow">
+    <div class="lb-head">
       <div>
-        <div class="text-[11px] uppercase tracking-[0.28em] text-accent">06 / Contact</div>
-        <h2 class="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight">Start a partnership.</h2>
+        <div class="lb-eyebrow">07 / Contact</div>
+        <h2>Start a partnership.</h2>
       </div>
-      <p class="text-white/55 max-w-sm text-sm">Tell us about your ambition. We&rsquo;ll respond within one business day.</p>
+      <p class="lb-sub">Tell us what you&rsquo;re building, and what success looks like. We reply within one business day.</p>
     </div>
-
-    <form id="partnerForm" class="rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-10 space-y-6" novalidate>
-      <div class="grid sm:grid-cols-2 gap-6">
-        <div>
-          <label for="name" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Full Name <span class="text-accent">*</span></label>
-          <input id="name" name="name" type="text" autocomplete="name" required
-            class="w-full bg-transparent border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition" />
-        </div>
-        <div>
-          <label for="company" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Company <span class="text-accent">*</span></label>
-          <input id="company" name="company" type="text" autocomplete="organization" required
-            class="w-full bg-transparent border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition" />
-        </div>
-        <div>
-          <label for="email" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Email <span class="text-accent">*</span></label>
-          <input id="email" name="email" type="email" autocomplete="email" required
-            class="w-full bg-transparent border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition" />
-        </div>
-        <div>
-          <label for="phone" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Phone</label>
-          <input id="phone" name="phone" type="tel" autocomplete="tel"
-            class="w-full bg-transparent border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition" />
-        </div>
-        <div>
-          <label for="engagement" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Engagement <span class="text-accent">*</span></label>
-          <select id="engagement" name="engagement" required
-            class="w-full bg-ink-800 border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition">
+    <form id="partnerForm" class="lb-form">
+      <div class="lb-field"><label for="pf-name">Full name *</label><input id="pf-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="lb-field"><label for="pf-company">Company *</label><input id="pf-company" name="company" type="text" autocomplete="organization" required></div>
+      <div class="lb-field"><label for="pf-email">Email *</label><input id="pf-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="lb-field"><label for="pf-phone">Phone</label><input id="pf-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="lb-field full"><label for="pf-engagement">What do you need? *</label>
+        <select id="pf-engagement" name="engagement" required>
             <option value="">Select an engagement…</option>
-            <option>Venture Building</option>
-            <option>Strategic Capital</option>
-            <option>Engineering Studio</option>
-            <option>Product &amp; Design</option>
-            <option>AI &amp; Data Infrastructure</option>
-            <option>Brand &amp; Go-to-Market</option>
-            <option>Talent &amp; Recruiting</option>
-            <option>Operations Advisory</option>
-            <option>Global Expansion</option>
-          </select>
-        </div>
-        <div>
-          <label for="stage" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Stage</label>
-          <select id="stage" name="stage"
-            class="w-full bg-ink-800 border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition">
-            <option>Pre-product</option><option>MVP / Pre-seed</option><option>Seed</option><option>Series A</option><option>Series B+</option><option>Enterprise</option>
-          </select>
-        </div>
-        <div>
-          <label for="budget" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Budget Range</label>
-          <select id="budget" name="budget"
-            class="w-full bg-ink-800 border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition">
-            <option>&lt; $50k</option><option>$50k – $150k</option><option>$150k – $500k</option><option>$500k – $1M</option><option>$1M+</option>
-          </select>
-        </div>
-        <div>
-          <label for="timing" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Start Timing</label>
-          <select id="timing" name="timing"
-            class="w-full bg-ink-800 border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition">
-            <option>This week</option><option>Within 30 days</option><option>This quarter</option><option>Exploring</option>
-          </select>
-        </div>
+            <option value="Website design & build">Website design & build</option>
+            <option value="Brand & logo identity">Brand & logo identity</option>
+            <option value="Brand + website bundle">Brand + website bundle</option>
+            <option value="AI chatbot & automation">AI chatbot & automation</option>
+            <option value="Online booking integration">Online booking integration</option>
+            <option value="Web app & custom build">Web app & custom build</option>
+            <option value="SEO & speed optimization">SEO & speed optimization</option>
+            <option value="Monthly maintenance">Monthly maintenance</option>
+            <option value="Something else">Something else</option>
+        </select>
       </div>
-      <div>
-        <label for="brief" class="block text-xs uppercase tracking-[0.2em] text-white/55 mb-2">Brief</label>
-        <textarea id="brief" name="brief" rows="5" placeholder="What are you building, and what would success look like in 90 days?"
-          class="w-full bg-transparent border border-white/15 rounded-xl px-4 py-3.5 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition resize-y"></textarea>
+      <div class="lb-field"><label for="pf-stage">Stage</label>
+        <select id="pf-stage" name="stage">
+            <option value="">Prefer not to say</option>
+            <option value="Just an idea">Just an idea</option>
+            <option value="Pre-launch">Pre-launch</option>
+            <option value="Already trading">Already trading</option>
+            <option value="Established business">Established business</option>
+            <option value="Nonprofit / community">Nonprofit / community</option>
+        </select>
       </div>
-
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-2">
-        <p class="text-xs text-white/45">By submitting, you agree to our&nbsp;<a href="#" class="underline underline-offset-2 hover:text-white">terms</a> and&nbsp;<a href="#" class="underline underline-offset-2 hover:text-white">privacy</a>.</p>
-        <button type="submit" id="submitBtn"
-          class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-accent hover:bg-accent-hover transition text-white text-sm uppercase tracking-[0.18em] font-medium disabled:opacity-60 disabled:cursor-not-allowed">
-          <span id="submitLabel">Build the Future</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </button>
+      <div class="lb-field"><label for="pf-budget">Budget</label>
+        <select id="pf-budget" name="budget">
+            <option value="">Not sure yet</option>
+            <option value="Under $1,000">Under $1,000</option>
+            <option value="$1,000 – $3,000">$1,000 – $3,000</option>
+            <option value="$3,000 – $10,000">$3,000 – $10,000</option>
+            <option value="$10,000+">$10,000+</option>
+            <option value="Grant funded">Grant funded</option>
+        </select>
       </div>
-      <div id="formStatus" role="status" aria-live="polite" class="text-sm text-white/70 hidden"></div>
+      <div class="lb-field full"><label for="pf-timing">Timing</label>
+        <select id="pf-timing" name="timing">
+            <option value="">No fixed date</option>
+            <option value="This week">This week</option>
+            <option value="Within 30 days">Within 30 days</option>
+            <option value="This quarter">This quarter</option>
+            <option value="Just exploring">Just exploring</option>
+        </select>
+      </div>
+      <div class="lb-field full"><label for="pf-brief">Brief</label><textarea id="pf-brief" name="brief" rows="5" placeholder="What are you building, and what would success look like in 90 days?"></textarea></div>
+      <button type="submit" class="lb-submit" id="submitBtn"><span id="submitLabel">Build the future</span> <span aria-hidden="true">→</span></button>
+      <div id="formStatus" class="lb-status hide" role="status" aria-live="polite"></div>
+      <p class="lb-fineprint">We use your details only to reply to this enquiry. Prefer to talk first? <a href="sms:+16722580656" style="color:var(--accent)">Text +1 (672) 258-0656</a>.</p>
     </form>
   </div>
 </section>
 
 <!-- ====== BIG CTA BANNER ====== -->
-<section class="border-t border-white/5">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24 grid sm:grid-cols-3 gap-8 items-end">
-    <h3 class="sm:col-span-2 text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.05]">
-      Ambition is our <span class="text-accent">advantage.</span><br>
-      <span class="text-white/55">Let&rsquo;s build what&rsquo;s next.</span>
-    </h3>
-    <a href="#contact" class="justify-self-start sm:justify-self-end inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white text-black hover:bg-white/90 transition text-sm uppercase tracking-[0.18em] font-medium">
-      Start a partnership <span aria-hidden>→</span>
-    </a>
+<section style="border-top:1px solid rgba(255,255,255,.05)">
+  <div class="lb-wrap">
+    <div class="lb-cta">
+      <h3>Ambition is our <span class="a">advantage.</span><br><span class="m">Let&rsquo;s build what&rsquo;s next.</span></h3>
+      <a href="#contact" class="lb-btn solid">Start a partnership →</a>
+    </div>
   </div>
 </section>
 
@@ -594,7 +616,7 @@
         <a href="#top" class="brand" style="color:var(--text)"><svg class="brand-mark" viewBox="0 0 140 150" aria-hidden="true"><g fill="currentColor"><polygon points="61,44 61,129 79,129 79,44"/><polygon points="74.69,36.32 38.69,14.32 29.31,29.68 65.31,51.68"/><polygon points="74.69,51.68 110.69,29.68 101.31,14.32 65.31,36.32"/><polygon points="70,65 122,65 122,47 70,47"/><polygon points="70,97 112,97 112,79 70,79"/><polygon points="70,129 122,129 122,111 70,111"/></g></svg><span class="brand-text"><span class="big">YEInc</span><span class="small">Technology Venture</span></span></a>
         <p style="margin-top:18px;max-width:340px;font-weight:300;line-height:1.6">Building artificial intelligence that elevates what people are capable of. The technology venture of Young Enthusiasts Inc.</p>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="#vision">Vision</a></li><li><a href="#build">What we build</a></li><li><a href="#future">Who we build for</a></li><li><a href="#principles">Principles</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="#vision">Vision</a></li><li><a href="#build">What we build</a></li><li><a href="#future">Who we build for</a></li><li><a href="#principles">Services</a></li></ul></div>
       <div><h4>Connect</h4><ul><li><a href="mailto:yeinq@outlook.com">Email us</a></li><li><a href="https://instagram.com/youngenthusiastsinc" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://yeinc.ca" target="_blank" rel="noopener">YE Studio ↗</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2026 YEInc · Young Enthusiasts Inc.</span><span>Building technology. Elevating futures.</span></div>
@@ -630,18 +652,18 @@
      Floating customer-service chatbot — scripted AI, lead capture
      ═══════════════════════════════════════════════════════════ -->
 <style>
-#yc-btn{position:fixed;bottom:28px;left:28px;z-index:91;width:58px;height:58px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 36px -8px rgba(255,91,31,.8),0 0 0 0 rgba(255,91,31,.4);transition:transform .3s var(--ease),box-shadow .4s;color:#fff;outline:none}
+#yc-btn{position:fixed;bottom:28px;left:28px;z-index:91;width:58px;height:58px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 36px -8px rgba(110,139,255,.8),0 0 0 0 rgba(110,139,255,.4);transition:transform .3s var(--ease),box-shadow .4s;color:#fff;outline:none}
 #yc-btn:hover{transform:scale(1.1)}
 #yc-btn.open svg.ic-chat{display:none}
 #yc-btn:not(.open) svg.ic-close{display:none}
 .yc-pulse-ring{position:absolute;inset:0;border-radius:50%;animation:ycring 2.4s cubic-bezier(.4,0,.6,1) infinite}
-@keyframes ycring{0%{box-shadow:0 0 0 0 rgba(255,91,31,.5)}70%{box-shadow:0 0 0 14px rgba(255,91,31,0)}100%{box-shadow:0 0 0 0 rgba(255,91,31,0)}}
+@keyframes ycring{0%{box-shadow:0 0 0 0 rgba(110,139,255,.5)}70%{box-shadow:0 0 0 14px rgba(110,139,255,0)}100%{box-shadow:0 0 0 0 rgba(110,139,255,0)}}
 .yc-notif{position:absolute;top:-3px;right:-3px;width:16px;height:16px;background:#4ade80;border-radius:50%;border:2px solid var(--ink);animation:ycbounce .6s var(--ease) 1.2s both}
 @keyframes ycbounce{from{transform:scale(0)}to{transform:scale(1)}}
 #yc-win{position:fixed;bottom:100px;left:28px;z-index:91;width:348px;max-height:530px;background:var(--surface);border:1px solid rgba(255,255,255,.13);border-radius:22px;box-shadow:0 32px 96px -16px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.04);display:flex;flex-direction:column;overflow:hidden;transform:translateY(18px) scale(.95);opacity:0;pointer-events:none;transition:transform .38s var(--ease),opacity .3s}
 #yc-win.open{transform:none;opacity:1;pointer-events:auto}
-#yc-head{padding:14px 16px;background:linear-gradient(135deg,rgba(255,91,31,.12),rgba(255,91,31,.04));border-bottom:1px solid rgba(255,255,255,.085);display:flex;align-items:center;gap:11px;flex:none}
-.yc-av{width:40px;height:40px;border-radius:50%;background:rgba(255,91,31,.18);border:1px solid rgba(255,91,31,.4);display:grid;place-items:center;flex:none;box-shadow:0 4px 14px -4px rgba(255,91,31,.5)}
+#yc-head{padding:14px 16px;background:linear-gradient(135deg,rgba(110,139,255,.12),rgba(110,139,255,.04));border-bottom:1px solid rgba(255,255,255,.085);display:flex;align-items:center;gap:11px;flex:none}
+.yc-av{width:40px;height:40px;border-radius:50%;background:rgba(110,139,255,.18);border:1px solid rgba(110,139,255,.4);display:grid;place-items:center;flex:none;box-shadow:0 4px 14px -4px rgba(110,139,255,.5)}
 .yc-av svg{width:19px;height:20px;color:var(--accent)}
 .yc-nt{flex:1;min-width:0}
 .yc-nm{font-size:14px;font-weight:600;color:var(--paper);letter-spacing:-.01em}
@@ -652,7 +674,7 @@
 #yc-msgs::-webkit-scrollbar-thumb{background:var(--rule-strong);border-radius:3px}
 .yc-row{display:flex;align-items:flex-end;gap:7px}
 .yc-row.u{flex-direction:row-reverse}
-.yc-row-av{width:26px;height:26px;border-radius:50%;background:rgba(255,91,31,.15);border:1px solid rgba(255,91,31,.3);display:grid;place-items:center;flex:none}
+.yc-row-av{width:26px;height:26px;border-radius:50%;background:rgba(110,139,255,.15);border:1px solid rgba(110,139,255,.3);display:grid;place-items:center;flex:none}
 .yc-row-av svg{width:12px;height:13px;color:var(--accent)}
 .yc-bubble{max-width:82%;padding:10px 13px;border-radius:16px;font-size:13.5px;line-height:1.55;white-space:pre-wrap;font-family:inherit}
 .yc-bubble.b{background:var(--ink2);color:var(--paper);border-bottom-left-radius:4px}
@@ -664,7 +686,7 @@
 @keyframes ycdot{0%,80%,100%{transform:translateY(0);opacity:.5}40%{transform:translateY(-5px);opacity:1}}
 #yc-opts{padding:8px 12px 12px;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid rgba(255,255,255,.06);flex:none;min-height:0;transition:max-height .3s}
 .yc-opt{padding:7px 13px;border:1px solid rgba(255,255,255,.16);border-radius:999px;font-size:12.5px;font-family:inherit;color:var(--muted);background:transparent;cursor:pointer;transition:all .22s;text-align:left;line-height:1.3}
-.yc-opt:hover{border-color:var(--accent);color:var(--accent2);background:rgba(255,91,31,.08)}
+.yc-opt:hover{border-color:var(--accent);color:var(--accent2);background:rgba(110,139,255,.08)}
 #yc-inp-row{display:none;padding:10px 12px 12px;border-top:1px solid rgba(255,255,255,.06);gap:8px;align-items:flex-end}
 #yc-inp-row.on{display:flex}
 #yc-inp{flex:1;background:var(--ink2);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 12px;color:var(--paper);font:inherit;font-size:13.5px;resize:none;min-height:40px;max-height:90px;outline:none;transition:border-color .2s;overflow-y:auto}
@@ -985,5 +1007,51 @@
 </script>
 
 
+<script>
+// ── analytics helper (matches the rest of the site) ──
+function gev(n,p){if(typeof gtag==='function')gtag('event',n,p||{});}
+document.querySelectorAll('a[href^="sms:"]').forEach(function(a){a.addEventListener('click',function(){gev('text_click',{page:'labs'});});});
+document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){a.addEventListener('click',function(){gev('email_click',{page:'labs'});});});
+
+// ── partner form → Web3Forms (previously had no handler at all) ──
+(function(){
+  var form=document.getElementById('partnerForm'); if(!form) return;
+  var btn=document.getElementById('submitBtn'), label=document.getElementById('submitLabel'),
+      stat=document.getElementById('formStatus');
+  var KEY='f417bccd-cead-46ea-92cf-be784f2861cf';
+  function say(cls,html){stat.className='lb-status '+cls;stat.innerHTML=html;}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=new FormData(form);
+    var name=(f.get('name')||'').trim(), email=(f.get('email')||'').trim(), company=(f.get('company')||'').trim();
+    if(!name||!email||!company||!(f.get('engagement')||'').trim()){
+      say('err','Please fill in name, company, email and what you need.'); return;
+    }
+    btn.disabled=true; label.textContent='Sending…'; say('','Sending…');
+    var msg='Company: '+company+'\nEmail: '+email+'\nPhone: '+((f.get('phone')||'').trim()||'—')+
+            '\nNeeds: '+f.get('engagement')+'\nStage: '+((f.get('stage')||'').trim()||'—')+
+            '\nBudget: '+((f.get('budget')||'').trim()||'—')+'\nTiming: '+((f.get('timing')||'').trim()||'—')+
+            '\n\n'+((f.get('brief')||'').trim()||'(no brief)');
+    fetch('https://api.web3forms.com/submit',{method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({access_key:KEY,subject:'YEInc partnership — '+name+' ('+company+')',
+        name:name,email:email,message:msg,from_name:'YEInc Labs'})})
+    .then(function(r){return r.json();}).then(function(d){
+      if(d.success){
+        form.querySelectorAll('input,select,textarea,button').forEach(function(el){el.disabled=true;});
+        label.textContent='Sent ✓';
+        say('ok','<strong>Sent.</strong> We\'ll come back to you within one business day.');
+        gev('partner_submit',{page:'labs'});
+      } else {
+        btn.disabled=false; label.textContent='Build the future';
+        say('err','Something went wrong. Text +1 (672) 258-0656 and we\'ll pick it up directly.');
+      }
+    }).catch(function(){
+      btn.disabled=false; label.textContent='Build the future';
+      say('err','Network issue. Text +1 (672) 258-0656 and we\'ll pick it up directly.');
+    });
+  });
+})();
+</script>
 </body>
 </html>
