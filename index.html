@@ -184,7 +184,7 @@ section.block{padding:clamp(80px,11vw,128px) 0;position:relative;z-index:3}
 [data-stagger].in>*:nth-child(4){animation-delay:.21s}
 [data-stagger].in>*:nth-child(5){animation-delay:.28s}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.reveal,[data-stagger]>*{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}}
+@media(prefers-reduced-motion:reduce){.reveal,[data-stagger]>*,.p-chunk,.p-ans,.p-turn,.p-fx,.p-check,.p-gate{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}}
 
 /* ── PAIN CARDS ── */
 .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
@@ -479,6 +479,74 @@ nav.solid.sub{border-bottom-color:transparent}
 .htd.biz{background:var(--accent)}
 .htd.mis{background:#22c55e}
 
+/* ── PROOF SUITE ── */
+.proof-shell{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);box-shadow:var(--shadow);overflow:hidden;max-width:1040px;margin:0 auto}
+.proof-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--bg2);overflow-x:auto;scrollbar-width:none}
+.proof-tabs::-webkit-scrollbar{display:none}
+.ptab{flex:1 0 auto;background:none;border:0;border-bottom:2px solid transparent;padding:14px 18px;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer;font-family:inherit;white-space:nowrap;transition:color .15s,border-color .15s,background .15s}
+.ptab:hover{color:var(--ink)}
+.ptab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);background:var(--bg)}
+.ptab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.ppane{display:none;padding:22px}
+.ppane.on{display:block}
+.p-run{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.p-q{padding:7px 14px;border-radius:999px;font-size:12.5px;font-weight:500;border:1px solid var(--border-em);color:var(--muted);background:var(--bg);cursor:pointer;font-family:inherit;transition:border-color .15s,color .15s,background .15s;text-align:left}
+.p-q:hover{color:var(--ink);border-color:var(--muted2)}
+.p-q[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+.p-q:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.p-go{margin-left:auto;padding:8px 18px;border-radius:999px;border:0;background:var(--accent);color:#fff;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s}
+.p-go:hover{background:var(--accent2)}
+.p-go:disabled{opacity:.45;cursor:default}
+.p-go:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.p-stage{display:grid;grid-template-columns:1fr 1fr;gap:16px;min-height:290px}
+@media(max-width:760px){.p-stage{grid-template-columns:1fr;min-height:0}}
+.p-col{border:1px solid var(--border);border-radius:8px;background:var(--bg2);padding:14px;overflow:auto;max-height:340px}
+.p-col h4{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2);font-weight:600;margin:0 0 11px}
+.p-step{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--muted2);padding:6px 0;transition:color .3s}
+.p-step .pnum{width:19px;height:19px;border-radius:50%;border:1px solid var(--border-em);display:flex;align-items:center;justify-content:center;font-size:9.5px;flex:none;transition:background .3s,border-color .3s,color .3s}
+.p-step.act{color:var(--ink)}
+.p-step.act .pnum{background:var(--accent);border-color:var(--accent);color:#fff}
+.p-chunk{border:1px solid var(--border);border-radius:6px;background:var(--bg);padding:10px 11px;margin-bottom:8px;opacity:0;transform:translateY(6px);transition:opacity .35s var(--ease),transform .35s var(--ease),border-color .2s}
+.p-chunk.in{opacity:1;transform:none}
+.p-chunk.hl{border-color:var(--accent);background:var(--accent-bg)}
+.p-chunk-h{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:4px}
+.p-chunk-t{font-size:11px;font-weight:600;color:var(--ink)}
+.p-score{font-size:10px;color:var(--accent);font-variant-numeric:tabular-nums;flex:none}
+.p-chunk-x{font-size:11.5px;color:var(--muted);line-height:1.55}
+.p-ans{font-size:13.5px;line-height:1.65;color:var(--ink);opacity:0;transition:opacity .4s var(--ease)}
+.p-ans.in{opacity:1}
+.p-cite{display:inline-flex;align-items:center;justify-content:center;min-width:16px;height:16px;padding:0 4px;border-radius:4px;background:var(--accent-bg);border:1px solid var(--accent-border);color:var(--accent);font-size:9.5px;font-weight:700;cursor:pointer;vertical-align:super;margin:0 1px;font-family:inherit}
+.p-cite:hover,.p-cite:focus-visible{background:var(--accent);color:#fff;outline:none}
+.p-refuse{border-left:2px solid var(--accent);padding-left:11px;color:var(--ink2)}
+.p-turn{margin-bottom:11px;opacity:0;transform:translateY(6px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.p-turn.in{opacity:1;transform:none}
+.p-who{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);font-weight:600;margin-bottom:3px}
+.p-said{font-size:12.5px;line-height:1.6;color:var(--ink2);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:8px 10px}
+.p-turn.ai .p-said{background:var(--accent-bg);border-color:var(--accent-border)}
+.p-fx{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:1px solid var(--border);opacity:.32;transition:opacity .35s}
+.p-fx:last-child{border-bottom:0}
+.p-fx.on{opacity:1}
+.p-fx-i{width:22px;height:22px;border-radius:5px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:11px;flex:none;transition:background .35s}
+.p-fx.on .p-fx-i{background:var(--accent-bg)}
+.p-fx-n{font-size:11.5px;font-weight:600;color:var(--ink)}
+.p-fx-d{font-size:11px;color:var(--muted);line-height:1.5;margin-top:1px}
+.p-fx-s{margin-left:auto;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);flex:none;padding-top:2px}
+.p-fx.on .p-fx-s{color:#16a34a}
+.p-check{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);opacity:0;transform:translateX(-5px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.p-check:last-child{border-bottom:0}
+.p-check.in{opacity:1;transform:none}
+.p-mark{width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex:none;color:#fff}
+.p-mark.pass{background:#16a34a}
+.p-mark.fail{background:var(--accent2)}
+.p-check-n{font-size:12px;font-weight:600;color:var(--ink)}
+.p-check-d{font-size:11px;color:var(--muted);line-height:1.5;margin-top:2px}
+.p-gate{margin-top:14px;padding:11px 13px;border-radius:7px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:9px;opacity:0;transition:opacity .35s}
+.p-gate.in{opacity:1}
+.p-gate.pass{background:#f0fdf4;border:1px solid #22c55e40;color:#15803d}
+.p-gate.fail{background:var(--accent-bg);border:1px solid var(--accent-border);color:var(--accent2)}
+.p-note{margin-top:14px;padding-top:13px;border-top:1px solid var(--border);font-size:11px;color:var(--muted2);line-height:1.6;display:flex;gap:8px;align-items:flex-start}
+.p-note b{color:var(--muted);font-weight:600}
+
 /* ── DASH TABS ── */
 .dash-tabs{display:flex;border-bottom:1px solid var(--border);margin:-4px 0 16px}
 .dtab{flex:1;background:none;border:0;border-bottom:2px solid transparent;padding:9px 4px;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;font-family:inherit;transition:color .15s,border-color .15s}
@@ -698,6 +766,59 @@ nav.solid.sub{border-bottom-color:transparent}
       <div class="pain-card"><div class="pn">02 / Integration</div><h3>It never touches your systems</h3><p>A chat window that can't write to your scheduler, your CRM, or your case management system is a toy. The work is in the plumbing, the auth, and the edge cases nobody demos.</p></div>
       <div class="pain-card"><div class="pn">03 / Evaluation</div><h3>No one can prove it still works</h3><p>Without a test suite over real cases, every prompt change is a gamble. Teams stall at the pilot because they cannot answer "how do you know it didn't get worse?"</p></div>
       <div class="pain-card"><div class="pn">04 / Handover</div><h3>It leaves when the consultant does</h3><p>A system only your vendor understands is a system you don't own. If your team can't read it, run it, and change it, you've bought a dependency.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="proof" style="background:var(--bg);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow"><span class="dot">02</span> / See it work</span><h2 style="margin-top:16px">Don't take my<br><span class="serif-accent">word for it.</span></h2></div>
+      <p class="sub">Three things that decide whether an AI system survives contact with real users. Run them yourself — every control below is live.</p>
+    </div>
+    <div class="proof-shell reveal">
+      <div class="proof-tabs" role="tablist" aria-label="Interactive demonstrations">
+        <button class="ptab" role="tab" id="ptab-rag" aria-controls="ppane-rag" aria-selected="true">1 · Grounded answers</button>
+        <button class="ptab" role="tab" id="ptab-call" aria-controls="ppane-call" aria-selected="false" tabindex="-1">2 · Call → systems</button>
+        <button class="ptab" role="tab" id="ptab-eval" aria-controls="ppane-eval" aria-selected="false" tabindex="-1">3 · Evals &amp; guardrails</button>
+      </div>
+
+      <div class="ppane on" id="ppane-rag" role="tabpanel" aria-labelledby="ptab-rag">
+        <p class="p-intro" style="font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.6">Ask a question against a small set of policy documents. Watch which passages get retrieved, how they're scored, and how the answer cites them. <strong style="color:var(--ink);font-weight:500">Try the third question</strong> — the answer isn't in the documents.</p>
+        <div class="p-run" id="rag-qs"></div>
+        <div class="p-stage">
+          <div class="p-col">
+            <h4>Retrieval</h4>
+            <div id="rag-steps"></div>
+            <div id="rag-chunks" style="margin-top:12px"></div>
+          </div>
+          <div class="p-col">
+            <h4>Answer</h4>
+            <div class="p-ans" id="rag-ans"></div>
+          </div>
+        </div>
+        <div class="p-note"><span>ⓘ</span><span><b>Scripted walkthrough.</b> Fixed data, no model running in your browser. The retrieval scores and citation behaviour mirror how the real systems are built — including the refusal case.</span></div>
+      </div>
+
+      <div class="ppane" id="ppane-call" role="tabpanel" aria-labelledby="ptab-call" hidden>
+        <p class="p-intro" style="font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.6">A caller books an appointment. The transcript plays on the left; on the right, watch each system get written to as the call progresses. This integration layer is where most projects stall.</p>
+        <div class="p-run"><button class="p-go" id="call-go">Play call</button></div>
+        <div class="p-stage">
+          <div class="p-col"><h4>Transcript</h4><div id="call-turns"></div></div>
+          <div class="p-col"><h4>Systems of record</h4><div id="call-fx"></div></div>
+        </div>
+        <div class="p-note"><span>ⓘ</span><span><b>Scripted walkthrough.</b> No live telephony or calendar is connected to this page. It illustrates the sequence and the audit trail a real deployment produces.</span></div>
+      </div>
+
+      <div class="ppane" id="ppane-eval" role="tabpanel" aria-labelledby="ptab-eval" hidden>
+        <p class="p-intro" style="font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.6">Before any response reaches a user it's scored against a rubric. Toggle between a good answer and a bad one to watch the harness catch the failure and block it.</p>
+        <div class="p-run" id="eval-cases"></div>
+        <div class="p-stage">
+          <div class="p-col"><h4>Candidate response</h4><div class="p-said" id="eval-resp" style="font-size:12.5px"></div><div class="p-gate" id="eval-gate"></div></div>
+          <div class="p-col"><h4>Rubric</h4><div id="eval-checks"></div></div>
+        </div>
+        <div class="p-note"><span>ⓘ</span><span><b>Scripted walkthrough.</b> Fixed cases, no model running. Real eval suites run hundreds of cases like these in CI and block a release on regression.</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1146,6 +1267,196 @@ document.querySelectorAll('a[href^="sms:"]').forEach(el=>el.addEventListener('cl
 document.querySelectorAll('a[href^="mailto:"]').forEach(el=>el.addEventListener('click',()=>gev('email_click')));
 document.addEventListener('ye:form_start',()=>gev('form_start'));
 document.addEventListener('ye:form_complete',()=>gev('form_complete',{method:'web3forms'}));
+// ── PROOF SUITE ──────────────────────────────────────────────
+(function(){
+  var shell=document.querySelector('.proof-shell'); if(!shell) return;
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var timers=[];
+  function clearT(){timers.forEach(clearTimeout);timers=[];}
+  function at(ms,fn){ if(reduce){fn();} else {timers.push(setTimeout(fn,ms));} }
+  function el(t,c,x){var n=document.createElement(t);if(c)n.className=c;if(x!=null)n.textContent=x;return n;}
+
+  /* ---- tabs ---- */
+  var tabs=[].slice.call(shell.querySelectorAll('.ptab'));
+  function selectTab(i){
+    clearT();
+    tabs.forEach(function(t,j){
+      var on=i===j, pane=document.getElementById(t.getAttribute('aria-controls'));
+      t.setAttribute('aria-selected',on?'true':'false');
+      t.tabIndex=on?0:-1;
+      pane.classList.toggle('on',on);
+      if(on){pane.removeAttribute('hidden');}else{pane.setAttribute('hidden','');}
+    });
+    [runRag,runCall,runEval][i]();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){selectTab(i);gev('proof_tab',{tab:t.id});});
+    t.addEventListener('keydown',function(e){
+      var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+      if(!d)return; e.preventDefault();
+      var n=(i+d+tabs.length)%tabs.length; tabs[n].focus(); selectTab(n);
+    });
+  });
+
+  /* ---- 1. grounded retrieval ---- */
+  var DOCS={
+    d1:{t:'Remote Work Policy §4.2',x:'Employees may work remotely up to three days per week with written manager approval. Fully remote arrangements require director sign-off and an annual review.'},
+    d2:{t:'Remote Work Policy §4.5',x:'Remote work equipment is reimbursed up to $1,200 per employee every two years. Claims must be submitted within 60 days of purchase.'},
+    d3:{t:'Travel & Expense Policy §2.1',x:'Pre-approval is required for any expense above $500. Receipts must accompany all claims regardless of amount.'},
+    d4:{t:'Onboarding Handbook §7',x:'New hires complete security training within the first ten business days. Access to production systems is granted only after completion.'}
+  };
+  var QUERIES=[
+    {q:'How many days a week can staff work remotely?',
+     hits:[['d1',0.94],['d2',0.41]],
+     ans:[['Up to three days per week, with written manager approval.',null],['',1],[' Fully remote arrangements need director sign-off and get reviewed annually.',null],['',1]]},
+    {q:'What is the equipment reimbursement limit?',
+     hits:[['d2',0.96],['d3',0.52],['d1',0.38]],
+     ans:[['Employees can claim up to $1,200 every two years for remote work equipment.',null],['',1],[' Claims must be filed within 60 days of purchase.',null],['',1],[' Note that anything above $500 also needs pre-approval.',null],['',2]]},
+    {q:'What is the parental leave entitlement?',
+     hits:[['d1',0.19],['d4',0.16]],
+     refuse:'I can’t answer that from the documents provided. Nothing in this document set covers parental leave — the closest matches are the remote work policy and the onboarding handbook, neither of which addresses it. Rather than infer an answer, this should be routed to HR or the policy owner.'}
+  ];
+  var ragSel=0;
+  var ragQs=document.getElementById('rag-qs');
+  QUERIES.forEach(function(Q,i){
+    var b=el('button','p-q',Q.q); b.type='button'; b.setAttribute('aria-pressed',i===0?'true':'false');
+    b.addEventListener('click',function(){ragSel=i;runRag();gev('proof_rag',{q:i});});
+    ragQs.appendChild(b);
+  });
+  function runRag(){
+    clearT();
+    var Q=QUERIES[ragSel];
+    [].forEach.call(ragQs.children,function(c,i){c.setAttribute('aria-pressed',i===ragSel?'true':'false');});
+    var steps=document.getElementById('rag-steps'), chunks=document.getElementById('rag-chunks'), ans=document.getElementById('rag-ans');
+    steps.innerHTML='';chunks.innerHTML='';ans.innerHTML='';ans.classList.remove('in');
+    var names=['Embed query','Retrieve passages','Rank by relevance',Q.refuse?'No passage clears threshold':'Ground and compose'];
+    var sEls=names.map(function(n,i){
+      var d=el('div','p-step'); d.appendChild(el('span','pnum',String(i+1))); d.appendChild(el('span',null,n));
+      steps.appendChild(d); return d;
+    });
+    names.forEach(function(_,i){ at(320*(i+1),function(){sEls[i].classList.add('act');}); });
+    at(700,function(){
+      Q.hits.forEach(function(h,i){
+        var D=DOCS[h[0]];
+        var c=el('div','p-chunk'); c.id='chunk-'+ragSel+'-'+i;
+        var hd=el('div','p-chunk-h'); hd.appendChild(el('span','p-chunk-t',D.t)); hd.appendChild(el('span','p-score',h[1].toFixed(2)));
+        c.appendChild(hd); c.appendChild(el('div','p-chunk-x',D.x));
+        chunks.appendChild(c);
+        at(140*i,function(){c.classList.add('in');});
+      });
+    });
+    at(1500,function(){
+      if(Q.refuse){
+        var w=el('div','p-refuse'); w.appendChild(el('div',null,Q.refuse));
+        ans.appendChild(w);
+      } else {
+        Q.ans.forEach(function(part){
+          if(part[1]==null){ ans.appendChild(document.createTextNode(part[0])); }
+          else {
+            var n=part[1], b=el('button','p-cite',String(n)); b.type='button';
+            b.setAttribute('aria-label','Show source '+n);
+            var target='chunk-'+ragSel+'-'+(n-1);
+            function hl(on){var t=document.getElementById(target); if(t)t.classList.toggle('hl',on);}
+            b.addEventListener('mouseenter',function(){hl(true);});
+            b.addEventListener('mouseleave',function(){hl(false);});
+            b.addEventListener('focus',function(){hl(true);});
+            b.addEventListener('blur',function(){hl(false);});
+            ans.appendChild(b);
+          }
+        });
+      }
+      ans.classList.add('in');
+    });
+  }
+
+  /* ---- 2. call to systems of record ---- */
+  var TURNS=[
+    {w:'Caller',ai:false,t:'Hi — do you have anything Thursday afternoon?'},
+    {w:'AI receptionist',ai:true,t:'Let me check. I have 2:15pm or 4:30pm on Thursday. Which suits you?',fx:0},
+    {w:'Caller',ai:false,t:'2:15 works.'},
+    {w:'AI receptionist',ai:true,t:'Booked for Thursday at 2:15pm. Can I take a number for the confirmation?',fx:1},
+    {w:'Caller',ai:false,t:'Sure, 604-555-0148.'},
+    {w:'AI receptionist',ai:true,t:'Thanks — confirmation sent. See you Thursday.',fx:2}
+  ];
+  var FX=[
+    {i:'📅',n:'Scheduling system',d:'Queried Thursday availability — 2 open slots returned'},
+    {i:'🗃️',n:'Calendar write',d:'Appointment created · Thu 2:15pm · held under caller ID'},
+    {i:'👤',n:'CRM record',d:'Contact created, phone attached, source tagged "inbound call"'},
+    {i:'💬',n:'Confirmation SMS',d:'Queued to 604-555-0148 with reschedule link'},
+    {i:'📝',n:'Audit log',d:'Full transcript and every write recorded for review'}
+  ];
+  var callGo=document.getElementById('call-go');
+  function runCall(){
+    clearT();
+    var tw=document.getElementById('call-turns'), fw=document.getElementById('call-fx');
+    tw.innerHTML='';fw.innerHTML='';
+    var fxEls=FX.map(function(f){
+      var r=el('div','p-fx');
+      r.appendChild(el('div','p-fx-i',f.i));
+      var b=el('div'); b.appendChild(el('div','p-fx-n',f.n)); b.appendChild(el('div','p-fx-d',f.d));
+      r.appendChild(b); r.appendChild(el('div','p-fx-s','done'));
+      fw.appendChild(r); return r;
+    });
+    TURNS.forEach(function(T,i){
+      var d=el('div','p-turn'+(T.ai?' ai':''));
+      d.appendChild(el('div','p-who',T.w)); d.appendChild(el('div','p-said',T.t));
+      tw.appendChild(d);
+      at(520*i,function(){
+        d.classList.add('in');
+        if(T.fx!=null){ fxEls[T.fx].classList.add('on'); if(T.fx===2){fxEls[3].classList.add('on');fxEls[4].classList.add('on');} }
+      });
+    });
+  }
+  if(callGo) callGo.addEventListener('click',function(){runCall();gev('proof_call');});
+
+  /* ---- 3. evals and guardrails ---- */
+  var CASES=[
+    {label:'Passing response',
+     resp:'Based on the Remote Work Policy §4.2, staff may work remotely up to three days per week with written manager approval. Fully remote arrangements need director sign-off.',
+     checks:[
+       {n:'Grounded in sources',p:true,d:'Every claim maps to a retrieved passage (§4.2)'},
+       {n:'No personal data leaked',p:true,d:'No names, contact details or record identifiers present'},
+       {n:'Within scope',p:true,d:'Question and answer both sit inside HR policy'},
+       {n:'Escalates when unsure',p:true,d:'Nothing asserted beyond what the sources support'}]},
+    {label:'Blocked response',
+     resp:'You get about four days a week remote I think, and Sarah Chen in Payroll (604-555-0132) can push it to five if you ask her directly.',
+     checks:[
+       {n:'Grounded in sources',p:false,d:'"Four days" contradicts §4.2; the exception path appears in no document'},
+       {n:'No personal data leaked',p:false,d:'Names a specific employee and discloses a direct phone number'},
+       {n:'Within scope',p:true,d:'Question sits inside HR policy'},
+       {n:'Escalates when unsure',p:false,d:'Hedges with "I think" and answers anyway instead of deferring'}]}
+  ];
+  var evalSel=0;
+  var evalWrap=document.getElementById('eval-cases');
+  CASES.forEach(function(C,i){
+    var b=el('button','p-q',C.label); b.type='button'; b.setAttribute('aria-pressed',i===0?'true':'false');
+    b.addEventListener('click',function(){evalSel=i;runEval();gev('proof_eval',{case:i});});
+    evalWrap.appendChild(b);
+  });
+  function runEval(){
+    clearT();
+    var C=CASES[evalSel];
+    [].forEach.call(evalWrap.children,function(c,i){c.setAttribute('aria-pressed',i===evalSel?'true':'false');});
+    document.getElementById('eval-resp').textContent=C.resp;
+    var box=document.getElementById('eval-checks'), gate=document.getElementById('eval-gate');
+    box.innerHTML=''; gate.className='p-gate'; gate.textContent='';
+    var rows=C.checks.map(function(k){
+      var r=el('div','p-check');
+      r.appendChild(el('div','p-mark '+(k.p?'pass':'fail'),k.p?'✓':'✕'));
+      var b=el('div'); b.appendChild(el('div','p-check-n',k.n)); b.appendChild(el('div','p-check-d',k.d));
+      r.appendChild(b); box.appendChild(r); return r;
+    });
+    rows.forEach(function(r,i){ at(220*(i+1),function(){r.classList.add('in');}); });
+    at(220*(rows.length+1),function(){
+      var failed=C.checks.filter(function(k){return !k.p;}).length;
+      gate.className='p-gate in '+(failed?'fail':'pass');
+      gate.textContent=failed? '✕ Blocked — '+failed+' of '+C.checks.length+' checks failed. Response never reaches the user.'
+                             : '✓ Passed all '+C.checks.length+' checks — cleared for delivery.';
+    });
+  }
+
+  runRag();
+})();
 // Dash card Business / Mission tabs
 document.querySelectorAll('.dtab').forEach(tab=>{tab.addEventListener('click',()=>{const pane=tab.dataset.pane;document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('act'));document.querySelectorAll('.dpane').forEach(p=>p.classList.remove('on'));tab.classList.add('act');const el=document.getElementById('dpane-'+pane);if(el)el.classList.add('on');});});
 </script>
