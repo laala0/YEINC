@@ -384,7 +384,8 @@ section.block{padding:clamp(80px,11vw,128px) 0;position:relative;z-index:3}
 .stepq h3{font-size:23px;margin-bottom:6px;color:var(--ink)}
 .stepq .hint{font-size:13.5px;color:var(--muted);font-weight:400;margin-bottom:20px}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{padding:11px 16px;border:1px solid var(--border);border-radius:var(--radius);font-size:13.5px;cursor:pointer;transition:border-color .15s,background .15s,color .15s;background:var(--bg);user-select:none;display:inline-flex;align-items:center;gap:8px;min-height:46px;color:var(--ink)}
+.chip{padding:11px 16px;border:1px solid var(--border);border-radius:var(--radius);font-size:13.5px;cursor:pointer;transition:border-color .15s,background .15s,color .15s;background:var(--bg);user-select:none;display:inline-flex;align-items:center;gap:8px;min-height:46px;color:var(--ink);font-family:inherit;font-weight:400;text-align:left;line-height:1.3}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .chip:hover{border-color:var(--ink)}
 .chip.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
 .chip .ce{font-size:16px}
@@ -478,6 +479,21 @@ nav.solid.sub{border-bottom-color:transparent}
 .htd{width:7px;height:7px;border-radius:50%;flex:none}
 .htd.biz{background:var(--accent)}
 .htd.mis{background:#22c55e}
+
+/* ── DIAGNOSTIC RESULT ── */
+.dx-score{display:flex;align-items:center;gap:16px;padding:16px;border:1px solid var(--border);border-radius:8px;background:var(--bg2);margin-bottom:14px}
+.dx-ring{width:64px;height:64px;flex:none;position:relative}
+.dx-ring svg{transform:rotate(-90deg)}
+.dx-ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.dx-band{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.dx-band-x{font-size:12.5px;color:var(--muted);line-height:1.55}
+.dx-rec{border:1px solid var(--accent-border);background:var(--accent-bg);border-radius:8px;padding:14px 16px;margin-bottom:14px}
+.dx-rec h5{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 6px}
+.dx-rec p{font-size:13px;color:var(--ink2);line-height:1.6;margin:0}
+.dx-list{list-style:none;padding:0;margin:0}
+.dx-list li{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--muted);line-height:1.55;padding:6px 0;border-bottom:1px solid var(--border)}
+.dx-list li:last-child{border-bottom:0}
+.dx-list .dxi{flex:none;width:16px;text-align:center;color:var(--accent);font-weight:700}
 
 /* ── PROOF SUITE ── */
 .proof-shell{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);box-shadow:var(--shadow);overflow:hidden;max-width:1040px;margin:0 auto}
@@ -1138,7 +1154,7 @@ nav.solid.sub{border-bottom-color:transparent}
 
 <section class="block" id="contact" style="background:var(--bg2);border-top:1px solid var(--border)">
   <div class="wrap">
-    <div class="section-head reveal"><div><span class="eyebrow"><span class="dot">10</span> / Start a project</span><h2 style="margin-top:16px">If our motives align —<br><span class="serif-accent">let's build.</span></h2></div><p class="sub">I work with people building for more than themselves — and help them reach levels they couldn't close alone. Tell me what you're after. I reply same day.</p></div>
+    <div class="section-head reveal"><div><span class="eyebrow"><span class="dot">10</span> / Start a project</span><h2 style="margin-top:16px">Find out where you<br><span class="serif-accent">actually stand.</span></h2></div><p class="sub">Six questions, about a minute. You get a readiness read and a recommended first step on screen — before I ask for anything. If AI isn't the right answer for your situation, it will say that too.</p></div>
     <div class="contact-grid">
       <div class="contact-info reveal">
         <div class="row"><span class="k">Text / Call</span><span class="v"><a href="tel:+16722580656">+1 (672) 258-0656</a></span></div>
@@ -1150,48 +1166,68 @@ nav.solid.sub{border-bottom-color:transparent}
       <div class="intake reveal">
         <div class="intake-card">
           <div class="prog"><i id="progBar"></i></div>
-          <div class="pcount" id="pcount">Step 1 of 4</div>
+          <div class="pcount" id="pcount">Step 1 of 7</div>
           <form id="intake" novalidate>
             <div class="stepq on" data-step="1">
-              <h3>What do you need?</h3><p class="hint">Tap all that apply.</p>
-              <div class="chips" data-multi>
-                <span class="chip" data-val="AI Voice Receptionist"><span class="ce">📞</span>AI Voice</span>
-                <span class="chip" data-val="AI Chat Agent"><span class="ce">💬</span>AI Chat</span>
-                <span class="chip" data-val="CRM Setup"><span class="ce">📊</span>CRM</span>
-                <span class="chip" data-val="Lead Automation"><span class="ce">⚡</span>Automation</span>
-                <span class="chip" data-val="Website"><span class="ce">🌐</span>Website</span>
-                <span class="chip" data-val="Mission AI (nonprofit / senior home)"><span class="ce">🤝</span>Mission AI</span>
-                <span class="chip" data-val="Not sure yet"><span class="ce">🤔</span>Not sure</span>
+              <h3>What kind of organization?</h3><p class="hint">Shapes everything downstream — constraints differ a lot.</p>
+              <div class="chips" data-single>
+                <button type="button" class="chip" data-val="Professional services / firm" aria-pressed="false"><span class="ce">🏛️</span>Professional firm</button>
+                <button type="button" class="chip" data-val="Healthcare / clinical" aria-pressed="false"><span class="ce">🏥</span>Healthcare</button>
+                <button type="button" class="chip" data-val="Public sector / institution" aria-pressed="false"><span class="ce">🏢</span>Public sector</button>
+                <button type="button" class="chip" data-val="Nonprofit / charity" aria-pressed="false"><span class="ce">🤝</span>Nonprofit</button>
+                <button type="button" class="chip" data-val="Operating business (trades, logistics, services)" aria-pressed="false"><span class="ce">🔨</span>Operating business</button>
+                <button type="button" class="chip" data-val="Other" aria-pressed="false"><span class="ce">✷</span>Other</button>
               </div>
             </div>
             <div class="stepq" data-step="2">
-              <h3>What kind of organization?</h3><p class="hint">Helps me tailor the system.</p>
-              <div class="chips" data-single>
-                <span class="chip" data-val="Trades / construction">🔨 Trades</span>
-                <span class="chip" data-val="Clinic / wellness">🏥 Clinic / Wellness</span>
-                <span class="chip" data-val="Barber / salon">💈 Barber / Salon</span>
-                <span class="chip" data-val="Real estate">🏡 Real Estate</span>
-                <span class="chip" data-val="Nonprofit / charity">🤝 Nonprofit</span>
-                <span class="chip" data-val="Senior home / public trust">🧓 Senior Home</span>
-                <span class="chip" data-val="Other">✷ Other</span>
+              <h3>Where does the time actually go?</h3><p class="hint">Tap all that apply — this is the part worth automating.</p>
+              <div class="chips" data-multi>
+                <button type="button" class="chip" data-val="Answering the same questions repeatedly" aria-pressed="false"><span class="ce">💬</span>Repeat questions</button>
+                <button type="button" class="chip" data-val="Finding information buried in documents" aria-pressed="false"><span class="ce">🔎</span>Digging through docs</button>
+                <button type="button" class="chip" data-val="Manual data entry between systems" aria-pressed="false"><span class="ce">⌨️</span>Re-keying data</button>
+                <button type="button" class="chip" data-val="Triaging and routing incoming requests" aria-pressed="false"><span class="ce">📥</span>Triage &amp; routing</button>
+                <button type="button" class="chip" data-val="Missed calls and after-hours enquiries" aria-pressed="false"><span class="ce">📞</span>Missed calls</button>
+                <button type="button" class="chip" data-val="Reporting and summarising" aria-pressed="false"><span class="ce">📊</span>Reporting</button>
               </div>
             </div>
             <div class="stepq" data-step="3">
-              <h3>Rough budget?</h3><p class="hint">No wrong answer — sets the scope.</p>
+              <h3>Where does that information live?</h3><p class="hint">Accessibility of your data decides most of the timeline.</p>
               <div class="chips" data-single>
-                <span class="chip" data-val="Under $1k">Under $1k</span>
-                <span class="chip" data-val="$1k–$3k">$1k–$3k</span>
-                <span class="chip" data-val="$3k+">$3k+</span>
-                <span class="chip" data-val="Grant-funded / mission partner">Grant / Mission</span>
-                <span class="chip" data-val="Not sure">Not sure</span>
+                <button type="button" class="chip" data-val="Structured systems with API access" aria-pressed="false">Systems with APIs</button>
+                <button type="button" class="chip" data-val="Software without easy API access" aria-pressed="false">Software, no API</button>
+                <button type="button" class="chip" data-val="Documents and shared drives" aria-pressed="false">Docs &amp; drives</button>
+                <button type="button" class="chip" data-val="Spreadsheets and email" aria-pressed="false">Spreadsheets &amp; email</button>
+                <button type="button" class="chip" data-val="Mostly in people's heads" aria-pressed="false">In people's heads</button>
               </div>
             </div>
             <div class="stepq" data-step="4">
-              <h3>Where do I send the plan?</h3><p class="hint">I'll reply same day.</p>
+              <h3>What's the compliance weight?</h3><p class="hint">Regulated data changes the architecture, not just the paperwork.</p>
+              <div class="chips" data-single>
+                <button type="button" class="chip" data-val="Regulated (health, legal, financial, government)" aria-pressed="false">Regulated</button>
+                <button type="button" class="chip" data-val="Sensitive but not formally regulated" aria-pressed="false">Sensitive</button>
+                <button type="button" class="chip" data-val="Standard commercial confidentiality" aria-pressed="false">Standard</button>
+                <button type="button" class="chip" data-val="Not sure yet" aria-pressed="false">Not sure</button>
+              </div>
+            </div>
+            <div class="stepq" data-step="5">
+              <h3>Have you tried building this already?</h3><p class="hint">Knowing where it stalled saves repeating it.</p>
+              <div class="chips" data-single>
+                <button type="button" class="chip" data-val="Nothing started yet" aria-pressed="false">Not yet</button>
+                <button type="button" class="chip" data-val="Experimented with off-the-shelf AI tools" aria-pressed="false">Tried off-the-shelf tools</button>
+                <button type="button" class="chip" data-val="Built a pilot that never reached production" aria-pressed="false">Pilot that stalled</button>
+                <button type="button" class="chip" data-val="Something is in production and needs improving" aria-pressed="false">Live, needs work</button>
+              </div>
+            </div>
+            <div class="stepq" data-step="6">
+              <h3 id="dxTitle">Your readiness read</h3><p class="hint">Based on your answers — no email required to see it.</p>
+              <div id="dxResult"></div>
+            </div>
+            <div class="stepq" data-step="7">
+              <h3>Where do I send the full write-up?</h3><p class="hint">I'll send the detailed version and reply the same day.</p>
               <div class="fields">
                 <div class="field"><label for="iname">Your name</label><input id="iname" name="name" type="text" autocomplete="name" required></div>
                 <div class="field"><label for="icontact">Email or phone</label><input id="icontact" name="contact" type="text" inputmode="email" autocomplete="email" required></div>
-                <div class="field"><label for="ibrief">One line about your business <span style="color:var(--muted2)">(optional)</span></label><textarea id="ibrief" name="brief" placeholder="e.g. Roofing company in Surrey, calls going to voicemail after hours"></textarea></div>
+                <div class="field"><label for="ibrief">Anything else worth knowing <span style="color:var(--muted2)">(optional)</span></label><textarea id="ibrief" name="brief" placeholder="e.g. 40-person law firm, 12 years of case files in SharePoint, want associates to stop hand-searching precedent."></textarea></div>
               </div>
             </div>
             <div class="nav-row">
@@ -1245,15 +1281,128 @@ nav.solid.sub{border-bottom-color:transparent}
   mc.addEventListener('click',()=>mm.classList.remove('open'));
   mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}));
-  const data={need:[],biz:'',budget:'',name:'',contact:'',brief:''};
-  let step=1;const total=4;
+  const data={org:'',pains:[],dataloc:'',compliance:'',priorwork:'',name:'',contact:'',brief:'',score:0,band:'',rec:''};
+  let step=1;const total=7;const DX_STEP=6;
   const qs=document.querySelectorAll('.stepq'),back=document.getElementById('backBtn'),next=document.getElementById('nextBtn'),pbar=document.getElementById('progBar'),pcount=document.getElementById('pcount'),stat=document.getElementById('istatus');
-  function render(){qs.forEach(q=>q.classList.toggle('on',+q.dataset.step===step));pbar.style.width=(step/total*100)+'%';pcount.textContent=`Step ${step} of ${total}`;back.disabled=step===1;next.textContent=step===total?'Send it →':'Next →';stat.textContent='';stat.className='istatus';}
-  document.querySelectorAll('.chips').forEach(group=>{const multi=group.hasAttribute('data-multi');group.querySelectorAll('.chip').forEach(chip=>chip.addEventListener('click',()=>{if(multi){chip.classList.toggle('sel');}else{group.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel'));chip.classList.add('sel');}}));});
-  function collect(){data.need=[...document.querySelectorAll('[data-step="1"] .chip.sel')].map(c=>c.dataset.val);const b2=document.querySelector('[data-step="2"] .chip.sel');data.biz=b2?b2.dataset.val:'';const b3=document.querySelector('[data-step="3"] .chip.sel');data.budget=b3?b3.dataset.val:'';data.name=document.getElementById('iname').value.trim();data.contact=document.getElementById('icontact').value.trim();data.brief=document.getElementById('ibrief').value.trim();}
-  function valid(){collect();if(step===1&&!data.need.length){stat.textContent='Pick at least one.';return false;}if(step===2&&!data.biz){stat.textContent='Pick one.';return false;}if(step===3&&!data.budget){stat.textContent='Pick one.';return false;}if(step===4){if(!data.name){stat.textContent='Add your name.';return false;}if(!data.contact){stat.textContent='Add an email or phone.';return false;}}return true;}
+  function render(){
+    qs.forEach(q=>q.classList.toggle('on',+q.dataset.step===step));
+    pbar.style.width=(step/total*100)+'%';
+    pcount.textContent=`Step ${step} of ${total}`;
+    back.disabled=step===1;
+    next.textContent=step===total?'Send it →':(step===DX_STEP?'Get the full write-up →':'Next →');
+    stat.textContent='';stat.className='istatus';
+  }
+  // chips scoped to the intake form only
+  document.querySelectorAll('#intake .chips').forEach(group=>{
+    const multi=group.hasAttribute('data-multi');
+    group.querySelectorAll('.chip').forEach(chip=>chip.addEventListener('click',()=>{
+      if(multi){chip.classList.toggle('sel');}
+      else{group.querySelectorAll('.chip').forEach(c=>{c.classList.remove('sel');c.setAttribute('aria-pressed','false');});chip.classList.add('sel');}
+      chip.setAttribute('aria-pressed',chip.classList.contains('sel')?'true':'false');
+    }));
+  });
+  function one(n){const c=document.querySelector(`[data-step="${n}"] .chip.sel`);return c?c.dataset.val:'';}
+  function collect(){
+    data.org=one(1);
+    data.pains=[...document.querySelectorAll('[data-step="2"] .chip.sel')].map(c=>c.dataset.val);
+    data.dataloc=one(3);data.compliance=one(4);data.priorwork=one(5);
+    data.name=(document.getElementById('iname').value||'').trim();
+    data.contact=(document.getElementById('icontact').value||'').trim();
+    data.brief=(document.getElementById('ibrief').value||'').trim();
+  }
+  function err(m){stat.className='istatus err';stat.textContent=m;return false;}
+  function valid(){
+    collect();
+    if(step===1&&!data.org)return err('Pick the closest match.');
+    if(step===2&&!data.pains.length)return err('Pick at least one.');
+    if(step===3&&!data.dataloc)return err('Pick one.');
+    if(step===4&&!data.compliance)return err('Pick one.');
+    if(step===5&&!data.priorwork)return err('Pick one.');
+    if(step===total){
+      if(!data.name)return err('Add your name.');
+      if(!data.contact)return err('Add an email or phone.');
+    }
+    return true;
+  }
+  // ---- scoring ----
+  const DATA_PTS={'Structured systems with API access':30,'Software without easy API access':20,'Documents and shared drives':22,'Spreadsheets and email':14,"Mostly in people's heads":5};
+  const COMP_PTS={'Standard commercial confidentiality':25,'Sensitive but not formally regulated':20,'Regulated (health, legal, financial, government)':14,'Not sure yet':12};
+  const PRIOR_PTS={'Something is in production and needs improving':25,'Built a pilot that never reached production':20,'Experimented with off-the-shelf AI tools':16,'Nothing started yet':10};
+  const RETRIEVAL=['Finding information buried in documents','Answering the same questions repeatedly'];
+  function score(){
+    let n=DATA_PTS[data.dataloc]||0;
+    n+=COMP_PTS[data.compliance]||0;
+    n+=PRIOR_PTS[data.priorwork]||0;
+    n+=Math.min(data.pains.length,4)*5;
+    return Math.max(5,Math.min(99,n));
+  }
+  function diagnose(){
+    const n=score();
+    const heads=data.pains.some(p=>RETRIEVAL.includes(p));
+    const thin=data.dataloc==="Mostly in people's heads";
+    const reg=data.compliance.indexOf('Regulated')===0;
+    let band,bandx,rec,steps;
+    if(thin){
+      band='Groundwork first';
+      bandx='The knowledge you would be automating is not written down anywhere a system can read. That is a documentation problem before it is an AI problem.';
+      rec='Start by capturing what people know. I would not take payment to build a retrieval system over a corpus that does not exist yet — the diagnostic would tell you the same thing, cheaper.';
+      steps=['Get the recurring knowledge written down, even roughly','Pick one workflow and document how it actually runs today','Revisit AI once there is a corpus to ground answers in'];
+    } else if(n>=70){
+      band='Ready to build';
+      bandx='Your data is reachable and you have already learned something from prior attempts. This is the profile where a pilot reaches production rather than stalling.';
+      rec='Go straight to a pilot build on your highest-value workflow. The diagnostic still comes first, but it will be short — most of what it needs to establish, you already know.';
+      steps=['Pick the single workflow with the clearest cost','Build it against real data and real integrations','Eval suite and guardrails before it touches a user'];
+    } else if(n>=45){
+      band='Ready with groundwork';
+      bandx='The opportunity is real, but something between your systems and your constraints will decide the timeline. Worth scoping properly before committing to a build.';
+      rec='Start with the diagnostic. Two weeks to establish what is actually reachable in your systems, what the compliance path looks like, and which workflow to build first.';
+      steps=['Map which systems can be read from and written to','Settle the data and compliance path early','Sequence workflows by value, not by enthusiasm'];
+    } else {
+      band='Scope before you build';
+      bandx='There is enough friction in the current setup that a build now would likely hit the same wall that stops most pilots.';
+      rec='The diagnostic is the right and only sensible first step. Part of its job is telling you honestly which of these problems do not need AI at all.';
+      steps=['Establish what data is actually accessible','Identify which problems are process, not AI','Come out with a plan you could hand to anyone'];
+    }
+    if(reg&&!thin) steps.push('Data residency and audit requirements settled up front');
+    if(heads&&!thin) steps.push('Grounded retrieval with citations, so answers are checkable');
+    data.score=n;data.band=band;data.rec=rec;
+    const C=2*Math.PI*28, off=C*(1-n/100);
+    document.getElementById('dxResult').innerHTML=
+      `<div class="dx-score">
+         <div class="dx-ring">
+           <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+             <circle cx="32" cy="32" r="28" fill="none" stroke="var(--border-em)" stroke-width="5"></circle>
+             <circle cx="32" cy="32" r="28" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"
+                     stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}"></circle>
+           </svg><b>${n}</b>
+         </div>
+         <div><div class="dx-band">${band}</div><div class="dx-band-x">${bandx}</div></div>
+       </div>
+       <div class="dx-rec"><h5>Recommended first step</h5><p>${rec}</p></div>
+       <ul class="dx-list">${steps.map(t=>`<li><span class="dxi">→</span><span>${t}</span></li>`).join('')}</ul>`;
+    document.getElementById('dxTitle').textContent=`Your readiness read — ${n}/100`;
+    gev('diagnostic_complete',{score:n,band:band});
+  }
   const W3F='f417bccd-cead-46ea-92cf-be784f2861cf';
-  next.addEventListener('click',()=>{if(!valid())return;if(step===1)document.dispatchEvent(new Event('ye:form_start'));if(step<total){step++;render();return;}const subj=`New project — ${data.name} (${data.biz||'business'})`;const body=`Need: ${data.need.join(', ')}\nBusiness: ${data.biz}\nBudget: ${data.budget}\nName: ${data.name}\nContact: ${data.contact}\n\n${data.brief||''}`;next.disabled=true;stat.textContent='Sending…';fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:W3F,subject:subj,name:data.name,email:data.contact,message:body,from_name:'YEINC Website'})}).then(r=>r.json()).then(d=>{if(d.success){document.dispatchEvent(new Event('ye:form_complete'));stat.className='istatus ok';stat.innerHTML='<strong>Sent!</strong> I\'ll reply today. Want to chat sooner? <a href="sms:+16722580656" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Text me now →</a>';next.textContent='Sent ✓';}else{next.disabled=false;stat.className='istatus err';stat.textContent='Something went wrong. Text me: 672-258-0656.';}}).catch(()=>{next.disabled=false;stat.className='istatus err';stat.textContent='Network issue. Text me: 672-258-0656.';});});
+  next.addEventListener('click',()=>{
+    if(!valid())return;
+    if(step===1)document.dispatchEvent(new Event('ye:form_start'));
+    if(step===5){diagnose();step=6;render();return;}
+    if(step<total){step++;render();return;}
+    const subj=`Diagnostic — ${data.name} (${data.org||'organization'}) · ${data.score}/100 ${data.band}`;
+    const body=`READINESS: ${data.score}/100 — ${data.band}\nRecommended: ${data.rec}\n\n`+
+      `Organization: ${data.org}\nTime sinks: ${data.pains.join(', ')}\nData lives in: ${data.dataloc}\n`+
+      `Compliance: ${data.compliance}\nPrior work: ${data.priorwork}\n\nName: ${data.name}\nContact: ${data.contact}\n\n${data.brief||''}`;
+    next.disabled=true;stat.className='istatus';stat.textContent='Sending…';
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({access_key:W3F,subject:subj,name:data.name,email:data.contact,message:body,from_name:'YEINC Website'})})
+    .then(r=>r.json()).then(d=>{
+      if(d.success){document.dispatchEvent(new Event('ye:form_complete'));stat.className='istatus ok';
+        stat.innerHTML='<strong>Sent.</strong> I\'ll come back to you today with the full write-up. <a href="sms:+16722580656">Text me now →</a>';
+        next.textContent='Sent ✓';}
+      else{next.disabled=false;stat.className='istatus err';stat.textContent='Something went wrong. Text me: 672-258-0656.';}
+    }).catch(()=>{next.disabled=false;stat.className='istatus err';stat.textContent='Network issue. Text me: 672-258-0656.';});
+  });
   back.addEventListener('click',()=>{if(step>1){step--;render();}});
   render();
 })();
