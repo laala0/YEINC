@@ -184,7 +184,7 @@ section.block{padding:clamp(80px,11vw,128px) 0;position:relative;z-index:3}
 [data-stagger].in>*:nth-child(4){animation-delay:.21s}
 [data-stagger].in>*:nth-child(5){animation-delay:.28s}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.reveal,[data-stagger]>*,.dash-row.pulse{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}}
+@media(prefers-reduced-motion:reduce){.reveal,[data-stagger]>*{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}}
 
 /* ── PAIN CARDS ── */
 .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
@@ -472,10 +472,6 @@ nav.solid.sub{border-bottom-color:transparent}
 .ls-logos img.pb11:hover{opacity:1}
 @media(max-width:600px){.ls-logos img{height:18px}.ls-logos{gap:18px}}
 
-/* ── DASH ROW LIVE PULSE ── */
-@keyframes dashpulse{0%{background:var(--bg2)}45%{background:rgba(255,91,31,.09)}100%{background:var(--bg2)}}
-.dash-row.pulse{animation:dashpulse .9s var(--ease)}
-
 /* ── HERO TRACKS ── */
 .hero-tracks{display:flex;gap:20px;flex-wrap:wrap;margin-top:26px}
 .hero-track{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);font-weight:500}
@@ -605,7 +601,7 @@ nav.solid.sub{border-bottom-color:transparent}
         <div class="dash-card">
           <div class="dash-card-head">
             <div class="dash-dot"></div>
-            <div class="dash-title">YEINC System — Running</div>
+            <div class="dash-title">What gets deployed</div>
           </div>
           <div class="dash-tabs">
             <button class="dtab act" data-pane="biz">Business</button>
@@ -614,45 +610,45 @@ nav.solid.sub{border-bottom-color:transparent}
           <div class="dpane on" id="dpane-biz">
             <div class="dash-row">
               <div class="dash-row-icon">📞</div>
-              <div class="dash-row-info"><div class="dash-row-name">AI Voice Receptionist</div><div class="dash-row-stat">3 calls answered tonight</div></div>
-              <div class="dash-live">Live</div>
+              <div class="dash-row-info"><div class="dash-row-name">AI Voice Receptionist</div><div class="dash-row-stat">Answers, qualifies, books — 24/7</div></div>
+              <div class="dash-live">Ships</div>
             </div>
             <div class="dash-row">
               <div class="dash-row-icon">💬</div>
-              <div class="dash-row-info"><div class="dash-row-name">AI Chat Agent</div><div class="dash-row-stat">12 leads captured today</div></div>
-              <div class="dash-live">Live</div>
+              <div class="dash-row-info"><div class="dash-row-name">AI Chat Agent</div><div class="dash-row-stat">Captures and routes web enquiries</div></div>
+              <div class="dash-live">Ships</div>
             </div>
             <div class="dash-row">
               <div class="dash-row-icon">📊</div>
-              <div class="dash-row-info"><div class="dash-row-name">CRM Pipeline</div><div class="dash-row-stat">8 deals in progress</div></div>
-              <div class="dash-live">Live</div>
+              <div class="dash-row-info"><div class="dash-row-name">CRM Pipeline</div><div class="dash-row-stat">Every lead tracked to an outcome</div></div>
+              <div class="dash-live">Ships</div>
             </div>
             <div class="dash-row">
               <div class="dash-row-icon">⚡</div>
-              <div class="dash-row-info"><div class="dash-row-name">Lead Automation</div><div class="dash-row-stat">47 follow-ups sent</div></div>
-              <div class="dash-live">Live</div>
+              <div class="dash-row-info"><div class="dash-row-name">Lead Automation</div><div class="dash-row-stat">Follow-up that never gets forgotten</div></div>
+              <div class="dash-live">Ships</div>
             </div>
           </div>
           <div class="dpane" id="dpane-mis">
             <div class="dash-row">
               <div class="dash-row-icon">🧾</div>
-              <div class="dash-row-info"><div class="dash-row-name">Bill Payment AI</div><div class="dash-row-stat">127 bills paid this week</div></div>
-              <div class="dash-live">Live</div>
+              <div class="dash-row-info"><div class="dash-row-name">Bill Payment AI</div><div class="dash-row-stat">Pay a bill by voice — no login</div></div>
+              <div class="dash-live">Ships</div>
             </div>
             <div class="dash-row">
               <div class="dash-row-icon">🛒</div>
-              <div class="dash-row-info"><div class="dash-row-name">Grocery AI</div><div class="dash-row-stat">43 deliveries scheduled</div></div>
-              <div class="dash-live">Live</div>
+              <div class="dash-row-info"><div class="dash-row-name">Grocery AI</div><div class="dash-row-stat">Order groceries by speaking</div></div>
+              <div class="dash-live">Ships</div>
             </div>
             <div class="dash-row">
               <div class="dash-row-icon">🏥</div>
-              <div class="dash-row-info"><div class="dash-row-name">Appointment AI</div><div class="dash-row-stat">89 bookings made</div></div>
-              <div class="dash-live">Live</div>
+              <div class="dash-row-info"><div class="dash-row-name">Appointment AI</div><div class="dash-row-stat">Books visits and transit rides</div></div>
+              <div class="dash-live">Ships</div>
             </div>
             <div class="dash-row">
               <div class="dash-row-icon">🤝</div>
-              <div class="dash-row-info"><div class="dash-row-name">Community Support AI</div><div class="dash-row-stat">214 queries answered</div></div>
-              <div class="dash-live">Live</div>
+              <div class="dash-row-info"><div class="dash-row-name">Community Support AI</div><div class="dash-row-stat">A helpline that always picks up</div></div>
+              <div class="dash-live">Ships</div>
             </div>
           </div>
         </div>
@@ -683,8 +679,8 @@ nav.solid.sub{border-bottom-color:transparent}
 </div>
 
 <div class="ticker"><div class="ticker-track" id="tickerTrack">
-  <span class="ticker-item"><b>AI Voice answers calls you'd miss tonight</b><span class="star">✦</span><b>Grocery AI delivered to 43 seniors this week</b><span class="star">✦</span><b>15+ bookings/wk — PB11 The Barber Club</b><span class="star">✦</span><b>Bill Payment AI — 127 bills paid by voice command</b><span class="star">✦</span><b>2 contracts in month 1 — Boss &amp; Friends</b><span class="star">✦</span><b>AI for nonprofits, senior homes, public trusts</b><span class="star">✦</span><b>Systems live in ~1 week · Starting from Canada</b><span class="star">✦</span></span>
-  <span class="ticker-item"><b>AI Voice answers calls you'd miss tonight</b><span class="star">✦</span><b>Grocery AI delivered to 43 seniors this week</b><span class="star">✦</span><b>15+ bookings/wk — PB11 The Barber Club</b><span class="star">✦</span><b>Bill Payment AI — 127 bills paid by voice command</b><span class="star">✦</span><b>2 contracts in month 1 — Boss &amp; Friends</b><span class="star">✦</span><b>AI for nonprofits, senior homes, public trusts</b><span class="star">✦</span><b>Systems live in ~1 week · Starting from Canada</b><span class="star">✦</span></span>
+  <span class="ticker-item"><b>AI voice that answers the calls you'd miss</b><span class="star">✦</span><b>Retrieval you can audit — answers cite their source</b><span class="star">✦</span><b>15+ bookings/wk — PB11 The Barber Club</b><span class="star">✦</span><b>Evals and guardrails before anything ships</b><span class="star">✦</span><b>2 contracts in month 1 — Boss &amp; Friends</b><span class="star">✦</span><b>AI for nonprofits, senior homes, public trusts</b><span class="star">✦</span><b>Embedded delivery · Built in Canada</b><span class="star">✦</span></span>
+  <span class="ticker-item"><b>AI voice that answers the calls you'd miss</b><span class="star">✦</span><b>Retrieval you can audit — answers cite their source</b><span class="star">✦</span><b>15+ bookings/wk — PB11 The Barber Club</b><span class="star">✦</span><b>Evals and guardrails before anything ships</b><span class="star">✦</span><b>2 contracts in month 1 — Boss &amp; Friends</b><span class="star">✦</span><b>AI for nonprofits, senior homes, public trusts</b><span class="star">✦</span><b>Embedded delivery · Built in Canada</b><span class="star">✦</span></span>
 </div></div>
 
 <section class="block" id="problem" style="background:var(--bg2);border-top:1px solid var(--border)">
@@ -1271,25 +1267,6 @@ document.querySelectorAll('a[href^="sms:"]').forEach(el=>el.addEventListener('cl
 document.querySelectorAll('a[href^="mailto:"]').forEach(el=>el.addEventListener('click',()=>gev('email_click')));
 document.addEventListener('ye:form_start',()=>gev('form_start'));
 document.addEventListener('ye:form_complete',()=>gev('form_complete',{method:'web3forms'}));
-// Dash card live numbers
-(function(){
-  const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  const rows=[
-    {n:0,base:3,label:'calls answered tonight',max:11},
-    {n:1,base:12,label:'leads captured today',max:26},
-    {n:2,base:8,label:'deals in progress',max:14},
-    {n:3,base:47,label:'follow-ups sent',max:88}
-  ];
-  const counts=rows.map(r=>r.base);
-  function tick(){
-    const r=rows[Math.floor(Math.random()*rows.length)];
-    if(counts[r.n]>=r.max)return;
-    counts[r.n]++;
-    const el=document.querySelector('.dash-rows .dash-row:nth-child('+(r.n+1)+') .dash-row-stat');
-    if(el){el.textContent=counts[r.n]+' '+r.label;if(!reduceMotion){const row=el.closest('.dash-row');if(row){row.classList.remove('pulse');void row.offsetWidth;row.classList.add('pulse');}}}
-  }
-  setInterval(tick,3200+Math.random()*2400);
-})();
 // Dash card Business / Mission tabs
 document.querySelectorAll('.dtab').forEach(tab=>{tab.addEventListener('click',()=>{const pane=tab.dataset.pane;document.querySelectorAll('.dtab').forEach(t=>t.classList.remove('act'));document.querySelectorAll('.dpane').forEach(p=>p.classList.remove('on'));tab.classList.add('act');const el=document.getElementById('dpane-'+pane);if(el)el.classList.add('on');});});
 </script>
