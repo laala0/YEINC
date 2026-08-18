@@ -1,0 +1,39 @@
+name: Deploy to Vercel
+
+# Vercel's native GitHub integration silently stopped firing in Aug 2026 —
+# commits landed on main but no build was ever created. This workflow calls a
+# Vercel deploy hook directly so publishing no longer depends on that webhook.
+#
+# Requires repository secret VERCEL_DEPLOY_HOOK:
+#   Settings > Secrets and variables > Actions > New repository secret
+#   Value: the deploy hook URL from Vercel > Project Settings > Git > Deploy Hooks
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::error::VERCEL_DEPLOY_HOOK secret is not set. Add it under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          code=$(curl -sS -X POST "$HOOK" -o response.json -w '%{http_code}')
+          echo "HTTP $code"
+          cat response.json
+          echo
+          case "$code" in
+            2*) echo "Deployment queued on Vercel." ;;
+            *)  echo "::error::Deploy hook returned HTTP $code"; exit 1 ;;
+          esac
